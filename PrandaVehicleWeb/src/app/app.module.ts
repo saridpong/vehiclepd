@@ -1,9 +1,10 @@
+import { CarsService } from './services/cars.services';
 import { RedirectService } from './services/redirect.services';
 import { MenuService } from './services/menu.services';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule, PathLocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
@@ -119,10 +120,11 @@ import { BrowserModule } from '@angular/platform-browser';
     UserService,
     Globals,
     MenuService,
+    CarsService,
     RedirectService,
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: PathLocationStrategy
     }
     , {
       provide: HTTP_INTERCEPTORS,

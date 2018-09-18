@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Globals {
     authen: AuthenData;
-    public BaseApiUrl: string = 'https://elearningapidev.azurewebsites.net/';
+    public BaseApiUrl: string = 'http://localhost/PrandaVehicleApi/';
 
     public setCookie(key: string, value: any): any {
         window.localStorage.setItem(key, JSON.stringify(value))

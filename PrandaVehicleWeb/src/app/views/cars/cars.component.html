@@ -12,24 +12,22 @@
             <div class="col-md-4">
               <div class="form-group">
                 <label class="mb-0" for="activityItemName">เลขที่เอกสาร</label>
-                <input class="form-control" id="activityItemName" placeholder="" type="text" name="activityItemName" id="activityItemName">
+                <input class="form-control" id="activityItemName" placeholder="" [(ngModel)]="mCriteria.docNo" type="text" name="activityItemName" id="activityItemName">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="mb-0" for="useFlag">สถานะ</label>
-                <select class="form-control" id="useFlag" placeholder="Useflag" name="useFlag" id="useFlag">
-                  <option value="-1">ทั้งหมด</option>
-                  <option value="1">รออนุมัติ</option>
-                  <option value="1">ปิดงาน</option>
-                  <option value="0">ยกเลิก</option>
+                <select class="form-control" id="useFlag" placeholder="Useflag" name="useFlag" id="useFlag"  [(ngModel)]="mCriteria.status">
+                  <option *ngFor="let op of options" value='{{op.key}}'>{{op.text}}</option>
+
                 </select>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label class="mb-0" for="attn">วันที่เอกสาร</label>
-                <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}" />
+                <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}"  [(ngModel)]="mCriteria.docDate"/>
               </div>
             </div>
           </div>
@@ -64,14 +62,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th class="text-center">1</th>
-                  <td>ฮง-5984</td>
-                  <td>TOYOTA</td>
-                  <td>COMUTER</td>
-                  <td>2017</td>
-                  <td>AST20170101</td>
-                  <td>รออนุมัติ</td>
+                <tr *ngFor="let item of mData.vehicles; let i = index" >
+                  <th class="text-center">{{i+1}}</th>
+                  <td class="text-center">{{item.vehicleCode}}</td>
+                  <td class="text-center">{{item.vehicleBrand}}</td>
+                  <td class="text-center">{{item.vehicleModel}}</td>
+                  <td class="text-center">{{item.vehicleYear}}</td>
+                  <td class="text-center">{{item.vehicleAsset}}</td>
+                  <td class="text-center">
+                    <p *ngIf="item.status === 1">รออนุมัติ</p>
+                    <p *ngIf="item.status === 2">ปิดงาน</p>
+                    <p *ngIf="item.status === 3">ยกเลิก</p>
+                  </td>
                   <td class="text-center">
                     <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView()">
                       <i class="fa fa-search"></i>

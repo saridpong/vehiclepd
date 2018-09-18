@@ -22,19 +22,17 @@ import { requesterMenu, adminMenu, securityMenu } from '../../_nav';
     </nav>`
 })
 export class AppSidebarNavComponent implements OnInit {
-
   public navigation;
 
   public isDivider(item) {
-    return item.divider ? true : false
+    return item.divider ? true : false;
   }
 
   public isTitle(item) {
-    return item.title ? true : false
+    return item.title ? true : false;
   }
 
   constructor(private global: Globals) {
-    
     // this.navigation = this.global.getCookie('sidebar').menus;
     /*
     this.navigation = [
@@ -61,20 +59,18 @@ export class AppSidebarNavComponent implements OnInit {
   }
   ngOnInit() {
     const role = window.localStorage.getItem('role');
-    if (role === 'REQ') {
+    if (role === 'REQUEST') {
       this.navigation = requesterMenu;
-    } else if (role === 'ADM') {
+    } else if (role === 'ADMIN') {
       this.navigation = adminMenu;
-    } else if (role === 'SCU') {
+    } else if (role === 'SECURITY') {
       this.navigation = securityMenu;
     }
     // this.navigation = this.global.getCookie('sidebar').menus;
   }
 }
 
-
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-sidebar-nav-item',
@@ -93,26 +89,28 @@ import { Router } from '@angular/router';
     `
 })
 export class AppSidebarNavItemComponent {
-  @Input() item: any;
+  @Input()
+  item: any;
 
   public hasClass() {
-    return this.item.class ? true : false
+    return this.item.class ? true : false;
   }
 
   public isDropdown() {
-    return this.item.childs !== null && this.item.childs.length > 0 ? true : false
+    return this.item.childs !== null && this.item.childs.length > 0
+      ? true
+      : false;
   }
 
   public thisUrl() {
-    return this.item.menuSystemUrl
+    return this.item.menuSystemUrl;
   }
 
   public isActive() {
-    return this.router.isActive(this.thisUrl(), false)
+    return this.router.isActive(this.thisUrl(), false);
   }
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router) {}
 }
 
 @Component({
@@ -136,25 +134,26 @@ export class AppSidebarNavItemComponent {
   `
 })
 export class AppSidebarNavLinkComponent {
-  @Input() link: any;
+  @Input()
+  link: any;
 
   public hasVariant() {
-    return this.link.variant ? true : false
+    return this.link.variant ? true : false;
   }
 
   public isBadge() {
-    return this.link.badge ? true : false
+    return this.link.badge ? true : false;
   }
 
   public isExternalLink() {
-    return this.link.menuSystemUrl.substring(0, 4) === 'http' ? true : false
+    return this.link.menuSystemUrl.substring(0, 4) === 'http' ? true : false;
   }
 
   public isIcon() {
-    return this.link.menuIcon ? true : false
+    return this.link.menuIcon ? true : false;
   }
 
-  constructor() { }
+  constructor() {}
 }
 
 @Component({
@@ -173,17 +172,18 @@ export class AppSidebarNavLinkComponent {
   `
 })
 export class AppSidebarNavDropdownComponent {
-  @Input() link: any;
+  @Input()
+  link: any;
 
   public isBadge() {
-    return this.link.badge ? true : false
+    return this.link.badge ? true : false;
   }
 
   public isIcon() {
-    return this.link.menuIcon ? true : false
+    return this.link.menuIcon ? true : false;
   }
 
-  constructor() { }
+  constructor() {}
 }
 
 @Component({
@@ -191,9 +191,10 @@ export class AppSidebarNavDropdownComponent {
   template: ''
 })
 export class AppSidebarNavTitleComponent implements OnInit {
-  @Input() title: any;
+  @Input()
+  title: any;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnInit() {
     const nativeElement: HTMLElement = this.el.nativeElement;
@@ -215,7 +216,7 @@ export class AppSidebarNavTitleComponent implements OnInit {
     } else {
       this.renderer.appendChild(li, name);
     }
-    this.renderer.appendChild(nativeElement, li)
+    this.renderer.appendChild(nativeElement, li);
   }
 }
 

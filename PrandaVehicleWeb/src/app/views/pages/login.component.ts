@@ -8,48 +8,43 @@ import { UserService } from '../../services/user.services';
   templateUrl: 'login.component.html'
 })
 export class LoginComponent {
-
   mUsername: string = '';
   mPassword: string = '';
   role: string = '';
-  constructor(/*private auth: AuthService,*/ private route: Router, private global: Globals, private userService: UserService) { }
+  constructor(
+    private auth: AuthService,
+    private route: Router,
+    private global: Globals,
+    private userService: UserService
+  ) {}
   onSubmit() {
     // this.route.navigate(['/Request']);
 
-    if (this.mUsername === 'admin') {
+    /*if (this.mUsername === 'admin') {
       this.role = 'ADM'
     } else if (this.mUsername === 'security') {
       this.role = 'SCU'
     } else if (this.mUsername === 'request') {
       this.role = 'REQ'
-    }
-    window.localStorage.setItem('role', this.role)
-    if (this.role === 'ADM') {
-      this.route.navigate(['/admin']);
-       this.route.navigate(['/cars/searchcars'])
-    } else if (this.role === 'SCU') {
-      this.route.navigate(['/security']);
-    } else if (this.role === 'REQ') {
-      this.route.navigate(['/request/searchrequest']);
-    } else {
-      window.alert('Login again');
-    }
+    }*/
 
-
-    // this.auth.login(this.mUsername, this.mPassword).subscribe(result => {
-    //   window.localStorage.setItem('token', JSON.stringify(result));
-    //   if (result.role === 'FRONT') {
-    //     this.route.navigate(['/dashboard']);
-    //   } else {
-    //     this.userService.Intitial().subscribe(init => {
-    //       this.global.setCookie('sidebar', init);
-    //       // this.route.navigate(['/menu/management']);
-    //       this.route.navigate(['/dashboard']);
-    //     });
-    //   }
-    // }, error => {
-    //   window.alert(error);
-    // });
+    this.auth.login(this.mUsername, this.mPassword).subscribe(
+      result => {
+        window.localStorage.setItem('token', JSON.stringify(result));
+        window.localStorage.setItem('role', result.role);
+        if (result.role === 'ADMIN') {
+          this.route.navigate(['/cars/searchcars']);
+        } else if (result.role === 'SECURITY') {
+          this.route.navigate(['/security']);
+        } else if (result.role === 'REQUEST') {
+          this.route.navigate(['/request/searchrequest']);
+        } else {
+          window.alert('Login again');
+        }
+      },
+      error => {
+        window.alert(error);
+      }
+    );
   }
-
 }

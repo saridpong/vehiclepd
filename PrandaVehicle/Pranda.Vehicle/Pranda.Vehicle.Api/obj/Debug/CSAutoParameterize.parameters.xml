@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="PrandaVehicleDB-Web.config Connection String" description="PrandaVehicleDB Connection String used in web.config by the application to access the database." defaultValue="data source=PANUWATLAMKCA3E;initial catalog=PrandaVehicle;persist security info=True;user id=sa;password=038820840;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Work\\PNoy2018\\PrandaVehicle\\Pranda\.Vehicle\\Pranda\.Vehicle\.Api\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PrandaVehicleDB']/@connectionString" />
-  </parameter>
-</parameters>

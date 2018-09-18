@@ -1,0 +1,44 @@
+<form (ngSubmit)="onSubmit()" class="was-validated" #editMenuForm="ngForm">
+  <div class="card card-accent-primary">
+    <div class="card-header">
+      <strong>Edit Menu</strong>
+      <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onClose()">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="form-group">
+        <label class="mb-0" for="menuIcon">Menu Icon</label>
+        <input class="form-control" id="menuIcon" placeholder="Menu Icon" type="text" name="menuIcon" id="menuIcon" [(ngModel)]="criteria.menuIcon">
+      </div>
+      <div class="mb-0" class="form-group">
+        <label for="menuName">Menu Name</label>
+        <input class="form-control" id="menuName" placeholder="Menu Name" type="text" name="menuName" id="menuName" [(ngModel)]="criteria.menuName"
+          #menuName="ngModel" required>
+        <div class="invalid-feedback" [hidden]="menuName.valid || menuName.pristine">
+          Menu Name is require.
+        </div>
+      </div>
+      <div class="mb-0" class="form-group">
+        <label for="menuUrl">Menu Url</label>
+        <input class="form-control" id="menuUrl" placeholder="Menu Url" type="text" name="menuUrl" id="menuUrl" [(ngModel)]="criteria.menuUrl"
+          #menuUrl="ngModel" required>
+        <div class="invalid-feedback" [hidden]="menuUrl.valid || menuUrl.pristine">
+          Menu Name is require.
+        </div>
+      </div>
+      <div class="mt-1" class="form-group">
+        <label class="switch switch-text switch-pill switch-success float-right">
+          <input name="useFlag" id="useFlag" [(ngModel)]="criteria.useFlag" class="switch-input" type="checkbox">
+          <span class="switch-label" data-off="off" data-on="on"></span>
+          <span class="switch-handle"></span>
+        </label>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary float-right" type="submit" [disabled]="!editMenuForm.form.valid">
+        <i class="fa fa-save"></i> Update</button>
+    </div>
+
+  </div>
+</form>

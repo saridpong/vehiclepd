@@ -1,0 +1,42 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNew();">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header">
+          <strong>Criteria</strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="simpleName">Simple Name</label>
+                <input class="form-control" id="simpleName" placeholder="Simple Name" type="text" name="simpleName" id="simpleName" [(ngModel)]="mCriteria.simpleName">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="useFlag">Useflag</label>
+                <select class="form-control" id="useFlag" placeholder="Useflag" name="useFlag" id="useFlag" [(ngModel)]="mCriteria.useFlag">
+                  <option value="-1">ALL</option>
+                  <option value="1">Active</option>
+                  <option value="0">Inactive</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSearch()">
+            <i class="fa fa-search"></i> Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-simple-search #search [mResults]="mResponse"></app-simple-search>
+</div>

@@ -1,0 +1,244 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <!-- <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNewCompetency()">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div> -->
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          <strong>
+            <h3>บันทึกข้อมูลใบมอบหมายงาน</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">ข้อมูลผู้บันทึกใบมอบหมายงาน</label>
+            </div>
+            <label class="mb-3 col-md-2 col-form-label" for="attn" style="text-align: right;">เลขที่เอกสาร</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true">
+                </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn">ผู้บันทึก</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">วันที่</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn">ชื่อแผนก</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn">ชื่อฝ่าย</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn">ผู้อนุมัติ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn">ตำแหน่ง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn">เบอร์ติดต่อ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn">เบอร์มือถือ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">รายละเอียดใบมอบหมายงาน</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3 ml-3">
+                <label class="col-md-2 col-form-label" for="attn">วันเวลามอบหมาย</label>
+                <div class="col-md-3">
+                  <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}" />
+                </div>
+                <div class="col-md-2">
+                  <input type="text" id="SINO" name="SINO" class="form-control input-group-small" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pb5">
+            <div class="col-md-12">
+              <button class="btn btn-primary pull-right" type="submit" [disabled]="BtnAddNew" (click)="onAddNew()">
+                <i class="fa fa-plus pr6"></i>Add New</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div style="overflow: auto;">
+                <table class="table table-bordered table-striped table-outline mb-0" style="width: 100%;font-size:13px;">
+                  <thead class="thead-light">
+                    <tr class="text-center">
+                      <th style="vertical-align:middle;">ลำดับที่</th>
+                      <th style="vertical-align:middle;">เพื่อใช้ในการ</th>
+                      <th style="vertical-align:middle;">รายละเอียดเพิ่มเติม</th>
+                      <th style="vertical-align:middle;">จำนวน</th>
+                      <th style="vertical-align:middle;">สถานที่</th>
+                      <th style="vertical-align:middle;">มูลค่า (กรณีรับฝากเงิน-เช็ค)</th>
+                      <th style="vertical-align:middle;">ผู้ติดต่อ / ผู้รับงาน</th>
+                      <th style="vertical-align:middle;">#</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                      </td>
+                      <td>
+                          <div class="w-tb-100">
+                            <div>
+                              <input class="form-control" required />
+                            </div>
+                          </div>
+                        </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                          <div class="w-tb-100">
+                            <div class="input-group">
+                              <select class="form-control" id="pkgs" placeholder="No of Uts/Pkgs" name="pkgs">
+                                <option value="-1">ALL</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
+                              </select>
+                            </div>
+                          </div>
+                        </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div style="width:100px;text-align: center;">
+                          <!-- <button class="btn btn-warning btn-sm" type="submit" tooltip="Edit" placement="top" (click)="onEdit(item)">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button> -->
+                          <button class="btn btn-success btn-sm" type="submit" tooltip="Update" placement="top" (click)="onUpdate(item)">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                          <!-- <button class="btn btn-danger btn-sm" type="submit" tooltip="Delete" placement="top" (click)="onDelete(item)">
+                            <i class="fa fa-trash"></i>
+                          </button> -->
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="w-tb-100" style="text-align: center;">
+                        1
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <span>รับ-ส่ง (เอกสาร)</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <span></span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <span>1</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <span>PANDORA</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <span></span>
+                        </div>
+                      </td>
+                      <td>
+                          <div class="w-tb-100">
+                            <span></span>
+                          </div>
+                        </td>
+                      <td>
+                        <div style="width:100px;text-align: center;">
+                          <button class="btn btn-warning btn-sm" type="submit" tooltip="Edit" placement="top" (click)="onEdit(item)">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button>
+                          <button class="btn btn-danger btn-sm" type="submit" tooltip="Delete" placement="top" (click)="deleteFieldValue()">
+                            <i class="fa fa-trash"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSubmit()">
+            <i class="fa fa-save"></i> SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

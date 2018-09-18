@@ -1,0 +1,209 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <!-- <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNewCompetency()">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div> -->
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          <strong>
+            <h3>ค่าแรงข้อมูลใบขอใช้รถยนต์</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">บันทึกการจ่ายงาน</label>
+            </div>
+            <label class="mb-3 col-md-2 col-form-label" for="attn" style="text-align: right;">สถานะ</label>
+            <div class="col-md-4">
+              <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ประเภทรถ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ทะเบียนรถ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">พนักงานขับรถ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เบอร์ติดต่อ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">หมายเหตุ</label>
+                <div class="col-md-10">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">บันทึกข้อมูลการใช้รถ</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3 ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เวลาออก</label>
+                <div class="col-md-3">
+                  <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}" />
+                </div>
+                <div class="col-md-1">
+                  <input type="text" id="SINO" name="SINO" class="form-control input-group-small" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เวลาเข้า</label>
+                <div class="col-md-3">
+                  <input class="form-control" type="date" id="enddate" name="enddate" pattern="\d{1,2}/\d{1,2}/\d{4}" />
+                </div>
+                <div class="col-md-1">
+                  <input type="text" id="SINO" name="SINO" class="form-control input-group-small" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">รวมเวลาทั้งสิ้น</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เลขไมล์ออก</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เลขไมล์เข้า</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">รวมระยะทาง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ระยะทางประมาณการ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ผลต่างระยะทาง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">บันทึกค่าใช้จ่าย</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าใช้จ่ายประมาณการ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าใช้จ่ายจริง</label>
+                </div>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-4">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าแรง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าเชื้อเพลิง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-4">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าธรรมเนียมผ่านทาง</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ค่าใช้จ่ายอื่นๆ</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-4">
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">รวมทั้งสิ้น</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+                <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ผลต่างค่าใช้จ่าย</label>
+                <div class="col-md-4">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSubmit()">
+            <i class="fa fa-save"></i> SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

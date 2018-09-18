@@ -1,0 +1,200 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <!-- <div class="col-md-12 mb-1">
+        <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+          (click)="onNewCompetency()">
+          <i class="fa fa-plus"></i>
+        </a>
+      </div> -->
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          <strong>
+            <h3>รายการต่อภาษี-ทะเบียน-พรบ</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="mb-3" for="competencyName" style="text-decoration: underline;">ข้อมูลรถยนต์</label>
+              </div>
+              <label class="mb-3 col-md-2 col-form-label" for="attn" style="text-align: right;">เลขที่เอกสาร</label>
+              <div class="col-md-4">
+                <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ทะเบียนรถ</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">วันที่</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ยี่ห้อ</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">รุ่น</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เครื่องยนต์</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">เชื้อเพลิง</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">วันที่ซื้อ</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">มูลค่าที่ซื้อ</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ประเภท</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ทะเบียนทรัพย์สิน</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group row ml-3">
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">บริษัทประกันภัย</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                  <label class="col-md-2 col-form-label" for="attn" style="text-align: right;">ประเภทประกันภัย</label>
+                  <div class="col-md-4">
+                    <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pb5">
+            <div class="col-md-12">
+              <button class="btn btn-primary pull-right" type="submit" [disabled]="BtnAddNew" (click)="onAddNew()">
+                <i class="fa fa-plus pr6"></i>Add New</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div style="overflow: auto;">
+                <table class="table table-bordered table-striped table-outline mb-0" style="width: 100%;font-size:13px;">
+                  <thead class="thead-light">
+                    <tr class="text-center">
+                      <th style="vertical-align:middle;">ลำดับที่</th>
+                      <th style="vertical-align:middle;">รายละเอียด</th>
+                      <th style="vertical-align:middle;">วันที่ต่อภาษี/ทะเบียน</th>
+                      <th style="vertical-align:middle;">วันหมดอายุ</th>
+                      <th style="vertical-align:middle;">ราคาต่อหน่วย</th>
+                      <th style="vertical-align:middle;">รวมเป็นเงิน</th>
+                      <th style="vertical-align:middle;">#</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="w-tb-100">
+                          <div>
+                            <input class="form-control" required />
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div style="width:100px;text-align: center;">
+                          <!-- <button class="btn btn-warning btn-sm" type="submit" tooltip="Edit" placement="top" (click)="onEdit(item)">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button> -->
+                          <button class="btn btn-success btn-sm" type="submit" tooltip="Update" placement="top" (click)="onUpdate(item)">
+                            <i class="fa fa-plus"></i>
+                          </button>
+                          <!-- <button class="btn btn-danger btn-sm" type="submit" tooltip="Delete" placement="top" (click)="onDelete(item)">
+                            <i class="fa fa-trash"></i>
+                          </button> -->
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSubmit()">
+            <i class="fa fa-save"></i> SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

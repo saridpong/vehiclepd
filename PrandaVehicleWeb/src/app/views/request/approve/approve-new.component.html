@@ -1,0 +1,85 @@
+<div class="animated fadeIn">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+            <!-- <a class="card-header-action-link float-right" href="javascript:void(0);" (click)="onClose()">
+                <i class="fa fa-remove"></i>
+              </a> -->
+          <strong>
+            <h3>อนุมัติใบขอใช้บริการรถยนต์</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label class="mb-3" for="competencyName" style="text-decoration: underline;">บันทึกการจ่ายงาน</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">สถานะงาน</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="" [disabled]="true" value="อนุมัติ">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">ประเภทรถ</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">ทะเบียนรถ</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">พนักงานขับรถ</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">เบอร์ติดต่อ</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group row ml-3">
+                <label class="col-md-4 col-form-label" for="attn" style="text-align: right;">หมายเหตุ</label>
+                <div class="col-md-8">
+                  <input type="text" id="SINO" name="SINO" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSubmit()">
+            <i class="fa fa-save"></i> SAVE</button>
+        </div>
+      </div>
+    </div>
+</div>

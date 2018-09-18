@@ -1,0 +1,121 @@
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.breadcrumb {
+  margin-bottom: 0.5rem;
+}
+
+.card-header-action-link {
+  display:block;
+  padding:0rem 0.6rem;
+}
+
+.circle-head-btn {
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  margin-bottom: -15px;
+  margin-right: 10px;
+}
+
+.card-head-btn {
+  width:40px;
+  height:40px;
+  border-radius: 50%;
+  margin-top: -40px;
+}
+
+.front-of-card {
+  z-index:1;
+}
+
+.mt-5{margin-top: 5px !important;}
+.mb-15{margin-bottom: 15px !important;}
+
+.mouseOver {
+  cursor: pointer;
+}
+.card-accent-gray {
+  border-top-width: 1px;
+  border-top-color: #c2cfd6;
+}
+.card-header-gray {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #f0f3f5;
+}
+.color-icon-gray{
+  color: #536c79;
+}
+.bg-tb-head-gray{
+  background-color: #f0f3f5;
+}
+.bg-tb-sub-gray{
+  background-color: #ffffff;
+}
+.block-view-editor{
+  background-color: #c2cfd6;
+  opacity: 1;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #3e515b;
+  background-clip: padding-box;
+  border: 1px solid #c2cfd6;
+  border-radius: 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+.testimonial-group > .row > .col-md-2 {
+  display: inline-block;
+  float: none;
+}
+
+.testimonial-group > .row > .col-sm-4 {
+  display: inline-block;
+  float: none;
+}
+.bg-ta-jt{
+  background: #f0f3f5;
+}
+
+
+#custom-search-input{
+  padding: 3px;
+  border: solid 1px #E4E4E4;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+#custom-search-input input{
+  border: 0;
+  box-shadow: none;
+}
+
+#custom-search-input button{
+  margin: 2px 0 0 0;
+  background: none;
+  box-shadow: none;
+  border: 0;
+  color: #666666;
+  padding: 0 8px 0 10px;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+  border: 0;
+  box-shadow: none;
+  border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+  font-size: 23px;
+}

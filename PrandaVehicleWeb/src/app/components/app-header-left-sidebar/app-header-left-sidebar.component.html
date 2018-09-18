@@ -1,0 +1,47 @@
+<header class="app-header navbar">
+  <button class="navbar-toggler d-lg-none" type="button" appMobileSidebarToggler>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler d-md-down-none mr-auto" type="button" appSidebarToggler>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <ul class="nav navbar-nav ml-auto">
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"
+        dropdownToggle (click)="false">
+        <i class="flag-icon flag-icon-gb" [ngClass]="myClass" title="gb" id="gb" style="font-size:18px"></i>
+      </a> -->
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <!-- <div class="dropdown-header text-center">
+          <strong class="ng-binding">Choose language</strong>
+        </div> -->
+        <!-- ngRepeat: language in languages -->
+        <!-- <a class="dropdown-item" href="javascript:void(0);" (click)="changeLanguage(item.locale)" *ngFor="let item of mLanguage.languagesItems">
+          <i class="flag-icon" [ngClass]="item.iconFlag" title="item.locale" id="item.locale" style="font-size:18px"></i> {{item.languageName}}
+        </a> -->
+        <!-- end ngRepeat: language in languages 
+            <a  class="dropdown-item" href="javascript:void(0);" (click)="changeLanguage('en')">
+              <i class="flag-icon flag-icon-gb" title="gb" id="gb" style="font-size:18px"></i> {{'lang.en' | translate}}
+            </a>-->
+
+      </div>
+    </li>
+    <li class="nav-item dropdown" dropdown placement="bottom right">
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle
+        (click)="false">
+        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin loging in" />
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <div class="dropdown-header text-center">
+          <strong>Settings</strong>
+        </div>
+        <div class="divider"></div>
+        <a class="dropdown-item" href="#">
+          <i class="fa fa-shield"></i> Lock account</a>
+        <a class="dropdown-item" href="#" (click)="logout()">
+          <i class="fa fa-lock"></i> Logout</a>
+      </div>
+    </li>
+  </ul>
+</header>

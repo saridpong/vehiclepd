@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" class="was-validated" #newRoleForm="ngForm">
+  <div class="card card-accent-primary">
+    <div class="card-header">
+      <strong>Create Role</strong>
+      <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onClose()">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="mb-0" class="form-group">
+        <label for="roleName">Role Name</label>
+        <input class="form-control" id="roleName" placeholder="Role Name" type="text" name="roleName" id="roleName" [(ngModel)]="criteria.roleName"
+          #roleName="ngModel" required>
+        <div class="invalid-feedback" [hidden]="roleName.valid || roleName.pristine">
+          Role Name is require.
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary float-right" type="submit" [disabled]="!newRoleForm.form.valid">
+        <i class="fa fa-save"></i> Submit</button>
+    </div>
+  </div>
+</form>

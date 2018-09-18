@@ -1,0 +1,30 @@
+.table-outline {
+  border: 1px solid $table-border-color;
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-align-middle {
+  td {
+    vertical-align: middle;
+  }
+}
+
+.table-clear {
+  td {
+    border: 0;
+  }
+}
+
+.table {
+  border-color: $gray-600;
+
+  .thead-light {
+    th {
+      background-color: $teal;
+      color: $white;
+      border-color: $gray-600;
+    }
+  }
+}

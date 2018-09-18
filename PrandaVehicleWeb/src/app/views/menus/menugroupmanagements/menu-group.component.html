@@ -1,0 +1,36 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNewRole()">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="animated fadeInRightShort" [ngClass]="mManagementClass">
+          <div>
+            <div class="col-sm3" *ngFor="let role of mRoles; let i = index" >
+              <div class="card card-accent-gray" style="margin-bottom: 5px">
+                <div class="card-header-gray align-middle" >
+                  <span>
+                    <i class="fa fa-user color-icon-gray"></i>
+                  </span>&nbsp;&nbsp; {{role.menuSystemGroupName}}
+                  <a class="card-header-action-link  float-right mouseOver" href="javascript:void(0);"  (click)="onSettingRole(role.menuSystemGroupID)">
+                      <i class="fa fa-list"></i>
+                    </a>
+                  <a class="card-header-action-link  float-right mouseOver" href="javascript:void(0);" (click)="onEditRole(role.menuSystemGroupID)">
+                    <i class="fa fa-pencil-square-o"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="col-md-6">
+          <div #parent></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

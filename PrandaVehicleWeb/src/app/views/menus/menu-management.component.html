@@ -1,0 +1,47 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNewMenu()">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
+    <div class="col-md-12">
+      <div class="row">
+        <div class="animated fadeInRightShort" [ngClass]="mManagementClass">
+          <div dnd-sortable-container [sortableData]="mMenus" [dropZones]="['menu-dropZone']" >
+            <div class="col-sm3" *ngFor="let menu of mMenus; let i = index" dnd-sortable [sortableIndex]="i" [dragEnabled]="dragOperation" (onDropSuccess)="onSort()" 
+              [dragData]="menu">
+              <div class="card card-accent-primary" dnd-sortable-container [sortableData]="menu.childs" [dropZones]="['subMenu-dropZone']">
+                <div class="card-header align-middle" (mouseenter)="onMouseOver(true)">
+                  <span>
+                    <i class="fa fa-arrows-v"></i>
+                  </span>&nbsp;&nbsp; {{menu.menuSystemName}}
+                  <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onEditMenu(menu.menuID)">
+                    <i class="fa fa-pencil-square-o"></i>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <ul class="list-group">
+                    <li *ngFor="let subMenu of menu.childs; let x = index" class="list-group-item" dnd-sortable [sortableIndex]="x" (onDropSuccess)="onSort()" [dragEnabled]="!dragOperation"
+                      (mouseenter)="onMouseOver(false)" [dragData]="subMenu">
+                      <span>
+                        <i class="fa fa-arrows-v"></i>
+                      </span>&nbsp;&nbsp; {{subMenu.menuSystemName}}
+                      <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onEditMenu(subMenu.menuID)">
+                        <i class="fa fa-pencil-square-o"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="col-md-6">
+          <div #parent></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

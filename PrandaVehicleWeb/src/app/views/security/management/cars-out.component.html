@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">บันทึกเวลาออก</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="mb-0" for="activityItemName">ทะเบียน</label>
+        <input class="form-control" id="regCar" [(ngModel)]="item.regCar" placeholder="" type="text" name="regCar" >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="mb-0" for="activityItemName">รหัสพนักงาน</label>
+        <input class="form-control" id="employeeId" [(ngModel)]="item.employeeId" placeholder="" type="text" name="employeeId" >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="mb-0" for="activityItemName">เลขไมล์ออก</label>
+        <input class="form-control" [(ngModel)]="item.milesOut" id="milesIn" placeholder="" type="text" name="milesIn" >
+      </div>
+    </div>
+  </div>
+  <!--
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="mb-0" for="activityItemName">ชื่อพนักงาน</label>
+        <input class="form-control" [(ngModel)]="item.driverName"  id="employeeName" placeholder="" type="text" name="employeeName" >
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="mb-0" for="activityItemName">เลขที่เอกสาร</label>
+        <input class="form-control" [(ngModel)]="item.no"  id="docNo" placeholder="" type="text" name="docNo" id="docNo">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <timepicker [(ngModel)]="item.dateOut" [showMeridian]="false" [minuteStep]="1"></timepicker>
+      </div>
+    </div>
+  </div>
+-->
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">บันทึก</button>
+</div>

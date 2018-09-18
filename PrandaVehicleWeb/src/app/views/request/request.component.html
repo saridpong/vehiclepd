@@ -1,0 +1,123 @@
+<div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-accent-primary">
+          <div class="card-header text-center">
+            <strong>
+              <h3>ประวัติใบขอใช้รถยนต์</h3>
+            </strong>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="mb-0" for="activityItemName">เลขที่เอกสาร</label>
+                  <input class="form-control" id="activityItemName" placeholder="" type="text" name="activityItemName" id="activityItemName">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="mb-0" for="useFlag">สถานะ</label>
+                  <select class="form-control" id="useFlag" placeholder="Useflag" name="useFlag" id="useFlag">
+                    <option value="-1">ทั้งหมด</option>
+                    <option value="1">รออนุมัติ</option>
+                    <option value="1">ปิดงาน</option>
+                    <option value="0">ยกเลิก</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="attn">วันที่เอกสาร</label>
+                    <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}" />
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary float-right" type="submit" (click)="onSearch()">
+              <i class="fa fa-search"></i> ค้นหา</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+        </div>
+        <div class="card-body">
+          <div style="overflow: auto;">
+            <table class="table table-hover mb-0" style="width: 100%;font-size:13px;">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th style="vertical-align:middle;">#</th>
+                  <th style="vertical-align:middle;">วันเวลาขอใช้บริการ</th>
+                  <th style="vertical-align:middle;">เลขที่เอกสาร</th>
+                  <th style="vertical-align:middle;">แผนก</th>
+                  <th style="vertical-align:middle;">ระดับ</th>
+                  <th style="vertical-align:middle;">ประเภทรถ</th>
+                  <th style="vertical-align:middle;">ทะเบียน</th>
+                  <th style="vertical-align:middle;">พนักงานขับรถ</th>
+                  <th style="vertical-align:middle;">สถานะ</th>
+                  <th style="vertical-align:middle;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="text-center">1</th>
+                  <td>23/09/2018 10:00</td>
+                  <td>REQ-C-1809001</td>
+                  <td>การตลาด</td>
+                  <td>B</td>
+                  <td>เก๋ง</td>
+                  <td>ญผ8518</td>
+                  <td>นายคนขับ ระวังภัย</td>
+                  <td>รออนุมัติ</td>
+                  <td class="text-center">
+                      <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView()">
+                          <i class="fa fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                  <th class="text-center">2</th>
+                  <td>23/09/2018 10:00</td>
+                  <td>REQ-C-1809001</td>
+                  <td>การตลาด</td>
+                  <td>B</td>
+                  <td>เก๋ง</td>
+                  <td>ญผ8518</td>
+                  <td>นายคนขับ ระวังภัย</td>
+                  <td>รออนุมัติ</td>
+                  <td class="text-center">
+                      <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView()">
+                          <i class="fa fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                  <th class="text-center">3</th>
+                  <td>23/09/2018 10:00</td>
+                  <td>REQ-C-1809001</td>
+                  <td>การตลาด</td>
+                  <td>B</td>
+                  <td>เก๋ง</td>
+                  <td>ญผ8518</td>
+                  <td>นายคนขับ ระวังภัย</td>
+                  <td>อนุมัติ</td>
+                  <td class="text-center">
+                      <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView()">
+                          <i class="fa fa-search"></i>
+                        </button>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()" class="was-validated" #newSimpleForm="ngForm">
+  <div class="card card-accent-primary">
+    <div class="card-header">
+      <strong>Create Simple Page</strong>
+      <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onBack()">
+        <i class="fa fa-arrow-left"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="mb-0" class="form-group">
+        <label for="simpleName">Simple Name</label>
+        <input class="form-control" id="simpleName" placeholder="Simple Name" type="text" name="simpleName" id="simpleName" [(ngModel)]="mCriteria.simpleName"
+          #simpleName="ngModel" required>
+        <div class="invalid-feedback" [hidden]="simpleName.valid || simpleName.pristine">
+          Simple Name is require.
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary float-right" type="submit" [disabled]="!newSimpleForm.form.valid">
+        <i class="fa fa-save"></i> Submit</button>
+    </div>
+  </div>
+</form>

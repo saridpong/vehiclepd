@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSubmit()" class="was-validated" #editSettingRoleForm="ngForm">
+  <div class="card card-accent-primary">
+    <div class="card-header">
+      <strong>Setting Role</strong>
+      <a class="card-header-action-link  float-right" href="javascript:void(0);" (click)="onClose()">
+        <i class="fa fa-remove"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="animated fadeInRightShort" [ngClass]="mManagementClass">
+              <div >
+                <div class="col-sm3" *ngFor="let menu of mMenus; let i = index">
+                  <div class="card card-accent-primary">
+                    <div class="card-header align-middle">
+                      <span>                          
+                        <i class="{{ menu.menuIcon }}"></i>
+                      </span>&nbsp;&nbsp; {{menu.menuSystemName}}
+                      <input type="checkbox" name="checkbox_{{i}}" id="checkbox_{{i}}" class="float-right mt-5 mouseOver" [(ngModel)]="menu.checked" (change)="selectChange(menu,null)" />
+                    </div>
+                    <div class="card-body">
+                      <ul class="list-group">
+                        <li *ngFor="let subMenu of menu.childs; let x = index" class="list-group-item">
+                          <span>
+                            <i class="fa fa-angle-right"></i>
+                          </span>&nbsp;&nbsp; {{subMenu.menuSystemName}}
+                          <input type="checkbox" name="checkbox_{{i}}_{{x}}" id="checkbox_{{i}}_{{x}}" class="float-right mt-5 mouseOver" [(ngModel)]="subMenu.checked" (change)="selectChange(menu,subMenu)" />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div  class="col-md-6">
+              <div #parent></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary float-right" type="submit" [disabled]="!editSettingRoleForm.form.valid">
+        <i class="fa fa-save"></i> Update</button>
+    </div>
+  </div>
+</form>
+
+
+
+

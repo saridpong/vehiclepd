@@ -1,0 +1,52 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          ประวัติการบันทึกรถเข้า-ออก ประจำวันที่ {{datenow | date :'dd/MM/yyyy'}}
+        </div>
+        <div class="card-body">
+          <div style="overflow: auto;">
+            <table class="table table-hover mb-0" style="width: 100%;font-size:13px;">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th style="vertical-align:middle;">#</th>
+                  <th style="vertical-align:middle;">วันเวลาขอใช้บริการ</th>
+                  <th style="vertical-align:middle;">รูปรถ</th>
+                  <th style="vertical-align:middle;">ทะเบียนรถ</th>
+                  <th style="vertical-align:middle;">พนักงานขับรถ</th>
+                  <th style="vertical-align:middle;">เลขไมล์ออก</th>
+                  <th style="vertical-align:middle;">เวลาออก</th>
+                  <th style="vertical-align:middle;">เลขไมล์เข้า</th>
+                  <th style="vertical-align:middle;">เวลาเข้า</th>
+                  <th style="vertical-align:middle;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of mData" >
+                  <th class="text-center">{{item.no}}</th>
+                  <td>{{item.operationDate}}</td>
+                  <td><img src='{{item.carPic}}' width='100' height="100"></td>
+                  <td>{{item.regCar}}</td>
+                  <td class="text-center"><img src='{{item.driverPic}}' width='100' height="100"><br/>{{item.driverName}}</td>
+                  <td>{{item.milesOut}}</td>
+                  <td>{{item.dateOut | date:'hh:mm'}}</td>
+                  <td>{{item.milesIn}}</td>
+                  <td>{{item.dateIn | date:'hh:mm'}}</td>
+                  <td class="text-center">
+                    <button class="btn btn-info btn-sm" type="submit" tooltip="รถเข้า" placement="top" (click)="CarsInOpen(item)">
+                      <i class="fa fa-car"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit" tooltip="รถออก" placement="top" (click)="CarsOutOpen(item)">
+                        <i class="fa fa-sign-out"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

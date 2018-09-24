@@ -43,8 +43,8 @@ export class CarsComponent implements OnInit {
     });
   }
 
-  onView() {
-    this.router.navigate(['cars/newcars']);
+  onView(item) {
+    this.router.navigate(['cars/updatecars', item.vehicleID]);
   }
   onNewDocument() {
     this.router.navigate(['cars/newdocumentcars']);

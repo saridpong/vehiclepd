@@ -75,7 +75,7 @@
                     <p *ngIf="item.status === 3">ยกเลิก</p>
                   </td>
                   <td class="text-center">
-                    <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView()">
+                    <button class="btn btn-info btn-sm" type="submit" tooltip="ดูข้อมูล" placement="top" (click)="onView(item)">
                       <i class="fa fa-search"></i>
                     </button>
                     <button class="btn btn-primary btn-sm" type="submit" tooltip="บันทึกเอกสาร" placement="top" (click)="onNewDocument()">

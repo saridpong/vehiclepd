@@ -11,6 +11,7 @@ import { CarsMaintenanceComponent } from './maintenance/maintenance-view.compone
 import { CarsMaintenanceNewComponent } from './maintenance/maintenance-new.component';
 import { CarsDocumentNewComponent } from './document/document-new.component';
 import { CarsDocumentComponent } from './document/document-view.component';
+import { CarsUpdateComponent } from './manage/cars-update.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,13 @@ const routes: Routes = [
     component: CarsNewComponent,
     data: {
       title: 'Add New Cars'
+    }
+  },
+  {
+    path: 'updatecars/:id',
+    component: CarsUpdateComponent,
+    data: {
+      title: 'Update Cars'
     }
   },
   {

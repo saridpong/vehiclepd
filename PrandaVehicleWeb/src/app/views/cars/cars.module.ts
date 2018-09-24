@@ -15,6 +15,7 @@ import { CarsMaintenanceNewComponent } from './maintenance/maintenance-new.compo
 import { CarsMaintenanceComponent } from './maintenance/maintenance-view.component';
 import { CarsDocumentNewComponent } from './document/document-new.component';
 import { CarsDocumentComponent } from './document/document-view.component';
+import { CarsUpdateComponent } from './manage/cars-update.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { CarsDocumentComponent } from './document/document-view.component';
     CarsMaintenanceComponent,
     CarsMaintenanceNewComponent,
     CarsDocumentComponent,
-    CarsDocumentNewComponent
+    CarsDocumentNewComponent,
+    CarsUpdateComponent
   ],
   entryComponents: [
     CarsNewComponent,

@@ -10,5 +10,6 @@ namespace Pranda.Framework.Services.Response.Vehicle
     public class VehicleResponse : BaseResponse
     {
         public List<VehicleItem> Vehicles { get; set; }
+        public VehicleItem Vehicle { get; set; }
     }
 }

@@ -72,6 +72,65 @@ namespace Pranda.Framework.Services.Manager
             return res;
         }
 
+        public VehicleResponse FindVehicleByID(VehicleRequest req)
+        {
+            VehicleResponse res = new VehicleResponse();
+            try
+            {
+                using (var context = new PrandaVehicleDB())
+                {
+                    StringBuilder str = new StringBuilder();
+                    if (req.Status != -1)
+                    {
+                        str.Append(string.Format("VihicleID == {0} ", req.VehicleID));
+                    }
+                    if (!string.IsNullOrEmpty(req.DocDate))
+                    {
+                    }
+                    if (!string.IsNullOrEmpty(req.DocNo))
+                    {
+                    }
+
+                    res.Vehicle = (from us in context.Vihicles.Where(str.ToString())
+                                   select new VehicleItem
+                                   {
+                                       Status = us.Status,
+                                       UpdateBy = us.UpdateBy,
+                                       UpdateDate = us.UpdateDate,
+                                       VehicleAsset = us.VihicleAsset,
+                                       VehicleBrand = us.VihicleBrand,
+                                       VehicleCode = us.VihicleCode,
+                                       VehicleCost = us.VihicleCost,
+                                       VehicleDate = us.VihicleDate,
+                                       VehicleFuelType = us.VihicleFuelType,
+                                       VehicleID = us.VihicleID,
+                                       VehicleInsurance = us.VihicleInsurance,
+                                       VehicleInsuranceType = us.VihicleInsuranceType,
+                                       VehicleModel = us.VihicleModel,
+                                       VehicleTypeCode = us.VihicleTypeCode,
+                                       VehicleYear = us.VihicleYear
+                                   }).FirstOrDefault();
+                    if (res.Vehicle != null)
+                    {
+                        res.ResponseStatus = ResponseStatus.Success;
+                    }
+                    else
+                    {
+                        res.ResponseStatus = ResponseStatus.NotFound;
+                        res.Description = "Vehicle Not Found.";
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+
+
         public VehicleResponse NewVehicle(VehicleItem req)
         {
             VehicleResponse res = new VehicleResponse();

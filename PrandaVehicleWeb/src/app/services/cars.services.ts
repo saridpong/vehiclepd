@@ -14,6 +14,12 @@ export class CarsService {
       criteria
     );
   }
+  findbyid(criteria): Observable<any> {
+    return this.http.post<any>(
+      this.global.BaseApiUrl + 'api/Vehicle/findbyid',
+      criteria
+    );
+  }
   add(criteria): Observable<any> {
     return this.http.post<any>(
       this.global.BaseApiUrl + 'api/Vehicle/add',

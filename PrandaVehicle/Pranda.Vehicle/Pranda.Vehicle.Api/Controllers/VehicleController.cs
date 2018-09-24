@@ -22,6 +22,15 @@ namespace Pranda.Vehicle.Api.Controllers
         }
 
         [Authorize]
+        [Route("FindByID")]
+        [HttpPost]
+        public IHttpActionResult FindVehicleByID(VehicleRequest req)
+        {
+            VehicleManager manager = new VehicleManager();
+            return Ok(manager.FindVehicleByID(req));
+        }
+
+        [Authorize]
         [Route("Add")]
         [HttpPost]
         public IHttpActionResult AddVehicle(VehicleItem item)

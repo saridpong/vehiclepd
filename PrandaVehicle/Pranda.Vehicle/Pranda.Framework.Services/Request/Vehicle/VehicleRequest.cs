@@ -11,5 +11,6 @@ namespace Pranda.Framework.Services.Request.Vehicle
         public string DocNo { get; set; }
         public decimal Status { get; set; }
         public string DocDate { get; set; }
+        public decimal VehicleID { get; set; }
     }
 }

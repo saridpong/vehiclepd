@@ -24,15 +24,14 @@ namespace Pranda.Framework.Services.Manager
                 using (var context = new PrandaVehicleDB())
                 {
                     StringBuilder str = new StringBuilder();
+                    str.Append(" 1=1 ");
                     if (req.Status != -1)
                     {
-                        str.Append(string.Format("Status == {0} ", req.Status));
+                        str.Append(string.Format(" and Status = {0}", req.Status));
                     }
-                    if (!string.IsNullOrEmpty(req.DocDate))
+                    if (!string.IsNullOrEmpty(req.VehicleCode))
                     {
-                    }
-                    if (!string.IsNullOrEmpty(req.DocNo))
-                    {
+                        str.Append(string.Format(" and VihicleCode.Contains(\"{0}\") ", req.VehicleCode));
                     }
 
                     res.Vehicles = (from us in context.Vihicles.Where(str.ToString())
@@ -52,7 +51,8 @@ namespace Pranda.Framework.Services.Manager
                                         VehicleInsuranceType = us.VihicleInsuranceType,
                                         VehicleModel = us.VihicleModel,
                                         VehicleTypeCode = us.VihicleTypeCode,
-                                        VehicleYear = us.VihicleYear
+                                        VehicleYear = us.VihicleYear,
+                                        VehicleTypeName = us.VehicleTypeName
                                     }).ToList();
                     if (res.Vehicles.Count > 0)
                     {
@@ -108,7 +108,8 @@ namespace Pranda.Framework.Services.Manager
                                        VehicleInsuranceType = us.VihicleInsuranceType,
                                        VehicleModel = us.VihicleModel,
                                        VehicleTypeCode = us.VihicleTypeCode,
-                                       VehicleYear = us.VihicleYear
+                                       VehicleYear = us.VihicleYear,
+                                       VehicleTypeName = us.VehicleTypeName
                                    }).FirstOrDefault();
                     if (res.Vehicle != null)
                     {
@@ -155,7 +156,8 @@ namespace Pranda.Framework.Services.Manager
                         VihicleModel = req.VehicleModel,
                         VihicleTypeCode = req.VehicleTypeCode,
                         VihicleYear = req.VehicleYear,
-                        VihicleID = 0
+                        VihicleID = 0,
+                        VehicleTypeName = req.VehicleTypeName
                     };
                     context.Vihicles.Add(vehicle);
                     context.SaveChanges();
@@ -196,6 +198,7 @@ namespace Pranda.Framework.Services.Manager
                         vehicle.VihicleModel = req.VehicleModel;
                         vehicle.VihicleTypeCode = req.VehicleTypeCode;
                         vehicle.VihicleYear = req.VehicleYear;
+                        vehicle.VehicleTypeName = req.VehicleTypeName;
                         context.SaveChanges();
                         res.ResponseStatus = ResponseStatus.Success;
                         res.Description = "Update Success.";

@@ -71,6 +71,19 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'requests',
+    component: LeftSidebarLayoutComponent,
+    data: {
+      title: 'Requests'
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: './views/requests/requests.module#RequestsModule'
+      }
+    ]
+  },
+  {
     path: 'assign',
     component: LeftSidebarLayoutComponent,
     data: {

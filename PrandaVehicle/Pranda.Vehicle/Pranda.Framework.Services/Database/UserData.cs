@@ -10,6 +10,8 @@ namespace Pranda.Framework.Services.Database
     public partial class UserData
     {
         [Key]
+        public int UserID { get; set; }
+
         [StringLength(20)]
         public string UserCode { get; set; }
 
@@ -42,8 +44,12 @@ namespace Pranda.Framework.Services.Database
 
         [StringLength(20)]
         public string UserPhone { get; set; }
+        [StringLength(20)]
+        public string UserMobile { get; set; }
 
         public int? UserPermission { get; set; }
+        [StringLength(200)]
+        public string Approver { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal? Status { get; set; }

@@ -35,6 +35,8 @@ namespace Pranda.Framework.Services.Database
 
         [StringLength(20)]
         public string VihicleTypeCode { get; set; }
+        [StringLength(100)]
+        public string VehicleTypeName { get; set; }
 
         public int? VihicleYear { get; set; }
 

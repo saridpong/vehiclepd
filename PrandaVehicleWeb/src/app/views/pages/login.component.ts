@@ -16,17 +16,22 @@ export class LoginComponent {
     private route: Router,
     private global: Globals,
     private userService: UserService
-  ) {}
+  ) { }
   onSubmit() {
     // this.route.navigate(['/Request']);
-
-    /*if (this.mUsername === 'admin') {
-      this.role = 'ADM'
+    /*
+    if (this.mUsername === 'admin') {
+      this.role = 'ADMIN'
+      this.route.navigate(['/cars/searchcars']);
     } else if (this.mUsername === 'security') {
-      this.role = 'SCU'
+      this.role = 'SECURITY'
+      this.route.navigate(['/security']);
     } else if (this.mUsername === 'request') {
-      this.role = 'REQ'
-    }*/
+      this.role = 'REQUEST'
+      this.route.navigate(['/request/searchrequest']);
+    }
+    window.localStorage.setItem('role', this.role);
+    */
 
     this.auth.login(this.mUsername, this.mPassword).subscribe(
       result => {
@@ -37,7 +42,7 @@ export class LoginComponent {
         } else if (result.role === 'SECURITY') {
           this.route.navigate(['/security']);
         } else if (result.role === 'REQUEST') {
-          this.route.navigate(['/request/searchrequest']);
+          this.route.navigate(['/requests/search']);
         } else {
           window.alert('Login again');
         }
@@ -46,5 +51,6 @@ export class LoginComponent {
         window.alert(error);
       }
     );
+
   }
 }

@@ -1,0 +1,8 @@
+<label for="driver">พนักงานขับรถ</label>
+<ng-select [items]="items.drivers" placeholder="พนักงานขับรถ"  id="driver" name="driver" bindLabel="driverName"
+  [(ngModel)]="selectItem" (change)="OnChanges($event)" [disabled]="read">
+  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+        <h5 class="card-title" [ngOptionHighlight]="search">ชื่อ : {{item.driverName}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">เบอร์ติดต่อ : {{item.driverMobile}}</h6>
+  </ng-template>
+</ng-select>

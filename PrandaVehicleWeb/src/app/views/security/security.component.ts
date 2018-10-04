@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { CarsInComponent } from './management/cars-in.component';
 import { CarsOutComponent } from './management/cars-out.component';
+import { AuthService } from '../../services/auth.services';
+import { RequestService } from '../../services/request.services';
 
 @Component({
   templateUrl: 'security.component.html'
@@ -12,10 +14,23 @@ import { CarsOutComponent } from './management/cars-out.component';
 export class SecurityComponent implements OnInit {
 
   public datenow: Date = new Date();
-  public mData: any = carsinout;
+  criteria: any;
+  mSearch: any;
   bsModalRef: BsModalRef;
-  constructor(private modalService: BsModalService) { }
-
+  constructor(private modalService: BsModalService,
+    private auth: AuthService,
+    private request: RequestService) {
+    this.criteria = {
+      status : -1
+    };
+    this.mSearch = [];
+    this.onSearch();
+  }
+  onSearch() {
+    this.request.find(this.criteria).subscribe(result => {
+      this.mSearch = result;
+    });
+  }
   CarsInOpen(data) {
     const initialState = {
       item: data

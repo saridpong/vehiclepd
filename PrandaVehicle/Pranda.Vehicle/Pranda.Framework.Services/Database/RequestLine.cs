@@ -12,42 +12,36 @@ namespace Pranda.Framework.Services.Database
         [Key]
         [Column(Order = 0, TypeName = "numeric")]
         public decimal RequestHeaderID { get; set; }
-
+        
         [Key]
-        [Column(Order = 1)]
-        [StringLength(20)]
-        public string RequestHeaderCode { get; set; }
-
-        [Key]
-        [Column(Order = 2, TypeName = "numeric")]
+        [Column(Order = 1, TypeName = "numeric")]
         public decimal RequestLineID { get; set; }
 
         [StringLength(100)]
         public string RequestLineDescription { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? quantity { get; set; }
-
-        [Column(TypeName = "numeric")]
-        public decimal? placeID { get; set; }
-
-        [Column(TypeName = "numeric")]
-        public decimal? Amount { get; set; }
+        [StringLength(100)]
+        public string Place { get; set; }
+        [StringLength(100)]
+        public string Location { get; set; }
+        [StringLength(100)]
+        public string Province { get; set; }
 
         [StringLength(100)]
         public string ContactName { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
+
         [StringLength(20)]
         public string UpdateBy { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
-        public DateTime UpdateDate { get; set; }
 
-        [Key]
-        [Column(Order = 5, TypeName = "numeric")]
-        public decimal RequestLineStatus { get; set; }
+        public DateTime? UpdateDate { get; set; }
+        [StringLength(20)]
+        public string CreateBy { get; set; }
+
+
+        public DateTime? CreateDate { get; set; }
+
+
     }
 }

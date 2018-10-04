@@ -14,15 +14,23 @@ export const requesterMenu = [
   {
     menuID: 6,
     menuIcon: '',
-    menuSystemName: 'ประวัติใบขอใช้รถยนต์',
-    menuSystemUrl: '/request/searchrequest',
+    menuSystemName: 'ข้อมูลใบขอใช้รถยนต์',
+    menuSystemUrl: '/requests/search',
     useFlag: true, childs: null
   },
   {
     menuID: 2,
     menuIcon: '',
     menuSystemName: 'บันทึกใบขอใช้รถยนต์',
-    menuSystemUrl: '/request/addrequest',
+    menuSystemUrl: '/requests',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 2,
+    menuIcon: '',
+    menuSystemName: 'อนุมัติการขอใช้รถยนต์',
+    menuSystemUrl: '/requests/approve/1',
     useFlag: true,
     childs: null
   },
@@ -41,7 +49,7 @@ export const adminMenu = [
     menuID: 4,
     menuIcon: '',
     menuSystemName: 'อนุมัติใบขอใช้บริการรถยนต์',
-    menuSystemUrl: '/request/searchapprove',
+    menuSystemUrl: '/requests/search',
     useFlag: true, childs: null
   },
   {

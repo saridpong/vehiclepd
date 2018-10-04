@@ -2,59 +2,71 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+
 .breadcrumb {
   margin-bottom: 0.5rem;
 }
 
 .card-header-action-link {
-  display:block;
-  padding:0rem 0.6rem;
+  display: block;
+  padding: 0rem 0.6rem;
 }
 
 .circle-head-btn {
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-bottom: -15px;
   margin-right: 10px;
 }
 
 .card-head-btn {
-  width:40px;
-  height:40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   margin-top: -40px;
 }
 
 .front-of-card {
-  z-index:1;
+  z-index: 1;
 }
 
-.mt-5{margin-top: 5px !important;}
-.mb-15{margin-bottom: 15px !important;}
+.mt-5 {
+  margin-top: 5px !important;
+}
+
+.mb-15 {
+  margin-bottom: 15px !important;
+}
 
 .mouseOver {
   cursor: pointer;
 }
+
 .card-accent-gray {
   border-top-width: 1px;
   border-top-color: #c2cfd6;
 }
+
 .card-header-gray {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   background-color: #f0f3f5;
 }
-.color-icon-gray{
+
+.color-icon-gray {
   color: #536c79;
 }
-.bg-tb-head-gray{
+
+.bg-tb-head-gray {
   background-color: #f0f3f5;
 }
-.bg-tb-sub-gray{
+
+.bg-tb-sub-gray {
   background-color: #ffffff;
 }
-.block-view-editor{
+
+.block-view-editor {
   background-color: #c2cfd6;
   opacity: 1;
   display: block;
@@ -69,38 +81,40 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 
-.testimonial-group > .row {
+.testimonial-group>.row {
   overflow-x: auto;
   white-space: nowrap;
   flex-wrap: nowrap;
 }
-.testimonial-group > .row > .col-md-2 {
+
+.testimonial-group>.row>.col-md-2 {
   display: inline-block;
   float: none;
 }
 
-.testimonial-group > .row > .col-sm-4 {
+.testimonial-group>.row>.col-sm-4 {
   display: inline-block;
   float: none;
 }
-.bg-ta-jt{
+
+.bg-ta-jt {
   background: #f0f3f5;
 }
 
 
-#custom-search-input{
+#custom-search-input {
   padding: 3px;
   border: solid 1px #E4E4E4;
   border-radius: 6px;
   background-color: #fff;
 }
 
-#custom-search-input input{
+#custom-search-input input {
   border: 0;
   box-shadow: none;
 }
 
-#custom-search-input button{
+#custom-search-input button {
   margin: 2px 0 0 0;
   background: none;
   box-shadow: none;
@@ -110,12 +124,89 @@
   border-left: solid 1px #ccc;
 }
 
-#custom-search-input button:hover{
+#custom-search-input button:hover {
   border: 0;
   box-shadow: none;
   border-left: solid 1px #ccc;
 }
 
-#custom-search-input .glyphicon-search{
+#custom-search-input .glyphicon-search {
   font-size: 23px;
+}
+
+fieldset.scheduler-border {
+  border: 1px groove #ddd !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  -webkit-box-shadow: 0px 0px 0px 0px #000;
+  box-shadow: 0px 0px 0px 0px #000;
+}
+
+legend.scheduler-border {
+  width: inherit;
+  /* Or auto */
+  padding: 0 10px;
+  /* To give a bit of padding on the left and right */
+  border-bottom: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+label {
+  margin-bottom: 0 !important;
+}
+
+.app-loading {
+  
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .logo {
+    width: 100px;
+    height: 100px;
+    
+    // this way asset gets processed by webpack 
+    background: url('../assets/img/logo_1.png') center center no-repeat; 
+  }
+}
+.app-loading .spinner {
+  height: 200px;
+  width: 200px;
+  animation: rotate 2s linear infinite;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.app-loading .spinner .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: #ddd;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
 }

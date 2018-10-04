@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms'
 import { LocationStrategy, HashLocationStrategy, CommonModule, PathLocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ModalDialogModule } from 'ngx-modal-dialog';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 
 // Import containers
@@ -88,6 +89,12 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DndModule } from 'ng2-dnd';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { ForUseService } from './services/foruse.services';
+import { PlaceService } from './services/place.services';
+import { RequestService } from './services/request.services';
+import { DriverService } from './services/driver.services';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -108,6 +115,7 @@ import { BrowserModule } from '@angular/platform-browser';
     DndModule.forRoot(),
     BrowserModule,
     ModalDialogModule.forRoot(),
+    LoadingBarHttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -121,7 +129,11 @@ import { BrowserModule } from '@angular/platform-browser';
     Globals,
     MenuService,
     CarsService,
+    ForUseService,
     RedirectService,
+    PlaceService,
+    RequestService,
+    DriverService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy

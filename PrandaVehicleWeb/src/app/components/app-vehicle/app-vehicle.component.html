@@ -1,0 +1,8 @@
+<label for="driver">รถ</label>
+<ng-select [items]="items.vehicles" placeholder="รถ"  id="vehicle" name="vehicle" bindLabel="vehicleCode"
+  [(ngModel)]="selectItem" (change)="OnChanges($event)" [disabled]="read">
+  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+        <h5 class="card-title" [ngOptionHighlight]="search">ทะเบียน : {{item.vehicleCode}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">ประเภท : {{item.vehicleTypeName}}</h6>
+  </ng-template>
+</ng-select>

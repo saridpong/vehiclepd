@@ -117,15 +117,37 @@
     <Compile Include="Database\UserData.cs" />
     <Compile Include="Database\Vihicle.cs" />
     <Compile Include="Manager\BaseManager.cs" />
+    <Compile Include="Manager\DriverManager.cs" />
+    <Compile Include="Manager\ForUseManager.cs" />
+    <Compile Include="Manager\PlaceManager.cs" />
+    <Compile Include="Manager\RequestManager.cs" />
     <Compile Include="Manager\TokenManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\VehicleManager.cs" />
+    <Compile Include="Model\Driver\DriverItem.cs" />
+    <Compile Include="Model\ForUse\ForUseItem.cs" />
+    <Compile Include="Model\Place\PlaceItem.cs" />
+    <Compile Include="Model\Request\CarRequestItem.cs" />
+    <Compile Include="Model\Request\CarSearchItem.cs" />
+    <Compile Include="Model\Request\RequestHeadItem.cs" />
+    <Compile Include="Model\Request\RequestLineItem.cs" />
+    <Compile Include="Model\Request\StaffItem.cs" />
     <Compile Include="Model\Users\UserLoginModel.cs" />
     <Compile Include="Model\Vehicle\VehicleItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\BaseRequest.cs" />
+    <Compile Include="Request\Driver\DriverRequest.cs" />
+    <Compile Include="Request\ForUse\ForUseRequest.cs" />
+    <Compile Include="Request\Place\PlaceRequest.cs" />
+    <Compile Include="Request\Request\CarRequest.cs" />
+    <Compile Include="Request\Request\CarSearchRequest.cs" />
     <Compile Include="Request\Vehicle\VehicleRequest.cs" />
     <Compile Include="Response\BaseResponse.cs" />
+    <Compile Include="Response\Driver\DriverResponse.cs" />
+    <Compile Include="Response\ForUse\ForUseResponse.cs" />
+    <Compile Include="Response\Place\PlaceResponse.cs" />
+    <Compile Include="Response\Request\CarRequestResponse.cs" />
+    <Compile Include="Response\Request\CarSearchResponse.cs" />
     <Compile Include="Response\Vehicle\VehicleResponse.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +160,7 @@
       <Name>Prodev.Framework</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

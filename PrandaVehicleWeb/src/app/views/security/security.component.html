@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="card card-accent-primary">
         <div class="card-header text-center">
-          ประวัติการบันทึกรถเข้า-ออก ประจำวันที่ {{datenow | date :'dd/MM/yyyy'}}
+          ประวัติการบันทึกรถเข้า-ออก
         </div>
         <div class="card-body">
           <div style="overflow: auto;">
@@ -12,7 +12,6 @@
                 <tr class="text-center">
                   <th style="vertical-align:middle;">#</th>
                   <th style="vertical-align:middle;">วันเวลาขอใช้บริการ</th>
-                  <th style="vertical-align:middle;">รูปรถ</th>
                   <th style="vertical-align:middle;">ทะเบียนรถ</th>
                   <th style="vertical-align:middle;">พนักงานขับรถ</th>
                   <th style="vertical-align:middle;">เลขไมล์ออก</th>
@@ -23,22 +22,21 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let item of mData" >
-                  <th class="text-center">{{item.no}}</th>
-                  <td>{{item.operationDate}}</td>
-                  <td><img src='{{item.carPic}}' width='100' height="100"></td>
-                  <td>{{item.regCar}}</td>
-                  <td class="text-center"><img src='{{item.driverPic}}' width='100' height="100"><br/>{{item.driverName}}</td>
-                  <td>{{item.milesOut}}</td>
-                  <td>{{item.dateOut | date:'hh:mm'}}</td>
-                  <td>{{item.milesIn}}</td>
-                  <td>{{item.dateIn | date:'hh:mm'}}</td>
+                <tr *ngFor="let item of mSearch.searchs;let i =index">
+                  <th class="text-center">{{i+1}}</th>
+                  <td class="text-center">{{item.documentDate | date:'dd/MM/yyyy HH:mm'}}</td>
+                  <td class="text-center">{{item.vehicleCode}}</td>
+                  <td >{{item.driverName}}</td>
+                  <td class="text-right">{{item.milesOut}}</td>
+                  <td class="text-center">{{item.vehicleTimeOut | date:'dd/MM/yyyy HH:mm'}}</td>
+                  <td class="text-right">{{item.milesIn}}</td>
+                  <td class="text-center">{{item.vehicleTimeIn | date:'dd/MM/yyyy HH:mm'}}</td>
                   <td class="text-center">
-                    <button class="btn btn-info btn-sm" type="submit" tooltip="รถเข้า" placement="top" (click)="CarsInOpen(item)">
-                      <i class="fa fa-car"></i>
-                    </button>
                     <button class="btn btn-primary btn-sm" type="submit" tooltip="รถออก" placement="top" (click)="CarsOutOpen(item)">
-                        <i class="fa fa-sign-out"></i>
+                      <i class="fa fa-sign-out-alt"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" type="submit" tooltip="รถเข้า" placement="top" (click)="CarsInOpen(item)">
+                      <i class="fa fa-sign-in-alt"></i>
                     </button>
                   </td>
                 </tr>
@@ -49,4 +47,4 @@
       </div>
     </div>
   </div>
-  </div>
+</div>

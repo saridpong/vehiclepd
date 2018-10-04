@@ -52,9 +52,7 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
 
-            modelBuilder.Entity<ForUse>()
-                .Property(e => e.ForUseID)
-                .HasPrecision(5, 0);
+
 
             modelBuilder.Entity<ForUse>()
                 .Property(e => e.Status)
@@ -76,29 +74,21 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
 
-            modelBuilder.Entity<Place>()
-                .Property(e => e.PlaceID)
-                .HasPrecision(5, 0);
+
 
             modelBuilder.Entity<Place>()
-                .Property(e => e.PlaceStatus)
+                .Property(e => e.Status)
                 .HasPrecision(2, 0);
 
             modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.RequestHeaderID)
                 .HasPrecision(20, 0);
 
-            modelBuilder.Entity<RequestHeader>()
-                .Property(e => e.DepartmentID)
-                .HasPrecision(20, 0);
 
             modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.ApproveBy)
                 .HasPrecision(20, 0);
 
-            modelBuilder.Entity<RequestHeader>()
-                .Property(e => e.Piority)
-                .HasPrecision(5, 0);
 
             modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.TotalPasenger)
@@ -113,16 +103,28 @@ namespace Pranda.Framework.Services.Database
                 .HasPrecision(20, 2);
 
             modelBuilder.Entity<RequestHeader>()
-                .Property(e => e.RequestBy)
-                .HasPrecision(20, 0);
+                .Property(e => e.VehicleID)
+                .HasPrecision(5, 0);
 
             modelBuilder.Entity<RequestHeader>()
-                .Property(e => e.UpdateBy)
-                .HasPrecision(20, 0);
+                   .Property(e => e.DriverID)
+                   .HasPrecision(5, 0);
 
             modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.RequestHeaderStatus)
                 .HasPrecision(5, 0);
+            modelBuilder.Entity<RequestHeader>()
+              .Property(e => e.MilesIn)
+              .HasPrecision(8, 0);
+            modelBuilder.Entity<RequestHeader>()
+              .Property(e => e.MilesOut)
+              .HasPrecision(8, 0);
+            modelBuilder.Entity<RequestHeader>()
+            .Property(e => e.Diff_Miles)
+            .HasPrecision(8, 0);
+            modelBuilder.Entity<RequestHeader>()
+            .Property(e => e.Diff_Miles_Est)
+            .HasPrecision(8, 0);
 
             modelBuilder.Entity<RequestLine>()
                 .Property(e => e.RequestHeaderID)
@@ -132,21 +134,7 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.RequestLineID)
                 .HasPrecision(20, 0);
 
-            modelBuilder.Entity<RequestLine>()
-                .Property(e => e.quantity)
-                .HasPrecision(5, 0);
 
-            modelBuilder.Entity<RequestLine>()
-                .Property(e => e.placeID)
-                .HasPrecision(5, 0);
-
-            modelBuilder.Entity<RequestLine>()
-                .Property(e => e.Amount)
-                .HasPrecision(5, 0);
-
-            modelBuilder.Entity<RequestLine>()
-                .Property(e => e.RequestLineStatus)
-                .HasPrecision(2, 0);
 
             modelBuilder.Entity<Section>()
                 .Property(e => e.SectionID)

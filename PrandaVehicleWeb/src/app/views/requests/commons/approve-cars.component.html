@@ -1,0 +1,33 @@
+<fieldset class="scheduler-border" [disabled]="read">
+  <legend class="scheduler-border">บันทึกการจ่ายงาน</legend>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <app-vehicle [(selectItem)]="requestApprove.vehicle" [read]="read"></app-vehicle>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <app-driver [(selectItem)]="requestApprove.driver" [read]="read"></app-driver>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <label for="carRemark">หมายเหตุ</label>
+          <textarea class="form-control" id="carRemark" placeholder="หมายเหตุ" type="text" name="carRemark" [(ngModel)]="requestApprove.approveRemark"
+            #carRemark="ngModel"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="carPic">รูปรถ</label>
+      <input type="image" class="form-control" disabled name="carPic" id="carPic" src="assets/img/carinout/Screen Shot 2561-08-16 at 17.50.58.png">
+    </div>
+    <div class="col-md-3 ">
+      <label for="driverPic">พนักงานขับรถ</label>
+      <input type="image" class="form-control" disabled name="driverPic" id="driverPic" src="assets/img/carinout/Screen Shot 2561-08-16 at 17.51.06.png">
+    </div>
+  </div>
+
+</fieldset>

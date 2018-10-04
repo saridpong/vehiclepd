@@ -8,20 +8,20 @@
   <div class="row">
     <div class="col-md-4">
       <div class="form-group">
-        <label class="mb-0" for="activityItemName">ทะเบียน</label>
-        <input class="form-control" id="regCar" [(ngModel)]="item.regCar" placeholder="" type="text" name="regCar" >
+        <label class="mb-0" for="vehicleCode">ทะเบียน</label>
+        <input class="form-control" id="vehicleCode" [(ngModel)]="item.vehicleCode" placeholder="ทะเบียน" type="text" name="vehicleCode" >
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <label class="mb-0" for="activityItemName">รหัสพนักงาน</label>
-        <input class="form-control" id="employeeId" [(ngModel)]="item.employeeId" placeholder="" type="text" name="employeeId" >
+        <label class="mb-0" for="driverCode">รหัสพนักงาน</label>
+        <input class="form-control" id="driverCode" [(ngModel)]="item.driverCode" placeholder="รหัสพนักงาน" type="text" name="driverCode" >
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <label class="mb-0" for="activityItemName">เลขไมล์ออก</label>
-        <input class="form-control" [(ngModel)]="item.milesOut" id="milesIn" placeholder="" type="text" name="milesIn" >
+        <label class="mb-0" for="milesOut">เลขไมล์ออก</label>
+        <input class="form-control text-right" [(ngModel)]="item.milesOut" id="milesOut" placeholder="เลขไมล์ออก" type="number" name="milesOut" >
       </div>
     </div>
   </div>
@@ -48,5 +48,5 @@
 -->
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">บันทึก</button>
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">บันทึก</button>
 </div>

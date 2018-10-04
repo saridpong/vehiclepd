@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { ModalModule, TimepickerModule } from 'ngx-bootstrap';
 import { CarsInComponent } from './management/cars-in.component';
 import { CarsOutComponent } from './management/cars-out.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { CarsOutComponent } from './management/cars-out.component';
     FormsModule,
     ChartsModule,
     ModalModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   declarations: [SecurityComponent, CarsInComponent, CarsOutComponent],
   entryComponents: [CarsInComponent, CarsOutComponent]

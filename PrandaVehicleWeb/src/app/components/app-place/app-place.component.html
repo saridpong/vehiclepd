@@ -1,0 +1,4 @@
+<label for="slPlace">สถานที่</label>
+<ng-select  [items]="items.places" id="slPlace" name="slPlace" bindLabel="placeName" 
+           [(ngModel)]="selectItem" (change)="OnChanges($event)">
+</ng-select>

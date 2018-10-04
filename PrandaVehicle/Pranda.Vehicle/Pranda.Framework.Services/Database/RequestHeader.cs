@@ -13,19 +13,38 @@ namespace Pranda.Framework.Services.Database
         [Column(Order = 0, TypeName = "numeric")]
         public decimal RequestHeaderID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [StringLength(20)]
-        public string RequestHeaderCode { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? RequestHeaderDate { get; set; }
-
-        [Column(TypeName = "numeric")]
-        public decimal? DepartmentID { get; set; }
 
         [StringLength(20)]
-        public string DepartmentCode { get; set; }
+        public string DocumentNo { get; set; }
+
+        public int UserID { get; set; }
+
+        [StringLength(100)]
+        public string UserFirstName { get; set; }
+
+        [StringLength(100)]
+        public string UserSurname { get; set; }
+
+        [StringLength(100)]
+        public string UserPosition { get; set; }
+        [StringLength(20)]
+        public string UserSectionCode { get; set; }
+        [StringLength(100)]
+        public string UserSectionName { get; set; }
+        [StringLength(20)]
+        public string UserDepartmentCode { get; set; }
+        [StringLength(100)]
+        public string UserDepartmentName { get; set; }
+        [StringLength(20)]
+        public string UserPhone { get; set; }
+        [StringLength(20)]
+        public string UserMobile { get; set; }
+        [StringLength(100)]
+        public string Approver { get; set; }
+
+        public DateTime? DocumentDate { get; set; }
+
+
 
         [Column(TypeName = "numeric")]
         public decimal? ApproveBy { get; set; }
@@ -36,8 +55,7 @@ namespace Pranda.Framework.Services.Database
         [StringLength(200)]
         public string JobType { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? Piority { get; set; }
+        public string Priority { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? DateStart { get; set; }
@@ -57,25 +75,46 @@ namespace Pranda.Framework.Services.Database
         [StringLength(1000)]
         public string Remark { get; set; }
 
-        [Key]
-        [Column(Order = 2, TypeName = "numeric")]
-        public decimal RequestBy { get; set; }
-
-        [Key]
-        [Column(Order = 3)]
         [StringLength(20)]
-        public string RequestByCode { get; set; }
+        public string CreateBy { get; set; }
+        public DateTime? CreateDate { get; set; }
 
-        [Key]
-        [Column(Order = 4, TypeName = "numeric")]
-        public decimal UpdateBy { get; set; }
-
-        [Key]
-        [Column(Order = 5)]
         [StringLength(20)]
-        public string UpdateByCode { get; set; }
+        public string UpdateBy { get; set; }
+        public DateTime? UpdateDate { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal? RequestHeaderStatus { get; set; }
+
+
+        [Column(TypeName = "numeric")]
+        public decimal? VehicleID { get; set; }
+        [StringLength(50)]
+        public string VehicleCode { get; set; }
+        [StringLength(20)]
+        public string VehicleTypeCode { get; set; }
+        [StringLength(100)]
+        public string VehicleTypeName { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? DriverID { get; set; }
+        [StringLength(20)]
+        public string DriverCode { get; set; }
+        [StringLength(80)]
+        public string DriverName { get; set; }
+        [StringLength(40)]
+        public string DriverMobile { get; set; }
+        [StringLength(300)]
+        public string ApproveRemark { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? MilesIn { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? MilesOut { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? Diff_Miles { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? Diff_Miles_Est { get; set; }
+        public DateTime? VehicleTimeIn { get; set; }
+        public DateTime? VehicleTimeOut { get; set; }
+        public TimeSpan? DiffVehicleTime { get; set; }
     }
 }

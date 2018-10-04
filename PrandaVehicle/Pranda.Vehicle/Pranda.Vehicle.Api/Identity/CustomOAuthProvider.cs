@@ -33,10 +33,25 @@ namespace Pranda.Vehicle.Api.Identity
                         "userName", loginModel.Username
                     },
                     {
-                        "fullName",string.Format("{0} {1}",loginModel.FirstName,loginModel.LastName)
+                        "fullName",string.Format("{0} {1} {2}",loginModel.UserTitle,loginModel.FirstName,loginModel.LastName)
                     },
                     {
-                        "department",loginModel.Department
+                        "department",string.Format("{0} - {1}",loginModel.DepartmentCode,loginModel.Department)
+                    },
+                    {
+                        "section",string.Format("{0} - {1}",loginModel.SectionCode,loginModel.SectionName)
+                    },
+                    {
+                        "position",string.Format("{0}",loginModel.Position)
+                    },
+                    {
+                        "approver",string.Format("{0}",loginModel.Approver)
+                    },
+                    {
+                        "tel",string.Format("{0}",loginModel.Tel)
+                    },
+                    {
+                        "mobile",string.Format("{0}",loginModel.Mobile)
                     },
                     {
                         "role",loginModel.RoleID == 1 ? "ADMIN" :  loginModel.RoleID == 2 ? "REQUEST" : "SECURITY"

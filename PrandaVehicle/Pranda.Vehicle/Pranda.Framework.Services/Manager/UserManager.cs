@@ -28,14 +28,20 @@ namespace Pranda.Framework.Services.Manager
                         {
                             Username = us.UserCode,
                             Department = us.UserDepartmentName,
+                            DepartmentCode = us.UserDepartmentCode,
                             SectionName = us.UserSectionName,
+                            SectionCode = us.UserSectionCode,
                             FirstName = us.UserName,
                             LastName = us.UserSurname,
                             UserTitle = us.UserTitleName,
                             LoginSuccess = true,
                             RoleID = us.UserPermission,
                             Position = us.UserPosition,
-                            Tel = us.UserPhone
+                            Approver = us.Approver,
+                            Tel = us.UserPhone,
+                            Mobile = us.UserMobile,
+                            UserCode =us.UserCode,
+                            UserID = us.UserID
                         };
 
                     }
@@ -78,6 +84,12 @@ namespace Pranda.Framework.Services.Manager
                                                  RoleID = us.UserPermission,
                                                  Position = us.UserPosition,
                                                  Tel = us.UserPhone,
+                                                 Approver = us.Approver,
+                                                 SectionCode = us.UserSectionCode,
+                                                 DepartmentCode = us.UserDepartmentCode,
+                                                 Mobile = us.UserMobile,
+                                                 UserCode = us.UserCode,
+                                                 UserID = us.UserID
                                                  
                                              }).FirstOrDefault();
 

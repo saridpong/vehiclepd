@@ -1,0 +1,55 @@
+<fieldset class="scheduler-border" [disabled]="read">
+  <legend class="scheduler-border">ข้อมูลผู้ขอใช้รถ</legend>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="employeeName">ผู้ขอใช้รถ</label>
+      <input class="form-control" id="employeeName" ngre placeholder="ผู้ดำเนินการ" type="text" name="employeeName"
+        [(ngModel)]="staff.employeeName" #employeeName="ngModel" required>
+      <div class="invalid-feedback" [hidden]="employeeName.valid || employeeName.pristine">
+        กรุณากรอกผู้ขอใช้รถ
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="departmentName">ชื่อแผนก</label>
+      <input class="form-control" id="departmentName" placeholder="ชื่อแผนก" type="text" name="departmentName"
+        [(ngModel)]="staff.departmentName" #departmentCode="ngModel">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for="groupName">ชื่อฝ่าย</label>
+      <input class="form-control" id="groupName" placeholder="ชื่อฝ่าย" type="text" name="groupName" [(ngModel)]="staff.groupName"
+        #groupName="ngModel">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="approver">ผู้อนุมัติ</label>
+      <input class="form-control" id="approver" placeholder="ผู้อนุมัติ" type="text" name="approver" [(ngModel)]="staff.approver"
+        #approver="ngModel">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for="position">ตำแหน่ง</label>
+      <input class="form-control" id="position" placeholder="ตำแหน่ง" type="text" name="position" [(ngModel)]="staff.position"
+        #position="ngModel">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="employeeTel">เบอร์ติดต่อ</label>
+      <input class="form-control" id="employeeTel" placeholder="เบอร์ติดต่อ" type="text" name="employeeTel" [(ngModel)]="staff.employeeTel"
+        #employeeTel="ngModel" required>
+      <div class="invalid-feedback" [hidden]="employeeTel.valid || employeeTel.pristine">
+        กรุณากรอกเบอร์ติดต่อ
+      </div>
+    </div>
+    <div class="col-md-6 form-group">
+      <label for="employeeMobile">เบอร์มือถือ</label>
+      <input class="form-control" id="employeeMobile" placeholder="โทรศัพท์" type="text" name="employeeMobile"
+        [(ngModel)]="staff.employeeMobile" #employeeMobile="ngModel" required>
+      <div class="invalid-feedback" [hidden]="employeeMobile.valid || employeeMobile.pristine">
+        กรุณากรอกเบอร์มือถือ
+      </div>
+    </div>
+  </div>
+</fieldset>

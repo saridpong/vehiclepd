@@ -9,25 +9,19 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
-                <label class="mb-0" for="activityItemName">เลขที่เอกสาร</label>
-                <input class="form-control" id="activityItemName" placeholder="" [(ngModel)]="mCriteria.docNo" type="text" name="activityItemName" id="activityItemName">
+                <label class="mb-0" for="activityItemName">ทะเบียนรถ</label>
+                <input class="form-control" id="activityItemName" placeholder="ทะเบียนรถ" [(ngModel)]="mCriteria.vehicleCode" type="text" name="activityItemName" id="activityItemName">
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="form-group">
                 <label class="mb-0" for="useFlag">สถานะ</label>
                 <select class="form-control" id="useFlag" placeholder="Useflag" name="useFlag" id="useFlag"  [(ngModel)]="mCriteria.status">
                   <option *ngFor="let op of options" value='{{op.key}}'>{{op.text}}</option>
 
                 </select>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label class="mb-0" for="attn">วันที่เอกสาร</label>
-                <input class="form-control" type="date" id="startdate" name="startdate" pattern="\d{1,2}/\d{1,2}/\d{4}"  [(ngModel)]="mCriteria.docDate"/>
               </div>
             </div>
           </div>

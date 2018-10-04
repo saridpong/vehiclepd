@@ -10,12 +10,11 @@ export class RedirectService implements CanActivate {
     const user = this.auth.getToken();
     if (user !== null) {
       if (user.role === 'ADMIN') {
-        this.router.navigate(['/admin']);
         this.router.navigate(['/cars/searchcars']);
       } else if (user.role === 'SECURITY') {
         this.router.navigate(['/security']);
       } else if (user.role === 'REQUEST') {
-        this.router.navigate(['/request/searchrequest']);
+        this.router.navigate(['/requests/search']);
       } else {
         this.router.navigate(['/pages/login']);
       }

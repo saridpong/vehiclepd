@@ -1,0 +1,25 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit()" class="was-validated" #newRequest="ngForm">
+        <div class="card card-accent-primary">
+          <div class="card-header">
+            <strong>บันทึกข้อมูลใบขอใช้รถยนต์</strong>
+          </div>
+          <div class="card-body">
+            <app-staff [staff]="criteria.staff" [read]="read"></app-staff>
+            <app-request-cars [requests]="criteria.requests" [read]="read"></app-request-cars>
+            <app-approve-cars [requestApprove]="criteria.requests" [read]="readApprove"></app-approve-cars>
+          </div>
+          <div class="card-footer" *ngIf="!readApprove" >
+            <button class="btn btn-primary float-right" type="button" (click)="onSaveDraft()"  [disabled]="!newRequest.form.valid">
+              <i class="fa fa-save"></i> บันทึกแบบร่าง</button>
+
+            <button class="btn btn-primary float-right" type="submit" [disabled]="!newRequest.form.valid">
+              <i class="fa fa-signature"></i> อนุมัติ</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

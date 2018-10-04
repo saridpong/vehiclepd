@@ -29,6 +29,7 @@ namespace Pranda.Framework.Services.Model.Vehicle
 
 
         public string VehicleTypeCode { get; set; }
+        public string VehicleTypeName { get; set; }
 
         public int? VehicleYear { get; set; }
 

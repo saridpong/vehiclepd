@@ -67,6 +67,27 @@ namespace Pranda.Framework.Services.Model.Request
         public VehicleItem Vehicle { get; set; }
         public DriverItem Driver { get; set; }
         public string ApproveRemark { get; set; }
+        public string Rating { get; set; }
+        public string Comment { get; set; }
+        public decimal? MilesIn { get; set; }
+        public decimal? MilesOut { get; set; }
+        public decimal? Diff_Miles { get; set; }
+        public decimal? Diff_Miles_Est { get; set; }
+        public DateTime? VehicleTimeIn { get; set; }
+        public DateTime? VehicleTimeOut { get; set; }
+        public TimeSpan? DiffVehicleTime { get; set; }
+   
+        public decimal? LabourCost { get; set; }
+
+        public decimal? FuelCost { get; set; }
+ 
+        public decimal? FeeCost { get; set; }
+
+        public decimal? OtherCost { get; set; }
+    
+        public decimal? TotalCost { get; set; }
+  
+        public decimal? DiffCost { get; set; }
 
     }
 }

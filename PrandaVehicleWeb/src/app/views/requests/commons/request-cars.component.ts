@@ -14,6 +14,7 @@ export class RequestCarsComponent implements OnInit {
     @Input() requests: any;
     @Input() read: boolean;
     bsModalRef: BsModalRef;
+    mPriority: any = priorityList;
     constructor(
         private route: Router,
         private routeActive: ActivatedRoute,
@@ -70,3 +71,23 @@ export class RequestCarsComponent implements OnInit {
 
     }
 }
+
+const priorityList = [
+    {
+      text: 'A',
+    },
+    {
+      text: 'B',
+    },
+    {
+      text: 'C',
+    },
+    {
+      text: 'D',
+    },
+    {
+      text: 'E',
+    }
+  ]
+
+

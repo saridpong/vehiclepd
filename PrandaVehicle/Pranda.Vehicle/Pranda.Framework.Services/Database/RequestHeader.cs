@@ -116,5 +116,21 @@ namespace Pranda.Framework.Services.Database
         public DateTime? VehicleTimeIn { get; set; }
         public DateTime? VehicleTimeOut { get; set; }
         public TimeSpan? DiffVehicleTime { get; set; }
+        [StringLength(10)]
+        public string Rating { get; set; }
+        [StringLength(300)]
+        public string Comment { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? LabourCost { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? FuelCost { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? FeeCost { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? OtherCost { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? TotalCost { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? DiffCost { get; set; }
     }
 }

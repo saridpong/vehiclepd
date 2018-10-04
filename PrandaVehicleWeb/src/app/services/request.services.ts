@@ -51,4 +51,16 @@ export class RequestService {
       criteria
     );
   }
+  rating(criteria): Observable<any> {
+    return this.http.post<any>(
+      this.global.BaseApiUrl + 'api/Request/Rating',
+      criteria
+    );
+  }
+  labourcost(criteria): Observable<any> {
+    return this.http.post<any>(
+      this.global.BaseApiUrl + 'api/Request/LabourCost',
+      criteria
+    );
+  }
 }

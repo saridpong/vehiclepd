@@ -63,6 +63,22 @@ namespace Pranda.Vehicle.Api.Controllers
             return Ok(manager.CarOut(req));
         }
         [Authorize]
+        [Route("Rating")]
+        [HttpPost]
+        public IHttpActionResult Rating(CarRequestItem req)
+        {
+            RequestManager manager = new RequestManager();
+            return Ok(manager.Rating(req));
+        }
+        [Authorize]
+        [Route("LabourCost")]
+        [HttpPost]
+        public IHttpActionResult LabourCost(CarRequestItem req)
+        {
+            RequestManager manager = new RequestManager();
+            return Ok(manager.LabourCost(req));
+        }
+        [Authorize]
         [Route("FindByID")]
         [HttpPost]
         public IHttpActionResult FindRequestByID(CarSearchRequest req)

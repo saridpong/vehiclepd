@@ -1,0 +1,97 @@
+<fieldset class="scheduler-border" [disabled]="'true'">
+  <legend class="scheduler-border">บันทึกข้อมูลการใช้รถ</legend>
+  <div class="row">
+    <div class="col-md-4 form-group">
+      <label for="vehicleTimeOut">เวลาออก</label>
+      <input class="form-control text-center" id="vehicleTimeOut" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+        placeholder="เวลาออก" type="text" name="vehicleTimeOut" [(ngModel)]="labourcost.vehicleTimeOut">
+      <owl-date-time hour12Timer="false" #dt1></owl-date-time>
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="vehicleTimeIn">เวลาเข้า</label>
+      <input class="form-control text-center" id="vehicleTimeIn" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
+        placeholder="เวลาเข้า" type="text" name="vehicleTimeIn" [(ngModel)]="labourcost.vehicleTimeIn">
+      <owl-date-time hour12Timer="false" #dt2></owl-date-time>
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="diffVehicleTime">รวมเวลา</label>
+      <input class="form-control text-center" id="diffVehicleTime" placeholder="รวมเวลา" type="text" name="diffVehicleTime"
+        [(ngModel)]="labourcost.diffVehicleTime">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="vehicleMilesOut">เลขไมล์ออก</label>
+      <input class="form-control text-right" id="vehicleMilesOut" placeholder="เลขไมล์ออก" type="number" name="vehicleMilesOut"
+        [(ngModel)]="labourcost.milesOut">
+    </div>
+    <div class="col-md-6 form-group">
+      <label for="vehicleMilesIn">เลขไมล์เข้า</label>
+      <input class="form-control text-right" id="vehicleMilesIn" placeholder="เลขไมล์เข้า" type="number" name="vehicleMilesIn"
+        [(ngModel)]="labourcost.milesIn">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 form-group">
+      <label for="diffMiles">รวมระยะทาง</label>
+      <input class="form-control text-right" id="diffMiles" placeholder="รวมระยะทาง" type="number" name="diffMiles"
+        [(ngModel)]="labourcost.diff_Miles">
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="vehicleEstimateDistance">ระยะทางประมาณการ</label>
+      <input class="form-control text-right" id="vehicleEstimateDistance" placeholder="ระยะทางประมาณการ" type="number"
+        name="vehicleEstimateDistance" [(ngModel)]="labourcost.estimateDistance">
+    </div>
+    <div class="col-md-4 form-group">
+      <label for="diffMilesEst">ผลต่างระยะทาง</label>
+      <input class="form-control text-right" id="diffMilesEst" placeholder="ผลต่างระยะทาง" type="number" name="diffMilesEst"
+        [(ngModel)]="labourcost.diff_Miles_Est">
+    </div>
+  </div>
+</fieldset>
+<fieldset class="scheduler-border" [disabled]="read">
+  <legend class="scheduler-border">บันทึกค่าใช้จ่าย</legend>
+  <div class="row">
+    <div class="col-md-3 form-group">
+      <label for="labourCost">ค่าแรง</label>
+      <input class="form-control text-right" (keyup)="onCal()"   id="labourCost" placeholder="ค่าแรง" type="number" name="labourCost"
+        [(ngModel)]="labourcost.labourCost">
+    </div>
+    <div class="col-md-3 form-group">
+      <label for="fuelCost">ค่าเชื้อเพลิง</label>
+      <input class="form-control text-right" (keyup)="onCal()"  id="fuelCost" placeholder="ค่าเชื้อเพลิง" type="number" name="fuelCost"
+        [(ngModel)]="labourcost.fuelCost">
+    </div>
+    <div class="col-md-3 form-group">
+      <label for="feeCost">ค่าธรรมเนียมผ่านทาง</label>
+      <input class="form-control text-right" (keyup)="onCal()"  id="feeCost" placeholder="ค่าธรรมเนียมผ่านทาง" type="number" name="feeCost"
+        [(ngModel)]="labourcost.feeCost">
+    </div>
+    <div class="col-md-3 form-group">
+      <label for="otherCost">ค่าใช้จ่ายอื่นๆ</label>
+      <input class="form-control text-right" (keyup)="onCal()"  id="otherCost" placeholder="ค่าใช้จ่ายอื่นๆ" type="number" name="otherCost"
+        [(ngModel)]="labourcost.otherCost">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 offset-md-9 form-group">
+      <label for="vehicleEstimateCost">ค่าใช้จ่ายประมาณการ</label>
+      <input class="form-control text-right" readonly id="vehicleEstimateCost" placeholder="ค่าใช้จ่ายประมาณการ" type="number"
+        name="vehicleEstimateCost" [(ngModel)]="labourcost.estimateCost">
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-3 offset-md-9 form-group">
+      <label for="totalCost">รวมทั้งสิ้น</label>
+      <input class="form-control text-right" readonly id="totalCost" placeholder="ค่าแรง" type="number" name="totalCost"
+        [(ngModel)]="labourcost.totalCost">
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-md-3 offset-md-9 form-group">
+      <label for="diffCost">ผลต่างค่าใช้จ่าย</label>
+      <input class="form-control text-right" readonly id="diffCost" placeholder="ผลต่างค่าใช้จ่าย" type="number" name="diffCost"
+        [(ngModel)]="labourcost.diffCost">
+    </div>
+  </div>
+</fieldset>

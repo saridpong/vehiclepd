@@ -1,0 +1,38 @@
+<fieldset class="scheduler-border" [disabled]="read">
+  <legend class="scheduler-border">บันทึกการจ่ายงาน</legend>
+  <div class="row">
+    <div class="col-md-3 form-group">
+      <label for="carRating">ความพึงพอใจ </label>
+      <div class="form-check">
+        <input class="form-check-label" id="carRating1" placeholder="ระดับความสำคัญ" type="radio" name="carRating"
+          value="1" [(ngModel)]="rating.rating">
+        <label class="form-check-label" for="carRating1"> น้อยที่สุด </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-label" id="carRating2" placeholder="ระดับความสำคัญ" type="radio" name="carRating"
+          value="2" [(ngModel)]="rating.rating">
+        <label class="form-check-label" for="carRating2"> น้อย </label>
+      </div>
+      <div class="form-check">
+      <input class="form-check-label" id="carRating3" placeholder="ระดับความสำคัญ" type="radio" name="carRating" value="3"
+        [(ngModel)]="rating.rating">
+        <label class="form-check-label" for="carRating3"> ปานกลาง </label>
+      </div>
+      <div class="form-check">
+      <input class="form-check-label" id="carRating4" placeholder="ระดับความสำคัญ" type="radio" name="carRating" value="4"
+        [(ngModel)]="rating.rating">
+        <label class="form-check-label" for="carRating4"> มาก </label>
+      </div>
+      <div class="form-check">
+      <input class="form-check-label" id="carRating5" placeholder="ระดับความสำคัญ" type="radio" name="carRating" value="5"
+        [(ngModel)]="rating.rating">
+        <label class="form-check-label" for="carRating5"> มากที่สุด </label>
+      </div>
+    </div>
+    <div class="col-md-9 form-group">
+      <label for="carRemark">หมายเหตุ</label>
+      <textarea class="form-control" id="carRemark" placeholder="หมายเหตุ" type="text" name="carRemark" [(ngModel)]="rating.comment"
+        #carRemark="ngModel"></textarea>
+    </div>
+  </div>
+</fieldset>

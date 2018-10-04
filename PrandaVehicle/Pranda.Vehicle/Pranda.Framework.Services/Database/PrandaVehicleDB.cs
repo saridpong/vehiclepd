@@ -111,6 +111,26 @@ namespace Pranda.Framework.Services.Database
                    .HasPrecision(5, 0);
 
             modelBuilder.Entity<RequestHeader>()
+            .Property(e => e.LabourCost)
+            .HasPrecision(10, 2);
+            modelBuilder.Entity<RequestHeader>()
+          .Property(e => e.FeeCost)
+          .HasPrecision(10, 2);
+            modelBuilder.Entity<RequestHeader>()
+          .Property(e => e.FuelCost)
+          .HasPrecision(10, 2);
+
+            modelBuilder.Entity<RequestHeader>()
+       .Property(e => e.OtherCost)
+       .HasPrecision(10, 2);
+            modelBuilder.Entity<RequestHeader>()
+       .Property(e => e.TotalCost)
+       .HasPrecision(10, 2);
+            modelBuilder.Entity<RequestHeader>()
+       .Property(e => e.DiffCost)
+       .HasPrecision(10, 2);
+
+            modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.RequestHeaderStatus)
                 .HasPrecision(5, 0);
             modelBuilder.Entity<RequestHeader>()

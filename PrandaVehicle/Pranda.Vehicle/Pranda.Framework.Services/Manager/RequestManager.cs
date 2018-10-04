@@ -233,6 +233,21 @@ namespace Pranda.Framework.Services.Manager
                         request.Requests.TotalPassenger = Convert.ToInt32(header.TotalPasenger.Value);
                         request.Requests.Status = header.RequestHeaderStatus.Value;
                         request.Requests.ApproveRemark = header.ApproveRemark;
+                        request.Requests.MilesIn = header.MilesIn;
+                        request.Requests.MilesOut = header.MilesOut;
+                        request.Requests.DiffVehicleTime = header.DiffVehicleTime;
+                        request.Requests.Diff_Miles = header.Diff_Miles;
+                        request.Requests.Diff_Miles_Est = header.Diff_Miles_Est;
+                        request.Requests.VehicleTimeIn = header.VehicleTimeIn;
+                        request.Requests.VehicleTimeOut = header.VehicleTimeOut;
+                        request.Requests.Rating = header.Rating;
+                        request.Requests.Comment = header.Comment;
+                        request.Requests.LabourCost = header.LabourCost;
+                        request.Requests.FeeCost = header.FeeCost;
+                        request.Requests.FuelCost = header.FuelCost;
+                        request.Requests.OtherCost = header.OtherCost;
+                        request.Requests.TotalCost = header.TotalCost;
+                        request.Requests.DiffCost = header.DiffCost;
                         if (header.VehicleID != null)
                         {
                             request.Requests.Vehicle = (from us in context.Vihicles
@@ -339,7 +354,6 @@ namespace Pranda.Framework.Services.Manager
                     header.TotalPasenger = req.Requests.TotalPassenger;
                     header.UserFirstName = login.FirstName;
                     header.UserMobile = login.Mobile;
-                    header.UserID = login.UserID;
                     header.UserPhone = login.Tel;
                     header.UserPosition = login.Position;
                     header.UserSectionCode = login.SectionCode;
@@ -415,28 +429,7 @@ namespace Pranda.Framework.Services.Manager
                 {
                     RequestHeader header = context.RequestHeaders.Where(p => p.RequestHeaderID == req.Requests.RequestHeaderID).FirstOrDefault();
 
-                    header.UpdateBy = login.Username;
-                    header.UpdateDate = DateTime.Now;
-                    header.DateEnd = req.Requests.EndDate;
-                    header.DateStart = req.Requests.StartDate;
-                    header.Approver = login.Approver;
-                    header.UserDepartmentCode = login.DepartmentCode;
-                    header.UserDepartmentName = login.Department;
-                    header.DocumentDate = DateTime.Now;
-                    header.EstimateCost = req.Requests.EstimateCost;
-                    header.EstimateDistance = req.Requests.EstimateDistance;
-                    header.JobType = req.Requests.JobType;
-                    header.Priority = req.Requests.Priority;
-                    header.Remark = req.Requests.Remark;
-                    header.TotalPasenger = req.Requests.TotalPassenger;
-                    header.UserFirstName = login.FirstName;
-                    header.UserMobile = login.Mobile;
-                    header.UserID = login.UserID;
-                    header.UserPhone = login.Tel;
-                    header.UserPosition = login.Position;
-                    header.UserSectionCode = login.SectionCode;
-                    header.UserSectionName = login.SectionName;
-                    header.UserSurname = login.LastName;
+                   
 
                     // Approve
                     if (req.Requests.Vehicle != null)
@@ -468,47 +461,7 @@ namespace Pranda.Framework.Services.Manager
                     }
 
 
-                    if (req.Requests != null && req.Requests.Places != null)
-                    {
-                        List<RequestLine> line = context.RequestLines.Where(p => p.RequestHeaderID == req.Requests.RequestHeaderID).ToList();
-                        foreach (var item in line)
-                        {
-                            RequestLineItem place = req.Requests.Places.Where(p => p.RequestLineID == item.RequestLineID).FirstOrDefault();
-                            if (place != null)
-                            {
-                                item.ContactName = place.ContactName;
-                                item.UpdateBy = login.Username;
-                                item.UpdateDate = DateTime.Now;
-                                item.Location = place.Place.LocationName;
-                                item.Place = place.Place.PlaceName;
-                                item.Province = place.Place.Province;
-                                item.RequestLineDescription = place.RequestLineDescription;
-                            }
-                            else
-                            {
-                                context.RequestLines.Remove(item);
-                            }
-                        }
-
-                        decimal i = req.Requests.Places.Max(p => p.RequestLineID) + 1;
-                        foreach (var item in req.Requests.Places.Where(p => p.RequestLineID == 0))
-                        {
-                            RequestLine newLine = new RequestLine()
-                            {
-                                ContactName = item.ContactName,
-                                CreateBy = login.Username,
-                                CreateDate = DateTime.Now,
-                                Location = item.Place.LocationName,
-                                Place = item.Place.PlaceName,
-                                Province = item.Place.Province,
-                                RequestHeaderID = req.Requests.RequestHeaderID,
-                                RequestLineDescription = item.RequestLineDescription,
-                                RequestLineID = i,
-                            };
-                            context.RequestLines.Add(newLine);
-                            i++;
-                        }
-                    }
+                   
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
                     res.Description = "Request Update Success.";
@@ -586,6 +539,73 @@ namespace Pranda.Framework.Services.Manager
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
                     res.Description = "Vehicle Out Success.";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = Response.ResponseStatus.Failed;
+                res.Exception = ex;
+                res.Description = ex.Message;
+            }
+            return res;
+
+        }
+        public CarSearchResponse Rating(CarRequestItem req)
+        {
+            CarSearchResponse res = new CarSearchResponse();
+            try
+            {
+                UserLoginModel login = UserManager.CurrentUser;
+                using (var context = new PrandaVehicleDB())
+                {
+                    RequestHeader header = context.RequestHeaders.Where(p => p.RequestHeaderID == req.Requests.RequestHeaderID).FirstOrDefault();
+
+                    header.UpdateBy = login.Username;
+                    header.UpdateDate = DateTime.Now;
+                    header.Rating = req.Requests.Rating;
+                    header.Comment = req.Requests.Comment;
+                    header.RequestHeaderStatus = req.Requests.RequestHeaderStatus;
+
+                    context.SaveChanges();
+                    res.ResponseStatus = Response.ResponseStatus.Success;
+                    res.Description = "Rating Success.";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = Response.ResponseStatus.Failed;
+                res.Exception = ex;
+                res.Description = ex.Message;
+            }
+            return res;
+
+        }
+
+        public CarSearchResponse LabourCost(CarRequestItem req)
+        {
+            CarSearchResponse res = new CarSearchResponse();
+            try
+            {
+                UserLoginModel login = UserManager.CurrentUser;
+                using (var context = new PrandaVehicleDB())
+                {
+                    RequestHeader header = context.RequestHeaders.Where(p => p.RequestHeaderID == req.Requests.RequestHeaderID).FirstOrDefault();
+
+                    header.UpdateBy = login.Username;
+                    header.UpdateDate = DateTime.Now;
+                    header.LabourCost = req.Requests.LabourCost;
+                    header.FeeCost = req.Requests.FeeCost;
+                    header.FuelCost = req.Requests.FuelCost;
+                    header.OtherCost = req.Requests.OtherCost;
+                    header.TotalCost = req.Requests.TotalCost;
+                    header.DiffCost = req.Requests.DiffCost;
+                    header.RequestHeaderStatus = req.Requests.RequestHeaderStatus;
+
+                    context.SaveChanges();
+                    res.ResponseStatus = Response.ResponseStatus.Success;
+                    res.Description = "Rating Success.";
 
                 }
             }

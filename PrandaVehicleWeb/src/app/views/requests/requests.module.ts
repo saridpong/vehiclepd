@@ -20,6 +20,10 @@ import { ApproveCarsComponent } from './commons/approve-cars.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule, OWL_DATE_TIME_LOCALE } from 'ng-pick-datetime';
 import { AppDriverComponent } from '../../components/app-driver';
 import { AppVehicleComponent } from '../../components/app-vehicle';
+import { RequestsRatingComponent } from './requests-rating.component';
+import { RatingComponent } from './commons/rating.component';
+import { LabourCostComponent } from './commons/labour-cost.component';
+import { RequestsLabourCostComponent } from './requests-labour-cost.component';
 
 @NgModule({
   imports: [
@@ -47,7 +51,11 @@ import { AppVehicleComponent } from '../../components/app-vehicle';
     AppForUseComponent,
     AppPlaceComponent,
     AppDriverComponent,
-    AppVehicleComponent
+    AppVehicleComponent,
+    RequestsRatingComponent,
+    RatingComponent,
+    LabourCostComponent,
+    RequestsLabourCostComponent
   ],
   entryComponents: [
     RequestCarsComponent,
@@ -59,7 +67,11 @@ import { AppVehicleComponent } from '../../components/app-vehicle';
     AppForUseComponent,
     AppPlaceComponent,
     AppDriverComponent,
-    AppVehicleComponent
+    AppVehicleComponent,
+    RequestsRatingComponent,
+    RatingComponent,
+    LabourCostComponent,
+    RequestsLabourCostComponent
   ],
   providers: [
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'th' },

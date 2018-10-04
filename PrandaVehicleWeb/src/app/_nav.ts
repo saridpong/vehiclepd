@@ -27,14 +27,6 @@ export const requesterMenu = [
     childs: null
   },
   {
-    menuID: 2,
-    menuIcon: '',
-    menuSystemName: 'อนุมัติการขอใช้รถยนต์',
-    menuSystemUrl: '/requests/approve/1',
-    useFlag: true,
-    childs: null
-  },
-  {
     menuID: 4,
     menuIcon: '',
     menuSystemName: 'ให้คะแนนใบขอใช้บริการรถยนต์',

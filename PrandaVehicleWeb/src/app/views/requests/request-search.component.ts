@@ -32,14 +32,14 @@ export class RequestSearchComponent implements OnInit {
     if (this.mRole === 'ADMIN') {
       this.mView = {
         approve: true,
-        view: true,
-        editRequest: true
+        rating: true,
+        labour: true
       }
     } else if (this.mRole === 'REQUEST') {
       this.mView = {
         approve: false,
-        view: true,
-        editRequest: true
+        rating: true,
+        labour: false
       }
     }
     // if (window.localStorage.getItem('token') !== null) {
@@ -58,6 +58,10 @@ export class RequestSearchComponent implements OnInit {
       this.route.navigate(['requests/view/' + item.requestHeaderID]);
     } else if (item.status === 2 || item.status === 3) {
       this.route.navigate(['requests/approve/view/' + item.requestHeaderID]);
+    } else if (item.status === 4) {
+      this.route.navigate(['requests/rating/view/' + item.requestHeaderID]);
+    } else if (item.status === 5 || item.status === 6) {
+      this.route.navigate(['requests/labourcost/view/' + item.requestHeaderID]);
     }
   }
   onEdit(item) {
@@ -65,6 +69,12 @@ export class RequestSearchComponent implements OnInit {
   }
   onApprove(item) {
     this.route.navigate(['requests/approve/' + item.requestHeaderID]);
+  }
+  onRating(item) {
+    this.route.navigate(['requests/rating/' + item.requestHeaderID]);
+  }
+  onLabourCost(item) {
+    this.route.navigate(['requests/labourcost/' + item.requestHeaderID]);
   }
   onSearch() {
     this.request.find(this.criteria).subscribe(result => {

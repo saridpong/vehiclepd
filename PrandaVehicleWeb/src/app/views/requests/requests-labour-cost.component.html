@@ -9,20 +9,26 @@
           <div class="card-body">
             <tabset #staticTabs>
               <tab heading="ข้อมูลใบขอใช้รถยนต์">
-                <app-staff [staff]="criteria.staff" [read]="read"></app-staff>
-                <app-request-cars [requests]="criteria.requests" [read]="read"></app-request-cars>
+                  <app-staff [staff]="criteria.staff" [read]="read"></app-staff>
+                  <app-request-cars [requests]="criteria.requests" [read]="read"></app-request-cars>
               </tab>
-              <tab heading="อนุมัติใบขอใช้รถยนต์" active='true'>
-                <app-approve-cars [requestApprove]="criteria.requests" [read]="readApprove"></app-approve-cars>
+              <tab heading="อนุมัติใบขอใช้รถยนต์">
+                  <app-approve-cars [requestApprove]="criteria.requests" [read]="read"></app-approve-cars>
+              </tab>
+              <tab heading="ให้คะแนนความพึงพอใจ">
+                  <app-rating [rating]="criteria.requests" [read]="read"></app-rating>
+              </tab>
+              <tab heading="บันทึกค่าแรง" active='true'>
+                  <app-labour-cost [labourcost]="criteria.requests" [read]="readLabour"></app-labour-cost>
               </tab>
             </tabset>
           </div>
-          <div class="card-footer" *ngIf="!readApprove">
+          <div class="card-footer" *ngIf="!readLabour">
             <button class="btn btn-primary float-right" type="button" (click)="onSaveDraft()" [disabled]="!newRequest.form.valid">
               <i class="fa fa-save"></i> บันทึกแบบร่าง</button>
 
             <button class="btn btn-primary float-right" type="submit" [disabled]="!newRequest.form.valid">
-              <i class="fa fa-signature"></i> อนุมัติ</button>
+              <i class="fa fa-hand-holding-usd"></i> บันทึกค่าแรง</button>
           </div>
         </div>
       </form>

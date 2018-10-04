@@ -101,16 +101,26 @@
                   <td class="text-center">{{item.priority}}</td>
                   <td class="text-center">{{item.jobType}}</td>
                   <td class="text-center">
-                   
+
                     <button class="btn btn-primary btn-sm" type="button" tooltip="ดูข้อมูล" placement="top" (click)="onView(item)">
                       <i class="fa fa-search"></i>
                     </button>
-                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 1"  type="button" tooltip="แก้ไขข้อมูล" placement="top" (click)="onEdit(item)">
+                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 1" type="button" tooltip="แก้ไขข้อมูล"
+                      placement="top" (click)="onEdit(item)">
                       <i class="fa fa-edit"></i>
                     </button>
-                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 1"  type="button" tooltip="อนุมัติ" placement="top" (click)="onApprove(item)">
-                        <i class="fas fa-file-signature"></i>
-                      </button>
+                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 1 && mView.approve" type="button" tooltip="อนุมัติ"
+                      placement="top" (click)="onApprove(item)">
+                      <i class="fas fa-file-signature"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 4 && mView.rating" type="button" tooltip="คะแนนความพึงพอใจ"
+                      placement="top" (click)="onRating(item)">
+                      <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="btn btn-primary btn-sm" *ngIf="item.status === 5 && mView.labour" type="button" tooltip="คะแนนความพึงพอใจ"
+                    placement="top" (click)="onLabourCost(item)">
+                    <i class="fas fa-hand-holding-usd"></i>
+                  </button>
                   </td>
                 </tr>
               </tbody>

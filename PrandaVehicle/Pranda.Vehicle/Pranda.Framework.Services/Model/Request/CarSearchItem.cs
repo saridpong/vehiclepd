@@ -17,10 +17,12 @@ namespace Pranda.Framework.Services.Model.Request
         public decimal RequestHeaderID { get; set; }
         public decimal? MilesIn { get; set; }
         public decimal? MilesOut { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime? VehicleTimeIn { get; set; }
         public DateTime? VehicleTimeOut { get; set; }
         public string VehicleCode { get; set; }
         public string DriverName { get; set; }
         public string DriverCode { get; set; }
+        public string DriverTel { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace Pranda.Framework.Services.Request.ForUse
         public int Status { get; set; }
         public string ForUseCode { get; set; }
         public string ForUseName { get; set; }
+        public string Priority { get; set; }
     }
 }

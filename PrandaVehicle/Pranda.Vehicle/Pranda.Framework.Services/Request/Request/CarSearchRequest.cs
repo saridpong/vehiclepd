@@ -15,5 +15,6 @@ namespace Pranda.Framework.Services.Request.Request
         public string JobType { get; set; }
         public string CarReg { get; set; }
         public string DriverName { get; set; }
+        public string Page { get; set; }
     }
 }

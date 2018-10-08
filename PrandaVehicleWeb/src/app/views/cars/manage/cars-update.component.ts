@@ -3,12 +3,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { CarTypeService } from '../../../services/cartype.services';
 
 @Component({
   templateUrl: 'cars-update.component.html'
 })
 export class CarsUpdateComponent implements OnInit {
   roots: any = [];
+  items: any;
   mCriteria: any = {
     vehicleCode: '',
     vehicleBrand: '',
@@ -20,15 +22,18 @@ export class CarsUpdateComponent implements OnInit {
     vehicleYear: '',
     vehicleAsset: '',
     vehicleInsurance: '',
-    vehicleInsuranceType: ''
+    vehicleInsuranceType: '',
+    carType: {}
   };
   constructor(
     private route: Router,
     private routeActive: ActivatedRoute,
     private toastr: ToastrService,
     private location: Location,
-    private cars: CarsService
+    private cars: CarsService,
+    private cartype: CarTypeService
   ) {
+    this.items = {}
     this.routeActive.params.subscribe(params => {
       const param = { vehicleId: params['id'] };
       this.cars.findbyid(param).subscribe(result => {
@@ -36,7 +41,15 @@ export class CarsUpdateComponent implements OnInit {
       });
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+
+    const carCriteria = {
+      status: 1
+    }
+    this.cartype.find(carCriteria).subscribe(result => {
+      this.items = result;
+    })
+  }
 
   onSubmit() {
     this.cars.update(this.mCriteria).subscribe(result => {

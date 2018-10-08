@@ -35,6 +35,11 @@ namespace Pranda.Framework.Services.Manager
                     {
                         str.Append(string.Format(" and ForUseName.Contains(\"{0}\") ", req.ForUseName));
                     }
+                    if (!string.IsNullOrEmpty(req.Priority))
+                    {
+                        str.Append(string.Format(" and Priority.Contains(\"{0}\") ", req.Priority));
+                    }
+
 
                     res.ForUses = (from us in context.ForUses.Where(str.ToString())
                                    select new ForUseItem
@@ -42,6 +47,7 @@ namespace Pranda.Framework.Services.Manager
                                        ForUseCode = us.ForUseCode,
                                        ForUseID = us.ForUseID,
                                        ForUseName = us.ForUseName,
+                                       Priority = us.Priority,
                                        Status = us.Status
                                    }).ToList();
                     if (res.ForUses.Count > 0)

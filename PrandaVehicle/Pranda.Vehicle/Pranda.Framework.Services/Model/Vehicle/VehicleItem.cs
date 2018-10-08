@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pranda.Framework.Services.Model.CarType;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Pranda.Framework.Services.Model.Vehicle
 
         public string VehicleModel { get; set; }
 
-
+        public string VehicleEngine { get; set; }
         public string VehicleFuelType { get; set; }
 
 
@@ -49,5 +50,6 @@ namespace Pranda.Framework.Services.Model.Vehicle
 
       
         public decimal Status { get; set; }
+        public CarTypeItem CarType { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Pranda.Framework.Services.Model.Driver;
+using Pranda.Framework.Services.Model.ForUse;
 using Pranda.Framework.Services.Model.Vehicle;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,10 @@ namespace Pranda.Framework.Services.Model.Request
     {
         public decimal RequestHeaderID { get; set; }
         public int RequestHeaderStatus { get; set; }
+        public string DocumentNoRef { get; set; }
+        public int? ForUseID { get; set; }
         public string JobType { get; set; }
+        public ForUseItem ForUse { get; set; }
         public string Priority { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

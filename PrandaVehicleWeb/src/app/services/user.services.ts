@@ -16,6 +16,13 @@ export class UserService {
     Intitial(): Observable<any> {
         return this.http.post<any>(this.global.BaseApiUrl + 'api/user/initial', null)
     }
+    find(criteria): Observable<any> {
+        return this.http.post<any>(
+            this.global.BaseApiUrl + 'api/User/Find',
+            criteria
+        );
+    }
+
 }
 
 

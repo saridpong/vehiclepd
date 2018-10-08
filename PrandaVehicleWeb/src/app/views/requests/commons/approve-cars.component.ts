@@ -16,7 +16,10 @@ export class ApproveCarsComponent implements OnInit {
         private location: Location
     ) {
         if (this.requestApprove === undefined || this.requestApprove === null) {
-            this.requestApprove = {};
+            this.requestApprove = {
+                driver: {},
+                vehicle: {}
+            };
         }
     }
     ngOnInit() {

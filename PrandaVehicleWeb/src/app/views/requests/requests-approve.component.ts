@@ -27,6 +27,9 @@ export class RequestsApproveComponent implements OnInit {
     this.criteria = {
       staff: {},
       requests: {
+        forUse: {},
+        driver: {},
+        vehicle: {},
         places: []
       },
       approve: {}
@@ -46,6 +49,15 @@ export class RequestsApproveComponent implements OnInit {
       requestHeaderID: id
     }
     this.request.findbyid(findbyid).subscribe(result => {
+      if (result.carRequest.requests.driver === undefined) {
+        result.carRequest.requests.driver = {};
+      }
+      if (result.carRequest.requests.vehicle === undefined) {
+        result.carRequest.requests.vehicle = {};
+      }
+      if (result.carRequest.requests.forUse === undefined || result.carRequest.requests.forUse === null) {
+        result.carRequest.requests.forUse = {};
+      }
       this.criteria = result.carRequest;
     });
   }
@@ -53,7 +65,7 @@ export class RequestsApproveComponent implements OnInit {
     this.criteria.requests.requestHeaderStatus = 1;
     this.request.approve(this.criteria).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Update Success.', 'Update Request');
+        this.toastr.success('Update Success.', 'Save Draft');
         this.route.navigate(['requests/search']);
       } else {
         this.toastr.error('Update Failed.', 'Update Request');
@@ -65,7 +77,7 @@ export class RequestsApproveComponent implements OnInit {
     this.criteria.requests.requestHeaderStatus = 2;
     this.request.approve(this.criteria).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Approve Success.', 'Approve Request');
+        this.toastr.success('Approve Success.', result.description);
         this.route.navigate(['requests/search']);
       } else {
         this.toastr.error('Approve Failed.', 'Approve Request');

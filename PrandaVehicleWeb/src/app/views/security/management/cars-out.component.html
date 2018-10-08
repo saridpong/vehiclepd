@@ -6,22 +6,32 @@
 </div>
 <div class="modal-body">
   <div class="row">
+    <div class="col-md-6 text-center" style="display:block">
+      <img width="180px" src="picturecar/{{item.vehicleCode}}.jpg"><br />{{item.vehicleCode}}
+    </div>
+    <div class="col-md-6 text-center" style="display:block">
+      <img width="120px" src="picturepeople/{{item.driverCode}}.jpg"><br />{{item.driverName}}<br />{{item.driverTel}}</div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
       <div class="form-group">
         <label class="mb-0" for="vehicleCode">ทะเบียน</label>
-        <input class="form-control" id="vehicleCode" [(ngModel)]="item.vehicleCode" placeholder="ทะเบียน" type="text" name="vehicleCode" >
+        <input class="form-control" id="vehicleCode" readonly="'true'" [(ngModel)]="item.vehicleCode" placeholder="ทะเบียน" type="text"
+          name="vehicleCode">
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="mb-0" for="driverCode">รหัสพนักงาน</label>
-        <input class="form-control" id="driverCode" [(ngModel)]="item.driverCode" placeholder="รหัสพนักงาน" type="text" name="driverCode" >
+        <input class="form-control" id="driverCode"  readonly="'true'" [(ngModel)]="item.driverCode" placeholder="รหัสพนักงาน" type="text"
+          name="driverCode">
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="mb-0" for="milesOut">เลขไมล์ออก</label>
-        <input class="form-control text-right" [(ngModel)]="item.milesOut" id="milesOut" placeholder="เลขไมล์ออก" type="number" name="milesOut" >
+        <input class="form-control text-right" [(ngModel)]="item.milesOut" id="milesOut" placeholder="เลขไมล์ออก" type="number"
+          name="milesOut">
       </div>
     </div>
   </div>

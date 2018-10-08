@@ -1,0 +1,89 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          <strong>
+            <h3>เพื่อใช้ในการ</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="forCode">รหัส</label>
+                <input class="form-control" id="forCode" placeholder="รหัส" [(ngModel)]="criteria.forUseCode" type="text"
+                  name="forCode">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="forUseName">รายละเอียด</label>
+                <input class="form-control" id="forUseName" placeholder="รายละเอียด" [(ngModel)]="criteria.forUseName" type="text"
+                  name="forUseName">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="priority">ระดับความสำคัญ</label>
+                <input class="form-control" id="priority" [(ngModel)]="criteria.priority" placeholder="ระดับความสำคัญ"
+                  type="text" name="priority">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="mb-0" for="useFlag">สถานะ</label>
+                <select class="form-control" id="useFlag" placeholder="Useflag" [(ngModel)]="criteria.status" name="useFlag">
+                  <option *ngFor="let item of mStatus" value="{{item.value}}">{{item.text}}</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSearch()">
+            <i class="fa fa-search"></i> ค้นหา</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+        </div>
+        <div class="card-body">
+          <div style="overflow: auto;">
+            <table class="table table-hover mb-0" style="width: 100%;font-size:13px;">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th style="vertical-align:middle;">#</th>
+                  <th style="vertical-align:middle;">รหัส</th>
+                  <th style="vertical-align:middle;">รายละเอียด</th>
+                  <th style="vertical-align:middle;">ระดับความสำคัญ</th>
+                  <th style="vertical-align:middle;">สถานะ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of mSearch.forUses;let i =index">
+                  <th class="text-center">{{i+1}}</th>
+                  <td class="text-center">{{item.forUseCode}}</td>
+                  <td >{{item.forUseName}}</td>
+                  <td class="text-center">{{item.priority}}</td>
+                  <td class="text-center">
+                    <p *ngIf="item.status === 1">ใช้งาน</p>
+                    <p *ngIf="item.status === 2">ไม่ใช้งาน</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

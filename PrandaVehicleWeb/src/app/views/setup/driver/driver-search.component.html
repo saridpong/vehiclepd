@@ -1,0 +1,80 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+          <strong>
+            <h3>พนักงานขับรถ</h3>
+          </strong>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="mb-0" for="driverCode">รหัส</label>
+                <input class="form-control" id="driverCode" placeholder="รหัส" [(ngModel)]="criteria.driverCode" type="text"
+                  name="driverCode">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="mb-0" for="driverName">ชื่อ</label>
+                <input class="form-control" id="driverName" placeholder="ชื่อ" [(ngModel)]="criteria.driverName" type="text"
+                  name="driverName">
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <label class="mb-0" for="useFlag">สถานะ</label>
+                  <select class="form-control" id="useFlag" placeholder="Useflag" [(ngModel)]="criteria.status" name="useFlag">
+                    <option *ngFor="let item of mStatus" value="{{item.value}}">{{item.text}}</option>
+                  </select>
+                </div>
+              </div>
+          </div>
+         
+
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary float-right" type="submit" (click)="onSearch()">
+            <i class="fa fa-search"></i> ค้นหา</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-accent-primary">
+        <div class="card-header text-center">
+        </div>
+        <div class="card-body">
+          <div style="overflow: auto;">
+            <table class="table table-hover mb-0" style="width: 100%;font-size:13px;">
+              <thead class="thead-light">
+                <tr class="text-center">
+                  <th style="vertical-align:middle;">#</th>
+                  <th style="vertical-align:middle;">รหัส</th>
+                  <th style="vertical-align:middle;">ชื่อ-นามสกุล</th>
+                  <th style="vertical-align:middle;">รูปพนักงาน</th>
+                  <th style="vertical-align:middle;">สถานะ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of mSearch.drivers;let i =index">
+                  <th class="text-center">{{i+1}}</th>
+                  <td class="text-center">{{item.driverCode}}</td>
+                  <td >{{item.driverName}}</td>
+                  <td  class="text-center"><img src="picturepeople/{{item.driverCode}}.jpg" class="img-responsive" width="120px"/></td>
+                  <td class="text-center">
+                    <p *ngIf="item.status === 1">ใช้งาน</p>
+                    <p *ngIf="item.status === 2">ไม่ใช้งาน</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

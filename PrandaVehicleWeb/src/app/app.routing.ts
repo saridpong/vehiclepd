@@ -136,6 +136,19 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'setup',
+    component: LeftSidebarLayoutComponent,
+    data: {
+      title: 'Setup'
+    },
+    children: [
+      {
+        path: '',
+        loadChildren: './views/setup/setup.module#SetupModule'
+      }
+    ]
+  },
+  {
     path: 'Admin',
     component: LeftSidebarLayoutComponent,
     data: {

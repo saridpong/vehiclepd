@@ -10,30 +10,25 @@ namespace Pranda.Framework.Services.Database
     public partial class CarType
     {
         [Key]
-        [Column(Order = 0, TypeName = "numeric")]
+        [Column(TypeName = "numeric")]
         public decimal CarTypeID { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
+    
         [StringLength(20)]
         public string CarTypeCode { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+    
         [StringLength(80)]
         public string CarTypeName { get; set; }
 
-        [Key]
-        [Column(Order = 3, TypeName = "numeric")]
+      
+        [Column(TypeName = "numeric")]
         public decimal Status { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
         [StringLength(20)]
         public string UpdateBy { get; set; }
 
-        [Key]
-        [Column(Order = 5)]
+
         public DateTime UpdateDate { get; set; }
     }
 }

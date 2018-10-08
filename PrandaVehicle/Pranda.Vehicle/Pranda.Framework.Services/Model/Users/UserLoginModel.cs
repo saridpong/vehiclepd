@@ -26,5 +26,6 @@ namespace Pranda.Framework.Services.Model.Users
         public decimal? RoleID { get; set; }
         public string Tel { get; set; }
         public string Mobile { get; set; }
+        public decimal Status { get; set; }
     }
 }

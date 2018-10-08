@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap';
 import { AuthService } from '../../../services/auth.services';
 import { RequestService } from '../../../services/request.services';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -12,10 +13,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CarsOutComponent implements OnInit {
   item: any = {};
+  public onClose: Subject<any>;
   constructor(public bsModalRef: BsModalRef,
     private auth: AuthService,
     private request: RequestService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private route: Router,
+    private router: ActivatedRoute) {
+    this.onClose = new Subject();
+  }
   ngOnInit() {
 
   }
@@ -23,11 +29,13 @@ export class CarsOutComponent implements OnInit {
     this.item.vehicleTimeOut = new Date();
     this.request.vehicleout(this.item).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Vehicle Out Success.', 'Vehicle Out Save');
+        this.route.navigate(['/security']);
+        this.toastr.success('Vehicle Out Success.', result.description);
       } else {
         this.toastr.error('Vehicle Out Failed.', 'Vehicle Out Save');
       }
     });
+    this.onClose.next({});
     this.bsModalRef.hide()
   }
 }

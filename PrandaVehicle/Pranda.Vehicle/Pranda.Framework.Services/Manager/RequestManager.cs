@@ -1,5 +1,6 @@
 ﻿using Pranda.Framework.Services.Database;
 using Pranda.Framework.Services.Model.Driver;
+using Pranda.Framework.Services.Model.ForUse;
 using Pranda.Framework.Services.Model.Place;
 using Pranda.Framework.Services.Model.Request;
 using Pranda.Framework.Services.Model.Users;
@@ -57,8 +58,6 @@ namespace Pranda.Framework.Services.Manager
                         DocumentDate = DateTime.Now,
                         EstimateCost = req.Requests.EstimateCost,
                         EstimateDistance = req.Requests.EstimateDistance,
-                        JobType = req.Requests.JobType,
-                        Priority = req.Requests.Priority,
                         Remark = req.Requests.Remark,
                         RequestHeaderStatus = 1,
                         TotalPasenger = req.Requests.TotalPassenger,
@@ -69,8 +68,15 @@ namespace Pranda.Framework.Services.Manager
                         UserPosition = login.Position,
                         UserSectionCode = login.SectionCode,
                         UserSectionName = login.SectionName,
-                        UserSurname = login.LastName
+                        UserSurname = login.LastName,
+                        DocumentNoRef = req.Requests.DocumentNoRef
                     };
+                    if (req.Requests.ForUse != null)
+                    {
+                        header.JobType = req.Requests.ForUse.ForUseName;
+                        header.ForUseID = req.Requests.ForUse.ForUseID;
+                        header.Priority = req.Requests.Priority;
+                    }
                     context.RequestHeaders.Add(header);
 
                     if (req.Requests != null && req.Requests.Places != null)
@@ -96,7 +102,7 @@ namespace Pranda.Framework.Services.Manager
                     }
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Request Success.";
+                    res.Description = string.Format("ทำการบันทึกเลขที่เอกสาร {0} เรียบร้อยแล้ว", docNo);
 
                 }
             }
@@ -131,7 +137,11 @@ namespace Pranda.Framework.Services.Manager
                     }
                     if (login.RoleID == 3)
                     {
-                        str.Append(string.Format(" and RequestHeaderStatus = 2 or RequestHeaderStatus = 3  or RequestHeaderStatus = 4"));
+                        str.Append(string.Format(" and RequestHeaderStatus = 2 or RequestHeaderStatus = 3"));
+                    }
+                    if (!string.IsNullOrEmpty(req.Page) && req.Page.Equals("Security"))
+                    {
+                        str.Append(string.Format(" and RequestHeaderStatus = 2 or RequestHeaderStatus = 3"));
                     }
                     //if (!string.IsNullOrEmpty(req.DriverName))
                     //{
@@ -169,13 +179,15 @@ namespace Pranda.Framework.Services.Manager
                                        Priority = us.Priority,
                                        Status = us.RequestHeaderStatus.Value,
                                        RequestHeaderID = us.RequestHeaderID,
+                                       StartDate = us.DateStart,
                                        MilesOut = us.MilesOut,
-                                       MilesIn= us.MilesIn,
+                                       MilesIn = us.MilesIn,
                                        VehicleTimeIn = us.VehicleTimeIn,
                                        VehicleTimeOut = us.VehicleTimeOut,
                                        VehicleCode = us.VehicleCode,
                                        DriverName = us.DriverName,
-                                       DriverCode = us.DriverCode
+                                       DriverCode = us.DriverCode,
+                                       DriverTel = us.DriverMobile
                                    }).ToList();
                     if (res.Searchs.Count > 0)
                     {
@@ -226,6 +238,20 @@ namespace Pranda.Framework.Services.Manager
                         request.Requests.StartDate = header.DateStart.Value;
                         request.Requests.EstimateCost = header.EstimateCost.Value;
                         request.Requests.EstimateDistance = header.EstimateDistance.Value;
+                        request.Requests.ForUseID = header.ForUseID;
+                        if (header.ForUseID != null)
+                        {
+                            request.Requests.ForUse = (from us in context.ForUses
+                                                       where us.ForUseID == header.ForUseID
+                                                       select new ForUseItem
+                                                       {
+                                                           ForUseID = us.ForUseID,
+                                                           ForUseCode = us.ForUseCode,
+                                                           ForUseName = us.ForUseName,
+                                                           Priority = us.Priority,
+                                                           Status = us.Status
+                                                       }).FirstOrDefault();
+                        }
                         request.Requests.JobType = header.JobType;
                         request.Requests.Priority = header.Priority;
                         request.Requests.Remark = header.Remark;
@@ -235,7 +261,10 @@ namespace Pranda.Framework.Services.Manager
                         request.Requests.ApproveRemark = header.ApproveRemark;
                         request.Requests.MilesIn = header.MilesIn;
                         request.Requests.MilesOut = header.MilesOut;
-                        request.Requests.DiffVehicleTime = header.DiffVehicleTime;
+                        if (header.DiffVehicleTime != null)
+                        {
+                            request.Requests.DiffVehicleTime = TimeSpan.FromTicks(header.DiffVehicleTime.Value);
+                        }
                         request.Requests.Diff_Miles = header.Diff_Miles;
                         request.Requests.Diff_Miles_Est = header.Diff_Miles_Est;
                         request.Requests.VehicleTimeIn = header.VehicleTimeIn;
@@ -248,6 +277,7 @@ namespace Pranda.Framework.Services.Manager
                         request.Requests.OtherCost = header.OtherCost;
                         request.Requests.TotalCost = header.TotalCost;
                         request.Requests.DiffCost = header.DiffCost;
+                        request.Requests.DocumentNoRef = header.DocumentNoRef;
                         if (header.VehicleID != null)
                         {
                             request.Requests.Vehicle = (from us in context.Vihicles
@@ -347,8 +377,12 @@ namespace Pranda.Framework.Services.Manager
                     header.DocumentDate = DateTime.Now;
                     header.EstimateCost = req.Requests.EstimateCost;
                     header.EstimateDistance = req.Requests.EstimateDistance;
-                    header.JobType = req.Requests.JobType;
-                    header.Priority = req.Requests.Priority;
+                    if (req.Requests.ForUse != null)
+                    {
+                        header.JobType = req.Requests.ForUse.ForUseName;
+                        header.ForUseID = req.Requests.ForUse.ForUseID;
+                        header.Priority = req.Requests.Priority;
+                    }
                     header.Remark = req.Requests.Remark;
                     header.RequestHeaderStatus = 1;
                     header.TotalPasenger = req.Requests.TotalPassenger;
@@ -359,6 +393,7 @@ namespace Pranda.Framework.Services.Manager
                     header.UserSectionCode = login.SectionCode;
                     header.UserSectionName = login.SectionName;
                     header.UserSurname = login.LastName;
+                    header.DocumentNoRef = req.Requests.DocumentNoRef;
 
 
 
@@ -405,7 +440,7 @@ namespace Pranda.Framework.Services.Manager
                     }
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Request Update Success.";
+                    res.Description = string.Format("ทำการแก้ไขเลขที่เอกสาร {0} เรียบร้อยแล้ว", header.DocumentNo);
 
                 }
             }
@@ -429,7 +464,7 @@ namespace Pranda.Framework.Services.Manager
                 {
                     RequestHeader header = context.RequestHeaders.Where(p => p.RequestHeaderID == req.Requests.RequestHeaderID).FirstOrDefault();
 
-                   
+
 
                     // Approve
                     if (req.Requests.Vehicle != null)
@@ -461,10 +496,10 @@ namespace Pranda.Framework.Services.Manager
                     }
 
 
-                   
+
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Request Update Success.";
+                    res.Description = string.Format("ทำการอนุมัติเลขที่เอกสาร {0} เรียบร้อยแล้ว",header.DocumentNo);
 
                 }
             }
@@ -499,11 +534,11 @@ namespace Pranda.Framework.Services.Manager
                     header.RequestHeaderStatus = 4;
                     if (req.VehicleTimeIn != null && header.VehicleTimeOut != null)
                     {
-                        header.DiffVehicleTime = req.VehicleTimeIn.Value.Subtract(header.VehicleTimeOut.Value);
+                        header.DiffVehicleTime = req.VehicleTimeIn.Value.Subtract(header.VehicleTimeOut.Value).Ticks;
                     }
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Vehicle In Success.";
+                    res.Description = string.Format("อนุมัติรถเข้าเลขที่เอกสาร {0} เรียบร้อยแล้ว", header.DocumentNo);
 
                 }
             }
@@ -538,7 +573,7 @@ namespace Pranda.Framework.Services.Manager
 
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Vehicle Out Success.";
+                    res.Description = string.Format("อนุมัติรถออกเลขที่เอกสาร {0} เรียบร้อยแล้ว", header.DocumentNo);
 
                 }
             }
@@ -569,7 +604,7 @@ namespace Pranda.Framework.Services.Manager
 
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Rating Success.";
+                    res.Description = string.Format("ให้คะแนนเลขที่เอกสาร {0} เรียบร้อยแล้ว", header.DocumentNo);
 
                 }
             }
@@ -605,7 +640,7 @@ namespace Pranda.Framework.Services.Manager
 
                     context.SaveChanges();
                     res.ResponseStatus = Response.ResponseStatus.Success;
-                    res.Description = "Rating Success.";
+                    res.Description = string.Format("บันทึกค่าแรงเลขที่เอกสาร {0} เรียบร้อยแล้ว", header.DocumentNo);
 
                 }
             }

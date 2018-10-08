@@ -11,9 +11,8 @@ export class CarsComponent implements OnInit {
   public mData: any = [];
   options: any = [
     { key: -1, text: 'ทั้งหมด' },
-    { key: 1, text: 'รออนุมัติ' },
-    { key: 2, text: 'ปิดงาน' },
-    { key: 3, text: 'ยกเลิก' }
+    { key: 1, text: 'ใช้งาน' },
+    { key: 2, text: 'ไม่ใช้งาน' }
   ];
   public mCriteria: any = {
     status: 1,

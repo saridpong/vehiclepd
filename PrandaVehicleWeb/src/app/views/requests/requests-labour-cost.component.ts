@@ -27,7 +27,10 @@ export class RequestsLabourCostComponent implements OnInit {
     this.criteria = {
       staff: {},
       requests: {
-        places: []
+        forUse: {},
+        places: [],
+        driver: {},
+        vehicle: {}
       },
       approve: {}
     };
@@ -46,6 +49,15 @@ export class RequestsLabourCostComponent implements OnInit {
       requestHeaderID: id
     }
     this.request.findbyid(findbyid).subscribe(result => {
+      if (result.carRequest.requests.driver === undefined) {
+        result.carRequest.requests.driver = {};
+      }
+      if (result.carRequest.requests.vehicle === undefined) {
+        result.carRequest.requests.vehicle = {};
+      }
+      if (result.carRequest.requests.forUse === undefined || result.carRequest.requests.forUse === null) {
+        result.carRequest.requests.forUse = {};
+      }
       this.criteria = result.carRequest;
     });
   }
@@ -65,7 +77,7 @@ export class RequestsLabourCostComponent implements OnInit {
     this.criteria.requests.requestHeaderStatus = 6;
     this.request.labourcost(this.criteria).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Labour Cost  Success.', 'Labour Cost Update Request');
+        this.toastr.success('Labour Cost  Success.', result.description);
         this.route.navigate(['requests/search']);
       } else {
         this.toastr.error('Rating Failed.', 'Labour Cost  Update Request');

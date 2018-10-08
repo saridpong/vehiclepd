@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-md-6 form-group">
       <label for="location">ที่ตั้ง</label>
-      <input class="form-control" id="location" placeholder="ที่ตั้ง" type="text" name="location"
+      <input class="form-control" id="location" placeholder="ที่ตั้ง" readonly="'true'" type="text" name="location"
         [(ngModel)]="criteria.place.locationName" #location="ngModel" required>
       <div class="invalid-feedback" [hidden]="location.valid || location.pristine">
         Location is require.
@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-6 form-group">
       <label for="province">จังหวัด</label>
-      <input class="form-control" id="province" placeholder="จังหวัด" type="text" name="province"
+      <input class="form-control" id="province" placeholder="จังหวัด" readonly="'true'" type="text" name="province"
         [(ngModel)]="criteria.place.province" #province="ngModel">
     </div>
   </div>

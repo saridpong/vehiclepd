@@ -23,6 +23,8 @@ namespace Pranda.Framework.Services.Database
 
         [StringLength(50)]
         public string VihicleModel { get; set; }
+        [StringLength(50)]
+        public string VehicleEngine { get; set; }
 
         [StringLength(50)]
         public string VihicleFuelType { get; set; }

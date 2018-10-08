@@ -1,4 +1,5 @@
 ﻿using Pranda.Framework.Services.Database;
+using Pranda.Framework.Services.Model.CarType;
 using Pranda.Framework.Services.Model.Users;
 using Pranda.Framework.Services.Model.Vehicle;
 using Pranda.Framework.Services.Request.Vehicle;
@@ -45,6 +46,7 @@ namespace Pranda.Framework.Services.Manager
                                         VehicleCode = us.VihicleCode,
                                         VehicleCost = us.VihicleCost,
                                         VehicleDate = us.VihicleDate,
+                                        VehicleEngine = us.VehicleEngine,
                                         VehicleFuelType = us.VihicleFuelType,
                                         VehicleID = us.VihicleID,
                                         VehicleInsurance = us.VihicleInsurance,
@@ -92,6 +94,7 @@ namespace Pranda.Framework.Services.Manager
                     }
 
                     res.Vehicle = (from us in context.Vihicles.Where(str.ToString())
+                                   join ct in context.CarTypes on us.VihicleTypeCode equals ct.CarTypeCode
                                    select new VehicleItem
                                    {
                                        Status = us.Status,
@@ -102,6 +105,7 @@ namespace Pranda.Framework.Services.Manager
                                        VehicleCode = us.VihicleCode,
                                        VehicleCost = us.VihicleCost,
                                        VehicleDate = us.VihicleDate,
+                                       VehicleEngine = us.VehicleEngine,
                                        VehicleFuelType = us.VihicleFuelType,
                                        VehicleID = us.VihicleID,
                                        VehicleInsurance = us.VihicleInsurance,
@@ -109,7 +113,14 @@ namespace Pranda.Framework.Services.Manager
                                        VehicleModel = us.VihicleModel,
                                        VehicleTypeCode = us.VihicleTypeCode,
                                        VehicleYear = us.VihicleYear,
-                                       VehicleTypeName = us.VehicleTypeName
+                                       VehicleTypeName = us.VehicleTypeName,
+                                       CarType = new CarTypeItem
+                                       {
+                                           CarTypeCode = ct.CarTypeCode,
+                                           CarTypeID = ct.CarTypeID,
+                                           CarTypeName = ct.CarTypeName,
+                                           Status = ct.Status
+                                       }
                                    }).FirstOrDefault();
                     if (res.Vehicle != null)
                     {
@@ -150,14 +161,15 @@ namespace Pranda.Framework.Services.Manager
                         VihicleCode = req.VehicleCode,
                         VihicleCost = req.VehicleCost,
                         VihicleDate = req.VehicleDate,
+                        VehicleEngine = req.VehicleEngine,
                         VihicleFuelType = req.VehicleFuelType,
                         VihicleInsurance = req.VehicleInsurance,
                         VihicleInsuranceType = req.VehicleInsuranceType,
                         VihicleModel = req.VehicleModel,
-                        VihicleTypeCode = req.VehicleTypeCode,
+                        VihicleTypeCode = req.CarType.CarTypeCode,
                         VihicleYear = req.VehicleYear,
                         VihicleID = 0,
-                        VehicleTypeName = req.VehicleTypeName
+                        VehicleTypeName = req.CarType.CarTypeName
                     };
                     context.Vihicles.Add(vehicle);
                     context.SaveChanges();
@@ -192,17 +204,19 @@ namespace Pranda.Framework.Services.Manager
                         vehicle.VihicleCode = req.VehicleCode;
                         vehicle.VihicleCost = req.VehicleCost;
                         vehicle.VihicleDate = req.VehicleDate;
+                        vehicle.VehicleEngine = req.VehicleEngine;
                         vehicle.VihicleFuelType = req.VehicleFuelType;
                         vehicle.VihicleInsurance = req.VehicleInsurance;
                         vehicle.VihicleInsuranceType = req.VehicleInsuranceType;
                         vehicle.VihicleModel = req.VehicleModel;
-                        vehicle.VihicleTypeCode = req.VehicleTypeCode;
+                        vehicle.VihicleTypeCode = req.CarType.CarTypeCode;
                         vehicle.VihicleYear = req.VehicleYear;
-                        vehicle.VehicleTypeName = req.VehicleTypeName;
+                        vehicle.VehicleTypeName = req.CarType.CarTypeName;
                         context.SaveChanges();
                         res.ResponseStatus = ResponseStatus.Success;
                         res.Description = "Update Success.";
-                    }else
+                    }
+                    else
                     {
                         res.ResponseStatus = ResponseStatus.NotFound;
                         res.Description = "Update Failed.";

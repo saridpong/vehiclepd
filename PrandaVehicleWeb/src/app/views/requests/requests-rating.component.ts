@@ -27,7 +27,10 @@ export class RequestsRatingComponent implements OnInit {
     this.criteria = {
       staff: {},
       requests: {
-        places: []
+        forUse: {},
+        places: [],
+        driver: {},
+        vehicle: {}
       },
       approve: {}
     };
@@ -46,6 +49,15 @@ export class RequestsRatingComponent implements OnInit {
       requestHeaderID: id
     }
     this.request.findbyid(findbyid).subscribe(result => {
+      if (result.carRequest.requests.driver === undefined) {
+        result.carRequest.requests.driver = {};
+      }
+      if (result.carRequest.requests.vehicle === undefined) {
+        result.carRequest.requests.vehicle = {};
+      }
+      if (result.carRequest.requests.forUse === undefined || result.carRequest.requests.forUse === null) {
+        result.carRequest.requests.forUse = {};
+      }
       this.criteria = result.carRequest;
     });
   }
@@ -53,7 +65,7 @@ export class RequestsRatingComponent implements OnInit {
     this.criteria.requests.requestHeaderStatus = 4;
     this.request.rating(this.criteria).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Update Success.', 'Update Request');
+        this.toastr.success('Update Success.', 'Save Draft');
         this.route.navigate(['requests/search']);
       } else {
         this.toastr.error('Update Failed.', 'Update Request');
@@ -65,7 +77,7 @@ export class RequestsRatingComponent implements OnInit {
     this.criteria.requests.requestHeaderStatus = 5;
     this.request.rating(this.criteria).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Rating Success.', 'Rating Update Request');
+        this.toastr.success('Rating Success.', result.description);
         this.route.navigate(['requests/search']);
       } else {
         this.toastr.error('Rating Failed.', 'Rating Update Request');

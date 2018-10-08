@@ -94,6 +94,7 @@ import { ForUseService } from './services/foruse.services';
 import { PlaceService } from './services/place.services';
 import { RequestService } from './services/request.services';
 import { DriverService } from './services/driver.services';
+import { CarTypeService } from './services/cartype.services';
 
 @NgModule({
   imports: [
@@ -133,6 +134,7 @@ import { DriverService } from './services/driver.services';
     RedirectService,
     PlaceService,
     RequestService,
+    CarTypeService,
     DriverService,
     {
       provide: LocationStrategy,

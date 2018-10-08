@@ -1,10 +1,11 @@
 import { AuthService } from './../../../services/auth.services';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { RequestService } from '../../../services/request.services';
+import { Subject } from 'rxjs/Subject';
 
 
 @Component({
@@ -12,10 +13,15 @@ import { RequestService } from '../../../services/request.services';
 })
 export class CarsInComponent implements OnInit {
   item: any = {};
+  public onClose: Subject<any>;
   constructor(public bsModalRef: BsModalRef,
     private auth: AuthService,
     private request: RequestService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private route: Router,
+    private router: ActivatedRoute) {
+    this.onClose = new Subject();
+  }
   ngOnInit() {
 
   }
@@ -23,11 +29,12 @@ export class CarsInComponent implements OnInit {
     this.item.vehicleTimeIn = new Date();
     this.request.vehiclein(this.item).subscribe(result => {
       if (result.responseStatus === 1) {
-        this.toastr.success('Vehicle In Success.', 'Vehicle In Save');
+        this.toastr.success('Vehicle In Success.', result.description);
       } else {
         this.toastr.error('Vehicle In Failed.', 'Vehicle In Save');
       }
     });
+    this.onClose.next({});
     this.bsModalRef.hide()
   }
 }

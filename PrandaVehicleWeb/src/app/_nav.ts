@@ -27,13 +27,29 @@ export const requesterMenu = [
     childs: null
   },
   {
+    menuID: 7,
+    menuIcon: '',
+    menuSystemName: 'ประวัติใบมอบหมายงาน',
+    menuSystemUrl: '/assign/view',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'บันทึกใบมอบหมายงาน',
+    menuSystemUrl: '/assign/add',
+    useFlag: true,
+    childs: null
+  }
+  /*
+  {
     menuID: 4,
     menuIcon: '',
     menuSystemName: 'ให้คะแนนใบขอใช้บริการรถยนต์',
     menuSystemUrl: '/request/rate',
     useFlag: true,
     childs: null
-  }
+  }*/
 ];
 
 export const adminMenu = [
@@ -43,6 +59,22 @@ export const adminMenu = [
     menuSystemName: 'อนุมัติใบขอใช้บริการรถยนต์',
     menuSystemUrl: '/requests/search',
     useFlag: true, childs: null
+  },
+  {
+    menuID: 2,
+    menuIcon: '',
+    menuSystemName: 'บันทึกใบขอใช้รถยนต์',
+    menuSystemUrl: '/requests',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'ประวัติบันทึกรถเข้า-ออก',
+    menuSystemUrl: '/security',
+    useFlag: true,
+    childs: null
   },
   {
     menuID: 7,
@@ -59,6 +91,46 @@ export const adminMenu = [
     useFlag: true,
     childs: null
   },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'เพื่อใช้ในการ',
+    menuSystemUrl: '/setup/foruse/search',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'พนักงานขับรถ',
+    menuSystemUrl: '/setup/driver/search',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'ข้อมูลผู้ใช้งานระบบ',
+    menuSystemUrl: '/setup/user/search',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'ข้อมูลรายการรถยนต์',
+    menuSystemUrl: '/cars/searchcars',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 2,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลรถยนต์',
+    menuSystemUrl: '/cars/newcars',
+    useFlag: true,
+    childs: null
+  }
+  /*,
   {
     menuID: 5,
     menuIcon: '',
@@ -112,7 +184,7 @@ export const adminMenu = [
     useFlag: true,
     childs: null
   }
-
+*/
 ];
 
 export const securityMenu = [

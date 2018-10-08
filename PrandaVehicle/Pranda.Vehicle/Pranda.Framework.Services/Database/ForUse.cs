@@ -20,6 +20,8 @@ namespace Pranda.Framework.Services.Database
 
         [StringLength(80)]
         public string ForUseName { get; set; }
+        [StringLength(20)]
+        public string Priority { get; set; }
 
 
         [Column( TypeName = "numeric")]

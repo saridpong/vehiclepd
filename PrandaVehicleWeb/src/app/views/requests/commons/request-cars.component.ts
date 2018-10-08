@@ -23,6 +23,7 @@ export class RequestCarsComponent implements OnInit {
     ) {
         if (this.requests === undefined || this.requests === null) {
             this.requests = {
+                forUse:{},
                 places: [],
                 requestFor: {}
             };
@@ -54,6 +55,10 @@ export class RequestCarsComponent implements OnInit {
         };
         this.bsModalRef = this.modalService.show(PlaceEditComponent, { initialState });
         this.bsModalRef.content.closeBtnName = 'Close';
+    }
+
+    onStartDate() {
+        this.requests.endDate = this.requests.startDate;
     }
 
     OnDeleteRequest(data) {

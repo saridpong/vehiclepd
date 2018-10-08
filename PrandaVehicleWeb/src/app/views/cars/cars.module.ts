@@ -1,3 +1,4 @@
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 import { NgModule } from '@angular/core';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -16,6 +17,8 @@ import { CarsMaintenanceComponent } from './maintenance/maintenance-view.compone
 import { CarsDocumentNewComponent } from './document/document-new.component';
 import { CarsDocumentComponent } from './document/document-view.component';
 import { CarsUpdateComponent } from './manage/cars-update.component';
+import { AppCarTypeComponent } from '../../components/app-car-type';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { CarsUpdateComponent } from './manage/cars-update.component';
     // BrowserModule,
     ModalDialogModule.forRoot(),
     TabsModule.forRoot(),
+    NgSelectModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   declarations: [
     CarsComponent,
@@ -36,12 +42,14 @@ import { CarsUpdateComponent } from './manage/cars-update.component';
     CarsMaintenanceNewComponent,
     CarsDocumentComponent,
     CarsDocumentNewComponent,
-    CarsUpdateComponent
+    CarsUpdateComponent,
+    AppCarTypeComponent
   ],
   entryComponents: [
     CarsNewComponent,
     CarsMaintenanceNewComponent,
-    CarsDocumentNewComponent
+    CarsDocumentNewComponent,
+    AppCarTypeComponent
   ],
 })
 export class CarsModule { }

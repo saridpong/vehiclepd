@@ -1,0 +1,6 @@
+<label class="col-md-2 col-form-label" for="vehicleTypeCode" style="text-align: right;">ประเภทรถ</label>
+<div class="col-md-4">
+    <ng-select [items]="items.carTypes" placeholder="ประเภทรถ" id="carType" name="carType" bindLabel="carTypeName"
+    [(ngModel)]="selectItem" (change)="OnChanges($event)" [disabled]="read">
+  </ng-select>
+</div>

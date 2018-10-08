@@ -20,13 +20,13 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3" *ngIf="requestApprove.vehicle !== null" >
       <label for="carPic">รูปรถ</label>
-      <input type="image" class="form-control" disabled name="carPic" id="carPic" src="assets/img/carinout/Screen Shot 2561-08-16 at 17.50.58.png">
+      <input type="image" class="form-control" disabled name="carPic" id="carPic" src="picturecar/{{requestApprove.vehicle.vehicleCode}}.jpg">
     </div>
-    <div class="col-md-3 ">
+    <div class="col-md-3 " *ngIf="requestApprove.driver !== null" >
       <label for="driverPic">พนักงานขับรถ</label>
-      <input type="image" class="form-control" disabled name="driverPic" id="driverPic" src="assets/img/carinout/Screen Shot 2561-08-16 at 17.51.06.png">
+      <input type="image" class="form-control" disabled name="driverPic" id="driverPic" src="picturepeople/{{requestApprove.driver.driverCode}}.jpg">
     </div>
   </div>
 

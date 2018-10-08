@@ -38,6 +38,9 @@ export class RequestsComponent implements OnInit {
         employeeMobile: this.token.mobile
       },
       requests: {
+        forUse: {},
+        endDate: new Date(),
+        startDate: new Date(),
         status: 1,
         statusDesc: 'รออนุมัติ',
         places: []
@@ -68,6 +71,9 @@ export class RequestsComponent implements OnInit {
       requestHeaderID: id
     }
     this.request.findbyid(findbyid).subscribe(result => {
+      if (result.carRequest.requests.forUse === undefined || result.carRequest.requests.forUse === null) {
+        result.carRequest.requests.forUse = {};
+      }
       this.criteria = result.carRequest;
     });
   }
@@ -79,7 +85,7 @@ export class RequestsComponent implements OnInit {
     if (role === undefined) {
       this.request.new(this.criteria).subscribe(result => {
         if (result.responseStatus === 1) {
-          this.toastr.success('Create Success.', 'New Request');
+          this.toastr.success('Create Success.', result.description);
           this.criteria = {
             staff: {
               employeeName: this.token.fullName,
@@ -92,6 +98,7 @@ export class RequestsComponent implements OnInit {
             },
             requests: {
               status: 1,
+              forUse: {},
               statusDesc: 'รออนุมัติ',
               places: []
             }
@@ -103,7 +110,8 @@ export class RequestsComponent implements OnInit {
     } else if (role === 'update') {
       this.request.update(this.criteria).subscribe(result => {
         if (result.responseStatus === 1) {
-          this.toastr.success('Update Success.', 'Update Request');
+          this.toastr.success('Update Success.', result.description);
+          this.route.navigate(['requests/search']);
         } else {
           this.toastr.error('Update Failed.', 'Update Request');
         }

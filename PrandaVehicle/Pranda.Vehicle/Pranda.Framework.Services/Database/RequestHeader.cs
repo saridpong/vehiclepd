@@ -51,6 +51,10 @@ namespace Pranda.Framework.Services.Database
 
         [StringLength(20)]
         public string ApproveByCode { get; set; }
+        [StringLength(20)]
+        public string DocumentNoRef { get; set; }
+
+        public int? ForUseID { get; set; }
 
         [StringLength(200)]
         public string JobType { get; set; }
@@ -115,7 +119,7 @@ namespace Pranda.Framework.Services.Database
         public decimal? Diff_Miles_Est { get; set; }
         public DateTime? VehicleTimeIn { get; set; }
         public DateTime? VehicleTimeOut { get; set; }
-        public TimeSpan? DiffVehicleTime { get; set; }
+        public long? DiffVehicleTime { get; set; }
         [StringLength(10)]
         public string Rating { get; set; }
         [StringLength(300)]

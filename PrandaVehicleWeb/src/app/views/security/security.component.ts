@@ -1,7 +1,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { CarsInComponent } from './management/cars-in.component';
 import { CarsOutComponent } from './management/cars-out.component';
@@ -19,9 +19,12 @@ export class SecurityComponent implements OnInit {
   bsModalRef: BsModalRef;
   constructor(private modalService: BsModalService,
     private auth: AuthService,
-    private request: RequestService) {
+    private request: RequestService,
+    private route: Router,
+    private router: ActivatedRoute) {
     this.criteria = {
-      status : -1
+      status: -1,
+      page: 'Security'
     };
     this.mSearch = [];
     this.onSearch();
@@ -37,6 +40,9 @@ export class SecurityComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(CarsInComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.onClose.subscribe(result => {
+      this.onSearch();
+  })
   }
   CarsOutOpen(data) {
     const initialState = {
@@ -44,6 +50,9 @@ export class SecurityComponent implements OnInit {
     };
     this.bsModalRef = this.modalService.show(CarsOutComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
+    this.bsModalRef.content.onClose.subscribe(result => {
+      this.onSearch();
+  })
   }
   ngOnInit() {
 

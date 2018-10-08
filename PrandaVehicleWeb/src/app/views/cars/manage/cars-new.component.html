@@ -20,9 +20,10 @@
               <div class="form-group row ml-3">
                 <label class="col-md-2 col-form-label" for="vehicleCode" style="text-align: right;">ทะเบียนรถ</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleCode" name="vehicleCode" class="form-control" [(ngModel)]="mCriteria.vehicleCode" placeholder="">
+                  <input type="text" id="vehicleCode" name="vehicleCode" class="form-control" [(ngModel)]="mCriteria.vehicleCode"
+                    placeholder="">
                 </div>
-              
+
               </div>
             </div>
           </div>
@@ -31,11 +32,13 @@
               <div class="form-group row ml-3">
                 <label class="col-md-2 col-form-label" for="vehicleBrand" style="text-align: right;">ยี่ห้อ</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleBrand" name="vehicleBrand" [(ngModel)]="mCriteria.vehicleBrand" class="form-control" placeholder="">
+                  <input type="text" id="vehicleBrand" name="vehicleBrand" [(ngModel)]="mCriteria.vehicleBrand" class="form-control"
+                    placeholder="">
                 </div>
                 <label class="col-md-2 col-form-label" for="vehicleModel" style="text-align: right;">รุ่น</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleModel" name="vehicleModel" [(ngModel)]="mCriteria.vehicleModel" class="form-control" placeholder="">
+                  <input type="text" id="vehicleModel" name="vehicleModel" [(ngModel)]="mCriteria.vehicleModel" class="form-control"
+                    placeholder="">
                 </div>
               </div>
             </div>
@@ -45,11 +48,13 @@
               <div class="form-group row ml-3">
                 <label class="col-md-2 col-form-label" for="vehicleEngine" style="text-align: right;">เครื่องยนต์</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleEngine" name="vehicleEngine" [(ngModel)]="mCriteria.vehicleEngine" class="form-control" placeholder="">
+                  <input type="text" id="vehicleEngine" name="vehicleEngine" [(ngModel)]="mCriteria.vehicleEngine"
+                    class="form-control" placeholder="">
                 </div>
                 <label class="col-md-2 col-form-label" for="vehicleFuelType" style="text-align: right;">เชื้อเพลิง</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleFuelType" name="vehicleFuelType" [(ngModel)]="mCriteria.vehicleFuelType" class="form-control" placeholder="">
+                  <input type="text" id="vehicleFuelType" name="vehicleFuelType" [(ngModel)]="mCriteria.vehicleFuelType"
+                    class="form-control" placeholder="">
                 </div>
               </div>
             </div>
@@ -59,11 +64,13 @@
               <div class="form-group row ml-3">
                 <label class="col-md-2 col-form-label" for="vehicleDate" style="text-align: right;">วันที่ซื้อ</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleDate" name="vehicleDate" [(ngModel)]="mCriteria.vehicleDate" class="form-control" placeholder="">
+                  <input type="text" id="vehicleDate" name="vehicleDate" [(ngModel)]="mCriteria.vehicleDate" class="form-control"
+                    placeholder="">
                 </div>
                 <label class="col-md-2 col-form-label" for="vehicleCost" style="text-align: right;">มูลค่าที่ซื้อ</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleCost" name="vehicleCost" [(ngModel)]="mCriteria.vehicleCost" class="form-control" placeholder="">
+                  <input type="text" id="vehicleCost" name="vehicleCost" [(ngModel)]="mCriteria.vehicleCost" class="form-control"
+                    placeholder="">
                 </div>
               </div>
             </div>
@@ -71,13 +78,17 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-group row ml-3">
-                <label class="col-md-2 col-form-label" for="vehicleTypeCode" style="text-align: right;">ประเภท</label>
+                <label class="col-md-2 col-form-label" for="vehicleTypeCode" style="text-align: right;">ประเภทรถ</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleTypeCode" name="vehicleTypeCode" [(ngModel)]="mCriteria.vehicleTypeCode" class="form-control" placeholder="">
+                  <ng-select [items]="items.carTypes" placeholder="ประเภทรถ" id="carType" name="carType" bindLabel="carTypeName"
+                    [(ngModel)]="mCriteria.carType"  >
+                  </ng-select>
                 </div>
+
                 <label class="col-md-2 col-form-label" for="vehicleAsset" style="text-align: right;">ทะเบียนทรัพย์สิน</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleAsset" name="vehicleAsset" [(ngModel)]="mCriteria.vehicleAsset" class="form-control" placeholder="">
+                  <input type="text" id="vehicleAsset" name="vehicleAsset" [(ngModel)]="mCriteria.vehicleAsset" class="form-control"
+                    placeholder="">
                 </div>
               </div>
             </div>
@@ -87,11 +98,13 @@
               <div class="form-group row ml-3">
                 <label class="col-md-2 col-form-label" for="vehicleInsurance" style="text-align: right;">บริษัทประกันภัย</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleInsurance" name="vehicleInsurance" [(ngModel)]="mCriteria.vehicleInsurance" class="form-control" placeholder="">
+                  <input type="text" id="vehicleInsurance" name="vehicleInsurance" [(ngModel)]="mCriteria.vehicleInsurance"
+                    class="form-control" placeholder="">
                 </div>
                 <label class="col-md-2 col-form-label" for="vehicleInsuranceType" style="text-align: right;">ประเภทประกันภัย</label>
                 <div class="col-md-4">
-                  <input type="text" id="vehicleInsuranceType" name="vehicleInsuranceType" [(ngModel)]="mCriteria.vehicleInsuranceType" class="form-control" placeholder="">
+                  <input type="text" id="vehicleInsuranceType" name="vehicleInsuranceType" [(ngModel)]="mCriteria.vehicleInsuranceType"
+                    class="form-control" placeholder="">
                 </div>
               </div>
             </div>

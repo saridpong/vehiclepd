@@ -14,4 +14,14 @@ export class ForUseService {
       criteria
     );
   }
+  findbyid(criteria): Observable<any> {
+    return this.http.post<any>(
+      this.global.BaseApiUrl + 'api/ForUse/FindByID', criteria);
+  }
+  newForUse(criteria): Observable<any> {
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/ForUse/New', criteria)
+  }
+  updateForUse(criteria): Observable<any> {
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/ForUse/Update', criteria)
+  }
 }

@@ -16,7 +16,8 @@ export const requesterMenu = [
     menuIcon: '',
     menuSystemName: 'ข้อมูลใบขอใช้รถยนต์',
     menuSystemUrl: '/requests/search',
-    useFlag: true, childs: null
+    useFlag: true,
+    childs: null
   },
   {
     menuID: 2,
@@ -30,14 +31,14 @@ export const requesterMenu = [
     menuID: 7,
     menuIcon: '',
     menuSystemName: 'ประวัติใบมอบหมายงาน',
-    menuSystemUrl: '/assign/view',
+    menuSystemUrl: '/requests/assign/search',
     useFlag: true, childs: null
   },
   {
     menuID: 3,
     menuIcon: '',
     menuSystemName: 'บันทึกใบมอบหมายงาน',
-    menuSystemUrl: '/assign/add',
+    menuSystemUrl: '/requests/assign',
     useFlag: true,
     childs: null
   }
@@ -54,66 +55,107 @@ export const requesterMenu = [
 
 export const adminMenu = [
   {
-    menuID: 4,
+    menuID: 1,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'บันทึกใบขอรับบริการ',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 3,
     menuIcon: '',
-    menuSystemName: 'อนุมัติใบขอใช้บริการรถยนต์',
-    menuSystemUrl: '/requests/search',
+    menuSystemName: 'บันทึกใบขอใช้รถยนต์',
+    menuSystemUrl: '/requests',
+    useFlag: true,
+    childs: 1
+  },
+  {
+    menuID: 7,
+    menuIcon: '',
+    menuSystemName: 'บันทึกใบมอบหมายงาน',
+    menuSystemUrl: '/requests/assign',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'อนุมัติใบขอรับบริการ',
+    menuSystemUrl: '#',
     useFlag: true, childs: null
   },
   {
     menuID: 2,
     menuIcon: '',
-    menuSystemName: 'บันทึกใบขอใช้รถยนต์',
-    menuSystemUrl: '/requests',
+    menuSystemName: 'ประวัติใบขอใช้บริการรถยนต์',
+    menuSystemUrl: '/requests/search',
     useFlag: true,
-    childs: null
+    childs: 1
+  },
+  {
+    menuID: 6,
+    menuIcon: '',
+    menuSystemName: 'ประวัติใบมอบหมายงาน',
+    menuSystemUrl: '/requests/assign/search',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'ประวัติใบขอรับบริการ',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 2,
+    menuIcon: '',
+    menuSystemName: 'ประวัติใบขอใช้บริการรถยนต์',
+    menuSystemUrl: '/requests/search',
+    useFlag: true,
+    childs: 1
+  },
+  {
+    menuID: 6,
+    menuIcon: '',
+    menuSystemName: 'ประวัติใบมอบหมายงาน',
+    menuSystemUrl: '/assign/view',
+    useFlag: true, childs: 4
+  },
+  {
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'อนุม้ติรถออกปฏิบัติงาน',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
   },
   {
     menuID: 4,
     menuIcon: '',
-    menuSystemName: 'ประวัติบันทึกรถเข้า-ออก',
-    menuSystemUrl: '/security',
-    useFlag: true,
-    childs: null
-  },
-  {
-    menuID: 7,
-    menuIcon: '',
-    menuSystemName: 'ประวัติใบมอบหมายงาน',
-    menuSystemUrl: '/assign/view',
+    menuSystemName: 'อนุม้ติรถออกปฏิบัติงาน',
+    menuSystemUrl: '#',
     useFlag: true, childs: null
   },
   {
-    menuID: 3,
-    menuIcon: '',
-    menuSystemName: 'บันทึกใบมอบหมายงาน',
-    menuSystemUrl: '/assign/add',
-    useFlag: true,
-    childs: null
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'ข้อมูลรถออกปฏิบัติงาน',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
   },
   {
-    menuID: 3,
+    menuID: 5,
     menuIcon: '',
-    menuSystemName: 'เพื่อใช้ในการ',
-    menuSystemUrl: '/setup/foruse/search',
+    menuSystemName: 'ข้อมูลรถออกปฏิบัติงาน',
+    menuSystemUrl: '/security',
     useFlag: true,
-    childs: null
+    childs: 4
   },
   {
-    menuID: 3,
-    menuIcon: '',
-    menuSystemName: 'พนักงานขับรถ',
-    menuSystemUrl: '/setup/driver/search',
-    useFlag: true,
-    childs: null
-  },
-  {
-    menuID: 3,
-    menuIcon: '',
-    menuSystemName: 'ข้อมูลผู้ใช้งานระบบ',
-    menuSystemUrl: '/setup/user/search',
-    useFlag: true,
-    childs: null
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'ข้อมูลรายการรถยนต์',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
   },
   {
     menuID: 3,
@@ -123,10 +165,121 @@ export const adminMenu = [
     useFlag: true, childs: null
   },
   {
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'รายงาน',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'รายงาน-1',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'รายงาน-2',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'รายงาน-3',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'รายงาน-4',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'รายงาน-5',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: 'icon-menu',
+    menuSystemName: 'การจัดการระบบ',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลผู้ใช้งานระบบ',
+    menuSystemUrl: '/setup/user/search',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลแผนก',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 4,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลฝ่าย',
+    menuSystemUrl: '#',
+    useFlag: true, childs: null
+  },
+  {
+    menuID: 3,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลพนักงานขับรถ',
+    menuSystemUrl: '/setup/driver/search',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 5,
+    menuIcon: '',
+    menuSystemName: 'บันทึกวัตถุประสงค์การเดินทาง',
+    menuSystemUrl: '/setup/foruse/search',
+    useFlag: true,
+    childs: 3
+  },
+  {
+    menuID: 9,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลสถานที่',
+    menuSystemUrl: '/setup/place/search',
+    useFlag: true,
+    childs: null
+  },
+  {
     menuID: 2,
     menuIcon: '',
     menuSystemName: 'บันทึกข้อมูลรถยนต์',
     menuSystemUrl: '/cars/newcars',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 2,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลประเภทรถยนต์',
+    menuSystemUrl: '#',
+    useFlag: true,
+    childs: null
+  },
+  {
+    menuID: 9,
+    menuIcon: '',
+    menuSystemName: 'บันทึกข้อมูลแจ้งพนักงาน',
+    menuSystemUrl: '/setup/information/search',
     useFlag: true,
     childs: null
   }

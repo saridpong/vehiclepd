@@ -129,7 +129,13 @@ namespace Pranda.Framework.Services.Manager
                     str.Append(" 1=1 ");
                     if (req.Status != -1)
                     {
+                       
                         str.Append(string.Format(" and RequestHeaderStatus = {0}", req.Status));
+                        //str.Append(string.Format(" RequestHeaderStatus != 6 and RequestHeaderStatus != 7"));
+                    }
+                    else
+                    {
+                        str.Append(string.Format(" and RequestHeaderStatus != 6 and RequestHeaderStatus != 7"));
                     }
                     if (login.RoleID == 2)
                     {
@@ -141,7 +147,7 @@ namespace Pranda.Framework.Services.Manager
                     }
                     if (!string.IsNullOrEmpty(req.Page) && req.Page.Equals("Security"))
                     {
-                        str.Append(string.Format(" and RequestHeaderStatus = 2 or RequestHeaderStatus = 3"));
+                        str.Append(string.Format(" and RequestHeaderStatus = 2 and RequestHeaderStatus = 3"));
                     }
                     //if (!string.IsNullOrEmpty(req.DriverName))
                     //{

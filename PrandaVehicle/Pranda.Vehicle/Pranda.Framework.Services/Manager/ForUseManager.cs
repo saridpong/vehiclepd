@@ -9,6 +9,7 @@ using System.Linq.Dynamic;
 using System.Threading.Tasks;
 using Pranda.Framework.Services.Model.ForUse;
 using Pranda.Framework.Services.Response;
+using Pranda.Framework.Services.Model.Users;
 
 namespace Pranda.Framework.Services.Manager
 {
@@ -60,6 +61,104 @@ namespace Pranda.Framework.Services.Manager
                     }
                 }
             }catch(Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Exception = ex;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+        public ForUseResponse Update(ForUseRequest req)
+        {
+            ForUseResponse res = new ForUseResponse();
+            try
+            {
+                using (var context = new PrandaVehicleDB())
+                {
+                    ForUse foruse = context.ForUses.Where(p => p.ForUseID == req.ForUseID).FirstOrDefault();
+                    if(foruse != null)
+                    {
+                        foruse.ForUseCode = req.ForUseCode;
+                        foruse.ForUseName = req.ForUseName;
+                        foruse.Priority = req.Priority;
+                        foruse.Status = req.Status;
+                        context.SaveChanges();
+                        res.ResponseStatus = ResponseStatus.Success;
+                        res.Description = "Update Success.";
+                    }
+                    else
+                    {
+                        res.ResponseStatus = ResponseStatus.NotFound;
+                        res.Description = "Update Failed.";
+                    }
+                   
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Exception = ex;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+        public ForUseResponse New(ForUseRequest req)
+        {
+            ForUseResponse res = new ForUseResponse();
+            try
+            {
+                UserLoginModel user = UserManager.CurrentUser;
+                using (var context = new PrandaVehicleDB())
+                {
+                    ForUse foruses = new ForUse()
+                    {
+                        Status = 1,
+                        UpdateBy = user.UserCode,
+                        UpdateDate = DateTime.Now,
+                        ForUseCode = req.ForUseCode,
+                        ForUseName = req.ForUseName,
+                        Priority = req.Priority,
+                        ForUseID = 0
+                    };
+                    context.ForUses.Add(foruses);
+                    context.SaveChanges();
+                    res.ResponseStatus = ResponseStatus.Success;
+                    res.Description = "Save Success.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Description = ex.Message;
+            }
+            return res;
+            }
+        public ForUseResponse FindByID(ForUseRequest req)
+        {
+            ForUseResponse res = new ForUseResponse();
+            try
+            {
+                using (var context = new PrandaVehicleDB())
+                {
+                    StringBuilder str = new StringBuilder();
+                    if (req.Status != -1)
+                    {
+                        str.Append(string.Format("ForUseID == {0} ", req.ForUseID));
+                    }
+
+                    res.ForUseData = (from us in context.ForUses.Where(str.ToString())
+                                   select new ForUseItem
+                                   {
+                                       ForUseCode = us.ForUseCode,
+                                       ForUseID = us.ForUseID,
+                                       ForUseName = us.ForUseName,
+                                       Priority = us.Priority,
+                                       Status = us.Status
+                                   }).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
             {
                 res.ResponseStatus = ResponseStatus.Failed;
                 res.Exception = ex;

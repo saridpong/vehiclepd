@@ -1,3 +1,4 @@
+import { AssignComponent } from './assign.component';
 import { AppPlaceComponent } from './../../components/app-place/app-place.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AppForUseComponent } from './../../components/app-for-use/app-for-use.component';
@@ -24,6 +25,12 @@ import { RequestsRatingComponent } from './requests-rating.component';
 import { RatingComponent } from './commons/rating.component';
 import { LabourCostComponent } from './commons/labour-cost.component';
 import { RequestsLabourCostComponent } from './requests-labour-cost.component';
+import { AssignWorkComponent } from './commons/assign-work.component';
+import { AssignLineNewComponent } from './commons/dialog/assign-line-new.component';
+import { AssignLineEditComponent } from './commons/dialog/assign-line-edit.component';
+import { AssignSearchComponent } from './assign-search.component';
+import { AssignApprovePartComponent } from './commons/assign-approve-part.component';
+import { AssignApproveComponent } from './assign-approve.component';
 
 @NgModule({
   imports: [
@@ -55,7 +62,14 @@ import { RequestsLabourCostComponent } from './requests-labour-cost.component';
     RequestsRatingComponent,
     RatingComponent,
     LabourCostComponent,
-    RequestsLabourCostComponent
+    RequestsLabourCostComponent,
+    AssignWorkComponent,
+    AssignComponent,
+    AssignLineNewComponent,
+    AssignLineEditComponent,
+    AssignSearchComponent,
+    AssignApproveComponent,
+    AssignApprovePartComponent
   ],
   entryComponents: [
     RequestCarsComponent,
@@ -71,7 +85,12 @@ import { RequestsLabourCostComponent } from './requests-labour-cost.component';
     RequestsRatingComponent,
     RatingComponent,
     LabourCostComponent,
-    RequestsLabourCostComponent
+    RequestsLabourCostComponent,
+    AssignWorkComponent,
+    AssignComponent,
+    AssignLineNewComponent,
+    AssignLineEditComponent,
+    AssignApprovePartComponent
   ],
   providers: [
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'th' },

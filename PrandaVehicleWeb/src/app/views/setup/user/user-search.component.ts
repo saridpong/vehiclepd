@@ -1,8 +1,9 @@
 
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.services';
 import { UserService } from '../../../services/user.services';
+import { UserManagementComponent } from './user-management.component';
 
 
 
@@ -10,7 +11,6 @@ import { UserService } from '../../../services/user.services';
   templateUrl: 'user-search.component.html'
 })
 export class UserSearchComponent implements OnInit {
-
   public criteria: any;
   mSearch: any;
   mStatus = status;
@@ -20,6 +20,7 @@ export class UserSearchComponent implements OnInit {
     private route: Router,
     private auth: AuthService,
     private user: UserService,
+    private _cfr: ComponentFactoryResolver,
     private viewRef: ViewContainerRef) {
     this.criteria = {
       status: -1
@@ -42,6 +43,12 @@ export class UserSearchComponent implements OnInit {
     this.user.find(this.criteria).subscribe(result => {
       this.mSearch = result;
     });
+  }
+  onNewUser() {
+    this.route.navigate(['/setup/user/new']);
+  }
+  onEditUser(item) {
+    this.route.navigate(['/setup/user/edit/' + item.userID]);
   }
 }
 

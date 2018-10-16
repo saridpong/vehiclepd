@@ -20,5 +20,34 @@ namespace Pranda.Vehicle.Api.Controllers
             return Ok(manager.Find(req));
         }
 
+        //FindByID
+        [Authorize]
+        [Route("FindByID")]
+        [HttpPost]
+        public IHttpActionResult FindByID(ForUseRequest req)
+        {
+            ForUseManager manager = new ForUseManager();
+            return Ok(manager.FindByID(req));
+        }
+
+        //Update
+        [Authorize]
+        [Route("Update")]
+        [HttpPost]
+        public IHttpActionResult UpdateForUse(ForUseRequest req)
+        {
+            ForUseManager manager = new ForUseManager();
+            return Ok(manager.Update(req));
+        }
+
+        //New
+        [Authorize]
+        [Route("New")]
+        [HttpPost]
+        public IHttpActionResult NewForUse(ForUseRequest req)
+        {
+            ForUseManager manager = new ForUseManager();
+            return Ok(manager.New(req));
+        }
     }
 }

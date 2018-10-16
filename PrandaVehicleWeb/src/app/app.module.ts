@@ -95,6 +95,9 @@ import { PlaceService } from './services/place.services';
 import { RequestService } from './services/request.services';
 import { DriverService } from './services/driver.services';
 import { CarTypeService } from './services/cartype.services';
+import { InformationService } from './services/information.services';
+import { AssignService } from './services/assign.services';
+import { LocationService } from './services/location.services';
 
 @NgModule({
   imports: [
@@ -136,6 +139,9 @@ import { CarTypeService } from './services/cartype.services';
     RequestService,
     CarTypeService,
     DriverService,
+    AssignService,
+    LocationService,
+    InformationService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy

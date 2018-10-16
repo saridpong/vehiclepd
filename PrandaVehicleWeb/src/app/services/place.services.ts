@@ -9,9 +9,15 @@ export class PlaceService {
   constructor(private http: HttpClient, private global: Globals) {}
 
   find(criteria): Observable<any> {
-    return this.http.post<any>(
-      this.global.BaseApiUrl + 'api/Place/Find',
-      criteria
-    );
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/Place/Find', criteria);
+  }
+  findbyid(criteria): Observable<any> {
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/Place/FindByID', criteria);
+  }
+  newPlace(criteria): Observable<any> {
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/Place/New', criteria)
+  }
+  updatePlace(criteria): Observable<any> {
+    return this.http.post<any>(this.global.BaseApiUrl + 'api/Place/Update', criteria)
   }
 }

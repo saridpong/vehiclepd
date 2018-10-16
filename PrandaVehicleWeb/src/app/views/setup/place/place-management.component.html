@@ -1,0 +1,73 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit()" class="was-validated" #newDriver="ngForm">
+        <div class="card card-accent-primary">
+          <div class="card-header text-center">
+            <strong>
+              <h3>{{formtitle}}</h3>
+            </strong>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="mb-0" for="placeCode">รหัส</label>
+                    <input class="form-control" id="placeCode" [disabled]="read" [(ngModel)]="criteria.placeCode"
+                      placeholder="รหัส" type="text" name="placeCode" #placeCode="ngModel">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="mb-0" for="placeName">สถานที่</label>
+                    <input class="form-control" id="placeName" [(ngModel)]="criteria.placeName" placeholder="สถานที่"
+                      type="text" name="placeName" #placeName="ngModel">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="mb-0" for="locationName">ที่ตั้ง</label>
+                    <input class="form-control" id="locationName" [(ngModel)]="criteria.locationName" placeholder="ที่ตั้ง"
+                      type="text" name="locationName" #locationName="ngModel">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="mb-0" for="province">จังหวัด</label>
+                    <input class="form-control" id="province" [(ngModel)]="criteria.province" placeholder="จังหวัด"
+                      type="text" name="province" #province="ngModel">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <label class="switch switch-text switch-pill switch-success float-right">
+                    <input name="status" id="status" [(ngModel)]="criteria.status" class="switch-input" type="checkbox">
+                    <span class="switch-label" data-off="off" data-on="on"></span>
+                    <span class="switch-handle"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary float-right" type="button" (click)="onSubmit()" [disabled]="!newDriver.form.valid">
+              <i class="fa fa-save"></i> บันทึก</button>
+            <button class="btn btn-primary float-right" type="button" (click)="onBack()">
+              <i class="fa fa-mail-reply"></i> ย้อนกลับ</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

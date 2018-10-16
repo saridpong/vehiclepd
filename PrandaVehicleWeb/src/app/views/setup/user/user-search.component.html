@@ -1,5 +1,11 @@
 <div class="animated fadeIn">
   <div class="row">
+    <div class="col-md-12 mb-1">
+      <a href="javascript:void(0);" class="btn btn-primary card-head-btn float-right d-flex justify-content-center align-items-center"
+        (click)="onNewUser()">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
     <div class="col-md-12">
       <div class="card card-accent-primary">
         <div class="card-header text-center">
@@ -51,7 +57,6 @@
                 <label class="mb-0" for="useFlag">สถานะ</label>
                 <select class="form-control" id="useFlag" placeholder="Useflag" [(ngModel)]="criteria.status" name="useFlag">
                   <option *ngFor="let item of mStatus" value="{{item.value}}">{{item.text}}</option>
-
                 </select>
               </div>
             </div>
@@ -85,13 +90,14 @@
                   <th style="vertical-align:middle;">เบอร์มือถือ</th>
                   <th style="vertical-align:middle;">ผู้อนุมัติ</th>
                   <th style="vertical-align:middle;">สถานะ</th>
+                  <th style="vertical-align:middle;">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let item of mSearch.users;let i =index">
                   <th class="text-center">{{i+1}}</th>
                   <td class="text-center">{{item.userCode}}</td>
-                  <td >{{item.userTitle}} {{item.firstName}} {{item.lastName}}</td>
+                  <td>{{item.userTitle}} {{item.firstName}} {{item.lastName}}</td>
                   <td class="text-center">{{item.position}}</td>
                   <td class="text-center">{{item.departmentCode}} - {{item.department}}</td>
                   <td class="text-center">{{item.sectionCode}} - {{item.sectionName}}</td>
@@ -101,6 +107,11 @@
                   <td class="text-center">
                     <p *ngIf="item.status === 1">ใช้งาน</p>
                     <p *ngIf="item.status === 2">ไม่ใช้งาน</p>
+                  </td>
+                  <td lass="text-center">
+                    <button class="btn btn-primary btn-sm" type="button" tooltip="แก้ไขข้อมูล"placement="top" (click)="onEditUser(item)">
+                      <i class="fa fa-edit"></i>
+                    </button>
                   </td>
                 </tr>
               </tbody>

@@ -10,5 +10,6 @@ namespace Pranda.Framework.Services.Response.Driver
     public class DriverResponse : BaseResponse
     {
         public List<DriverItem> Drivers { get; set; }
+        public DriverItem DriverData { get; set; }
     }
 }

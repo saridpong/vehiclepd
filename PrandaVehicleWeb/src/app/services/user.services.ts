@@ -18,9 +18,17 @@ export class UserService {
     }
     find(criteria): Observable<any> {
         return this.http.post<any>(
-            this.global.BaseApiUrl + 'api/User/Find',
-            criteria
-        );
+            this.global.BaseApiUrl + 'api/User/Find', criteria);
+    }
+    findbyid(criteria): Observable<any> {
+        return this.http.post<any>(
+            this.global.BaseApiUrl + 'api/User/FindByID', criteria);
+    }
+    newUser(criteria): Observable<any> {
+        return this.http.post<any>(this.global.BaseApiUrl + 'api/User/NewUser', criteria)
+    }
+    updateUser(criteria): Observable<any> {
+        return this.http.post<any>(this.global.BaseApiUrl + 'api/User/Update', criteria)
     }
 
 }

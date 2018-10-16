@@ -1,0 +1,45 @@
+<fieldset class="scheduler-border" [disabled]="read">
+  <legend class="scheduler-border">อนุมัติใบมอบหมายงาน</legend>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div style="overflow: auto;">
+        <table class="table table-hover mb-0" style="width: 100%;font-size:13px;border:0px">
+          <thead class="thead-light">
+            <tr class="text-center">
+              <th style="vertical-align:middle;width:5%">#</th>
+              <th style="vertical-align:middle;width:10%">เพื่อใช้ในการ</th>
+              <th style="vertical-align:middle;width:20%">สถานที่</th>
+              <th style="vertical-align:middle;width:30%">เส้นทาง</th>
+              <th style="vertical-align:middle;width:35%">พนักงานขับรถ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of requests.lines; let i = index">
+              <th class="text-center">{{i+1}}</th>
+              <td class="text-center">{{item.forUse.forUseName}}</td>
+              <td class="text-center">{{item.place.placeName}}</td>
+              <td class="text-center">
+                  <ng-select [items]="mLocation.locations"  appendTo="body" placeholder="เส้นทาง" id="location" name="location" bindLabel="locationName"
+                  [(ngModel)]="item.route"  [disabled]="read">
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm1">
+                    {{item.locationCode}} - {{item.locationName}}
+                  </ng-template>
+                </ng-select>
+              </td>
+              <td class="text-center">
+                <ng-select [items]="mDriver.drivers"  appendTo="body" placeholder="พนักงานขับรถ" id="driver" name="driver" bindLabel="driverName"
+                  [(ngModel)]="item.driver"  [disabled]="read">
+                  <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                    <h6 class="card-title" [ngOptionHighlight]="search">ชื่อ : {{item.driverName}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">เบอร์ติดต่อ : {{item.driverMobile}}</h6>
+                  </ng-template>
+                </ng-select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</fieldset>

@@ -11,6 +11,7 @@ namespace Pranda.Framework.Services.Model.Users
         public int UserID { get; set; }
         public string UserCode { get; set; }
         public string Username { get; set; }
+        public string UserPassword { get; set; }
         public string UserTitle { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

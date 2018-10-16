@@ -8,8 +8,16 @@ import { CommonModule } from '@angular/common';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import { TabsModule } from 'ngx-bootstrap';
 import { SetupRoutingModule } from './setup-routing.module';
-import { RequestForSearchComponent } from './requestfor/request-for-search.component';
 import { UserSearchComponent } from './user/user-search.component';
+import { UserManagementComponent } from './user/user-management.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { AppSectionComponent } from '../../components/app-section/app-section.component';
+import { DriverManagementComponent } from './driver/driver-management.component';
+import { ForUseManagementComponent } from './foruse/foruse-management.component';
+import { ForUseSearchComponent } from './foruse/foruse-search.component';
+import { PlaceManagementComponent } from './place/place-management.component';
+import { PlaceSearchComponent } from './place/place-search.component';
+import { InformationSearchComponent } from './information/information-search.component';
 
 @NgModule({
   imports: [
@@ -17,19 +25,34 @@ import { UserSearchComponent } from './user/user-search.component';
     SetupRoutingModule,
     ChartsModule,
     FormsModule,
+    NgSelectModule,
     ToastrModule.forRoot(),
     ModalDialogModule.forRoot(),
     TabsModule.forRoot(),
   ],
   declarations: [
-    RequestForSearchComponent,
     DriverSearchComponent,
-    UserSearchComponent
+    AppSectionComponent,
+    UserSearchComponent,
+    ForUseSearchComponent,
+    PlaceSearchComponent,
+    UserManagementComponent,
+    DriverManagementComponent,
+    ForUseManagementComponent,
+    PlaceManagementComponent,
+    InformationSearchComponent
   ],
   entryComponents: [
-    RequestForSearchComponent,
     DriverSearchComponent,
-    UserSearchComponent
+    AppSectionComponent,
+    UserSearchComponent,
+    ForUseSearchComponent,
+    PlaceSearchComponent,
+    UserManagementComponent,
+    DriverManagementComponent,
+    ForUseManagementComponent,
+    PlaceManagementComponent,
+    InformationSearchComponent
   ],
 })
 export class SetupModule { }

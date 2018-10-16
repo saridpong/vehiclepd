@@ -43,7 +43,7 @@ namespace Pranda.Framework.Services.Manager
                             Approver = us.Approver,
                             Tel = us.UserPhone,
                             Mobile = us.UserMobile,
-                            UserCode =us.UserCode,
+                            UserCode = us.UserCode,
                             UserID = us.UserID
                         };
 
@@ -93,7 +93,7 @@ namespace Pranda.Framework.Services.Manager
                                                  Mobile = us.UserMobile,
                                                  UserCode = us.UserCode,
                                                  UserID = us.UserID
-                                                 
+
                                              }).FirstOrDefault();
 
                 return loginModel;
@@ -135,26 +135,26 @@ namespace Pranda.Framework.Services.Manager
                     }
 
                     res.Users = (from us in context.UserDatas.Where(str.ToString())
-                                   select new UserLoginModel
-                                   {
-                                       Username = us.UserCode,
-                                       Department = us.UserDepartmentName,
-                                       SectionName = us.UserSectionName,
-                                       FirstName = us.UserName,
-                                       LastName = us.UserSurname,
-                                       UserTitle = us.UserTitleName,
-                                       LoginSuccess = true,
-                                       RoleID = us.UserPermission,
-                                       Position = us.UserPosition,
-                                       Tel = us.UserPhone,
-                                       Approver = us.Approver,
-                                       SectionCode = us.UserSectionCode,
-                                       DepartmentCode = us.UserDepartmentCode,
-                                       Mobile = us.UserMobile,
-                                       UserCode = us.UserCode,
-                                       UserID = us.UserID,
-                                       Status = us.Status.Value
-                                   }).ToList();
+                                 select new UserLoginModel
+                                 {
+                                     Username = us.UserCode,
+                                     Department = us.UserDepartmentName,
+                                     SectionName = us.UserSectionName,
+                                     FirstName = us.UserName,
+                                     LastName = us.UserSurname,
+                                     UserTitle = us.UserTitleName,
+                                     LoginSuccess = true,
+                                     RoleID = us.UserPermission,
+                                     Position = us.UserPosition,
+                                     Tel = us.UserPhone,
+                                     Approver = us.Approver,
+                                     SectionCode = us.UserSectionCode,
+                                     DepartmentCode = us.UserDepartmentCode,
+                                     Mobile = us.UserMobile,
+                                     UserCode = us.UserCode,
+                                     UserID = us.UserID,
+                                     Status = us.Status.Value
+                                 }).ToList();
                     if (res.Users.Count > 0)
                     {
                         res.ResponseStatus = ResponseStatus.Success;
@@ -173,5 +173,154 @@ namespace Pranda.Framework.Services.Manager
             }
             return res;
         }
+        public UserResponse Update(UserRequest req)
+        {
+            UserResponse res = new UserResponse();
+            try
+            {
+                UserLoginModel user = UserManager.CurrentUser;
+                using (var context = new PrandaVehicleDB())
+                {
+                    UserData users = context.UserDatas.Where(p => p.UserID == req.UserID).FirstOrDefault();
+                    if (users != null)
+                    {
+                        users.Status = req.Status;
+                        users.UpdateBy = user.Username;
+                        users.UpdateDate = DateTime.Now;
+                        users.UserCode = req.UserCode;
+                        users.UserPassword = req.UserPassword;
+                        users.UserName = req.FirstName;
+                        users.UserSurname = req.LastName;
+                        users.UserPosition = req.Position;
+                        users.UserSectionCode = req.SectionCode;
+                        users.UserSectionName = req.SectionName;
+                        users.UserDepartmentCode = req.DepartmentCode;
+                        users.UserDepartmentName = req.Department;
+                        users.UserPhone = req.Tel;
+                        users.UserMobile = req.Mobile;
+                        users.UserPermission = int.Parse(req.RoleID.ToString());
+                        users.UserTitleName = req.UserTitle;
+                        users.Approver = req.Approver;
+                        context.SaveChanges();
+                        res.ResponseStatus = ResponseStatus.Success;
+                        res.Description = "Update Success.";
+                    }
+                    else
+                    {
+                        res.ResponseStatus = ResponseStatus.NotFound;
+                        res.Description = "Update Failed.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+        public UserResponse FindUserByID(UserRequest req)
+        {
+            UserResponse res = new UserResponse();
+            try
+            {
+                using (var context = new PrandaVehicleDB())
+                {
+                    StringBuilder str = new StringBuilder();
+                    if (!string.IsNullOrEmpty(req.UserID.ToString()))
+                    {
+                        str.Append(string.Format("UserID == {0} ", req.UserID));
+                        //str.Append(string.Format(" and UserID.Contains(\"{0}\") ", req.UserID));
+                    }
+                    res.UserDatas = (from us in context.UserDatas.Where(str.ToString())
+                                     select new UserLoginModel
+                                     {
+                                         Username = us.UserCode,
+                                         UserPassword = us.UserPassword,
+                                         Department = us.UserDepartmentName,
+                                         SectionName = us.UserSectionName,
+                                         FirstName = us.UserName,
+                                         LastName = us.UserSurname,
+                                         UserTitle = us.UserTitleName,
+                                         LoginSuccess = true,
+                                         RoleID = us.UserPermission,
+                                         Position = us.UserPosition,
+                                         Tel = us.UserPhone,
+                                         Approver = us.Approver,
+                                         SectionCode = us.UserSectionCode,
+                                         DepartmentCode = us.UserDepartmentCode,
+                                         Mobile = us.UserMobile,
+                                         UserCode = us.UserCode,
+                                         UserID = us.UserID,
+                                         Status = us.Status.Value
+                                     }).FirstOrDefault();
+                    if (res.Users != null)
+                    {
+                        res.ResponseStatus = ResponseStatus.Success;
+                    }
+                    else
+                    {
+                        res.ResponseStatus = ResponseStatus.NotFound;
+                        res.Description = "Vehicle Not Found.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+        public UserResponse NewUser(UserRequest req)
+        {
+            UserResponse res = new UserResponse();
+
+            try
+            {
+                UserLoginModel user = UserManager.CurrentUser;
+                using (var context = new PrandaVehicleDB())
+                {
+                    UserData users = new UserData()
+                    {
+                        Status = 1,
+                        UpdateBy = user.Username,
+                        UpdateDate = DateTime.Now,
+                        UserCode = req.UserCode,
+                        UserPassword = req.UserPassword,
+                        UserName = req.FirstName,
+                        UserSurname = req.LastName,
+                        UserPosition = req.Position,
+                        UserSectionCode = req.SectionCode,
+                        UserSectionName = req.SectionName,
+                        UserDepartmentCode = req.DepartmentCode,
+                        UserDepartmentName = req.Department,
+                        UserPhone = req.Tel,
+                        UserMobile = req.Mobile,
+                        UserTitleName = req.UserTitle,
+                        UserPermission = int.Parse(req.RoleID.ToString()),
+                        Approver = req.Approver,
+                        UserID = 0,
+                    };
+                    context.UserDatas.Add(users);
+                    context.SaveChanges();
+                    res.ResponseStatus = ResponseStatus.Success;
+                    res.Description = "Save Success.";
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                res.ResponseStatus = ResponseStatus.Failed;
+                res.Description = ex.Message;
+            }
+            return res;
+        }
+
     }
+
+
+
+
 }

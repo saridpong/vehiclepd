@@ -31,11 +31,11 @@ namespace Pranda.Framework.Services.Database
         public string UpdateBy { get; set; }
 
        
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
         [StringLength(20)]
         public string CreateBy { get; set; }
 
 
-        public DateTime CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
     }
 }

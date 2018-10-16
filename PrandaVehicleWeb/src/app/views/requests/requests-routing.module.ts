@@ -1,3 +1,6 @@
+
+import { AssignSearchComponent } from './assign-search.component';
+
 import { NgModule } from '@angular/core';
 import {
   Routes,
@@ -8,6 +11,8 @@ import { RequestSearchComponent } from './request-search.component';
 import { RequestsApproveComponent } from './requests-approve.component';
 import { RequestsRatingComponent } from './requests-rating.component';
 import { RequestsLabourCostComponent } from './requests-labour-cost.component';
+import { AssignComponent } from './assign.component';
+import { AssignApproveComponent } from './assign-approve.component';
 
 
 
@@ -17,6 +22,51 @@ const routes: Routes = [
     component: RequestsComponent,
     data: {
       title: 'บันทึกข้อมูลขอใช้รถยนต์'
+    }
+  },
+  {
+    path: 'assign',
+    component: AssignComponent,
+    data: {
+      title: 'บันทึกข้อมูลใบมอบหมายงาน'
+    }
+  },
+  {
+    path: 'assign/search',
+    component: AssignSearchComponent,
+    data: {
+      title: 'ข้อมูลใบมอบหมายงาน'
+    }
+  },
+  {
+    path: 'assign/view/:id',
+    component: AssignComponent,
+    data: {
+      title: 'บันทึกข้อมูลใบมอบหมายงาน',
+      role: 'view'
+    }
+  },
+  {
+    path: 'assign/update/:id',
+    component: AssignComponent,
+    data: {
+      title: 'บันทึกข้อมูลใบมอบหมายงาน',
+      role: 'update'
+    }
+  },
+  {
+    path: 'assign/approve/:id',
+    component: AssignApproveComponent,
+    data: {
+      title: 'บันทึกข้อมูลใบมอบหมายงาน'
+    }
+  },
+  {
+    path: 'assign/approve/view/:id',
+    component: AssignApproveComponent,
+    data: {
+      title: 'บันทึกข้อมูลใบมอบหมายงาน',
+      role: 'view'
     }
   },
   {

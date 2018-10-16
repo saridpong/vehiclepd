@@ -21,9 +21,12 @@ namespace Pranda.Framework.Services.Database
         public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<RequestHeader> RequestHeaders { get; set; }
         public virtual DbSet<RequestLine> RequestLines { get; set; }
+        public virtual DbSet<AssignHeader> AssignHeader { get; set; }
+        public virtual DbSet<AssignLine> AssignLine { get; set; }
         public virtual DbSet<Section> Sections { get; set; }
         public virtual DbSet<UserData> UserDatas { get; set; }
         public virtual DbSet<Vihicle> Vihicles { get; set; }
+        public virtual DbSet<Information> Informations { get; set; }
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,9 +47,9 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
 
-            modelBuilder.Entity<Driver>()
-                .Property(e => e.DriverID)
-                .HasPrecision(5, 0);
+            //   modelBuilder.Entity<Driver>()
+            //       .Property(e => e.DriverID)
+            //       .HasPrecision(5, 0);
 
             modelBuilder.Entity<Driver>()
                 .Property(e => e.Status)
@@ -58,9 +61,9 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
 
-            modelBuilder.Entity<InformationLogin>()
-                .Property(e => e.InformationLoginID)
-                .HasPrecision(5, 0);
+            //modelBuilder.Entity<InformationLogin>()
+            //    .Property(e => e.InformationLoginID)
+            //    .HasPrecision(5, 0);
 
             modelBuilder.Entity<InformationLogin>()
                 .Property(e => e.Status)
@@ -79,6 +82,18 @@ namespace Pranda.Framework.Services.Database
             modelBuilder.Entity<Place>()
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
+
+            modelBuilder.Entity<AssignHeader>()
+              .Property(e => e.AssignHeaderID)
+              .HasPrecision(20, 0);
+
+            modelBuilder.Entity<AssignHeader>()
+           .Property(e => e.ApproveBy)
+           .HasPrecision(20, 0);
+
+            modelBuilder.Entity<AssignHeader>()
+           .Property(e => e.RequestHeaderStatus)
+           .HasPrecision(5, 0);
 
             modelBuilder.Entity<RequestHeader>()
                 .Property(e => e.RequestHeaderID)
@@ -154,6 +169,25 @@ namespace Pranda.Framework.Services.Database
                 .Property(e => e.RequestLineID)
                 .HasPrecision(20, 0);
 
+            modelBuilder.Entity<AssignLine>()
+          .Property(e => e.AssignHeaderID)
+          .HasPrecision(20, 0);
+
+            modelBuilder.Entity<AssignLine>()
+             .Property(e => e.AssignLineID)
+            .HasPrecision(20, 0);
+
+            modelBuilder.Entity<AssignLine>()
+          .Property(e => e.DriverID)
+         .HasPrecision(5, 0);
+
+            modelBuilder.Entity<AssignLine>()
+       .Property(e => e.RouteID)
+      .HasPrecision(5, 0);
+
+            modelBuilder.Entity<AssignLine>()
+       .Property(e => e.Amount)
+      .HasPrecision(18, 2);
 
 
             modelBuilder.Entity<Section>()
@@ -183,6 +217,8 @@ namespace Pranda.Framework.Services.Database
             modelBuilder.Entity<Vihicle>()
                 .Property(e => e.Status)
                 .HasPrecision(2, 0);
+
+            modelBuilder.Entity<Information>();
         }
     }
 }

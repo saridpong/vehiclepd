@@ -23,7 +23,7 @@ export class RequestCarsComponent implements OnInit {
     ) {
         if (this.requests === undefined || this.requests === null) {
             this.requests = {
-                forUse:{},
+                forUse: {},
                 places: [],
                 requestFor: {}
             };
@@ -79,20 +79,20 @@ export class RequestCarsComponent implements OnInit {
 
 const priorityList = [
     {
-      text: 'A',
+        text: 'A',
     },
     {
-      text: 'B',
+        text: 'B',
     },
     {
-      text: 'C',
+        text: 'C',
     },
     {
-      text: 'D',
+        text: 'D',
     },
     {
-      text: 'E',
+        text: 'E',
     }
-  ]
+]
 
 

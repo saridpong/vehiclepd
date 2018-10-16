@@ -10,5 +10,6 @@ namespace Pranda.Framework.Services.Response.Place
     public class PlaceResponse : BaseResponse
     {
         public List<PlaceItem> Places { get; set; }
+        public PlaceItem PlaceData { get; set; }
     }
 }

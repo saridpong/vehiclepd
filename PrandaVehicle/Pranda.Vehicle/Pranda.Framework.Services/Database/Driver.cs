@@ -11,9 +11,9 @@ namespace Pranda.Framework.Services.Database
     {
         [Key]
         [Column(TypeName = "numeric")]
-        public decimal DriverID { get; set; }
+        public int DriverID { get; set; }
+       // public int ForUseID { get; set; }
 
-   
         [StringLength(20)]
         public string DriverCode { get; set; }
 

@@ -1,0 +1,156 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit()" class="was-validated" #newUser="ngForm">
+        <div class="card card-accent-primary">
+          <div class="card-header text-center">
+            <strong>
+              <h3>{{formtitle}}</h3>
+            </strong>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="userCode">ชื่อผู้ใช้ระบบ</label>
+                    <input class="form-control" id="userCode" [disabled]="read" [(ngModel)]="criteria.userCode" placeholder="ชื่อผู้ใช้"
+                      type="text" name="userCode" #userCode="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="userPassword">รหัสผ่าน</label>
+                    <input class="form-control" id="userPassword" [disabled]="read" [(ngModel)]="criteria.userPassword" placeholder="รหัสผ่าน"
+                      type="password" name="userPassword" #userPassword="ngModel" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="roleID">หน้าที่ผู้ใช้ระบบ</label>
+                    <select class="form-control" id="roleID" placeholder="หน้าที่ผู้ใช้ระบบ" [(ngModel)]="criteria.roleID"
+                      name="roleID" #roleID="ngModel">
+                      <option *ngFor="let item of mPermission" value="{{item.value}}">{{item.text}}</option>
+                    </select>
+                    <!-- <input class="form-control" [(ngModel)]="criteria.userPermission" id="userPermission" 
+                    placeholder="หน้าที่" type="text" name="userPermission"> -->
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="userTitle">คำนำหน้าชือ</label>
+                    <select class="form-control" id="userTitle" placeholder="คำนำหน้าชือ" [(ngModel)]="criteria.userTitle"
+                      name="userTitle" #userTitle="ngModel">
+                      <option *ngFor="let item of mTitle" value="{{item.value}}">{{item.text}}</option>
+                    </select>
+                    <!-- <input class="form-control" id="userTitleName" [(ngModel)]="criteria.userTitleName"
+                    placeholder="คำนำหน้าชือ" type="text" name="userTitleName"> -->
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="firstName">ชื่อ</label>
+                    <input class="form-control" id="firstName" [(ngModel)]="criteria.firstName" placeholder="ชื่อ" type="text"
+                      name="firstName" #firstName="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="lastName">นามสกุล</label>
+                    <input class="form-control" [(ngModel)]="criteria.lastName" id="lastName" placeholder="นามสกุล"
+                      type="text" name="lastName" #lastName="ngModel">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="tel">เบอร์โทร</label>
+                    <input class="form-control" id="tel" [(ngModel)]="criteria.tel" placeholder="เบอร์โทร"
+                      type="text" name="tel" #tel="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="mobile">เบอร์มือถือ</label>
+                    <input class="form-control" id="mobile" [(ngModel)]="criteria.mobile" placeholder="เบอร์มือถือ"
+                      type="text" name="mobile" #mobile="ngModel">
+                  </div>
+                </div>
+                
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="approver">ผุ้อนุมัติ</label>
+                    <input class="form-control" id="approver" [(ngModel)]="criteria.approver" placeholder="ผุ้อนุมัติ"
+                      type="text" name="approver" #approver="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="departmentCode">รหัสแผนก</label>
+                    <input class="form-control" id="departmentCode" [(ngModel)]="criteria.departmentCode" placeholder="รหัสแผนก"
+                      type="text" name="departmentCode" #departmentCode="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="sectionCode">รหัสฝ่าย</label>
+                    <input class="form-control" [(ngModel)]="criteria.sectionCode" id="sectionCode" placeholder="รหัสฝ่าย"
+                      placeholder="ฝ่าย" type="text" name="sectionCode" #sectionCode="ngModel">
+                  </div>
+                  <!-- <div class="col-md-4 form-group">
+                    <app-section [(selectItem)]="criteria.section"></app-section>
+                  </div> -->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="position">ตำแหน่ง</label>
+                    <input class="form-control" id="position" [(ngModel)]="criteria.position" placeholder="ตำแหน่ง"
+                      type="text" name="position" #position="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="department">แผนก</label>
+                    <input class="form-control" id="department" [(ngModel)]="criteria.department" placeholder="แผนก"
+                      type="text" name="department" #department="ngModel">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="mb-0" for="sectionName">ฝ่าย</label>
+                    <input class="form-control" [(ngModel)]="criteria.sectionName" id="sectionName" placeholder="ฝ่าย"
+                      placeholder="ฝ่าย" type="text" name="sectionName" #sectionName="ngModel">
+                  </div>
+                  <!-- <div class="col-md-4 form-group">
+                    <app-section [(selectItem)]="criteria.section"></app-section>
+                  </div> -->
+                </div>
+              </div>
+              <div class="rows">
+                  <div class="col-md-12 form-group">
+                      <label class="switch switch-text switch-pill switch-success float-right">
+                        <input name="status" id="status" [(ngModel)]="criteria.status" class="switch-input" type="checkbox">
+                        <span class="switch-label" data-off="off" data-on="on"></span>
+                        <span class="switch-handle"></span>
+                      </label>
+                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+              <button class="btn btn-primary float-right" type="button" (click)="onSubmit()" [disabled]="!newUser.form.valid">
+                <i class="fa fa-save"></i> บันทึก</button>
+              <button class="btn btn-primary float-right" type="button" (click)="onBack()">
+                <i class="fa fa-mail-reply"></i> ย้อนกลับ</button>
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>

@@ -11,5 +11,9 @@ namespace Pranda.Framework.Services.Request.Driver
         public string DriverCode { get; set; }
         public string DriverName { get; set; }
         public decimal Status { get; set; }
+        public int DriverID { get; set; }
+        public string DriverMobile { get; set; }
+
+
     }
 }

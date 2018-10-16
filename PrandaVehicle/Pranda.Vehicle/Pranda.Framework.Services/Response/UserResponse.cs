@@ -10,5 +10,7 @@ namespace Pranda.Framework.Services.Response
     public class UserResponse : BaseResponse
     {
         public List<UserLoginModel> Users { get; set; }
+        public UserLoginModel UserDatas { get; set; }
+
     }
 }

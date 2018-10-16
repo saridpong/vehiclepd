@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">แก้ไขคำขอ</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <app-for-use [(selectItem)]="criteria.forUse"></app-for-use>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <app-place [(selectItem)]="criteria.place"></app-place>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="quantity">จำนวน</label>
+      <input class="form-control text-right" id="quantity" placeholder="จำนวน"  type="number" name="quantity"
+        [(ngModel)]="criteria.quantity" #quantity="ngModel">
+    </div>
+    <div class="col-md-6 form-group">
+        <label for="amount">มูลค่า (กรณีรับฝากเงิน/เช็ค)</label>
+        <input class="form-control text-right" id="amount" placeholder="มูลค่า"  type="number" name="amount"
+          [(ngModel)]="criteria.amount" #amount="ngModel">
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <label for="contactPerson">ผู้ติดต่อ/ผู้รับงาน</label>
+      <input class="form-control" id="contactPerson" placeholder="ผู้ติดต่อ/ผู้รับงาน" type="text" name="contactPerson"
+        [(ngModel)]="criteria.contactName" #contactPerson="ngModel" required>
+      <div class="invalid-feedback" [hidden]="contactPerson.valid || contactPerson.pristine">
+        Contact Person is require.
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 form-group">
+      <label for="requestLineDesc">รายละเอียด</label>
+      <textarea class="form-control" id="requestLineDesc" placeholder="รายละเอียด" name="requestLineDesc" [(ngModel)]="criteria.assignLineDescription"
+        #remark="ngModel"></textarea>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="OnSubmit()">บันทึก</button>
+</div>

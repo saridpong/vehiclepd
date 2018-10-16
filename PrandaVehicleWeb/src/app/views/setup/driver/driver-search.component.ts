@@ -28,13 +28,7 @@ export class DriverSearchComponent implements OnInit {
     this.mSearch = {};
     this.onSearch();
     this.mRole = auth.getRole();
-    // if (window.localStorage.getItem('token') !== null) {
-    //   this.courses.find({ courseItems: { courseID: 0, companyID: 0, courseName: '', useFlag: 1, startDate: '', endDate: '' } }).subscribe(result => {
-    //     this.mCourse = result;
-    //   });
-    // } else {
-    //   this.route.navigate(['pages/login']);
-    // }
+
   }
   ngOnInit() {
 
@@ -43,6 +37,12 @@ export class DriverSearchComponent implements OnInit {
     this.driver.find(this.criteria).subscribe(result => {
       this.mSearch = result;
     });
+  }
+  onNew() {
+    this.route.navigate(['/setup/driver/new']);
+  }
+  onEdit(item) {
+    this.route.navigate(['/setup/driver/edit/' + item.driverID]);
   }
 }
 
